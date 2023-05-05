@@ -1,13 +1,34 @@
 .tags-list {
   display: flex;
   position: relative;
-  height: 400px;
+  height: 173px;
+  width: 90%;
 }
 .tags-item {
-  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   height: 50px;
-  padding: 14px 24px;
   border-radius: 25px;
+  padding-left: 22px;
+  padding-right: 22px;
+  white-space: nowrap;
+}
+
+.tags-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+  line-height: 1.05;
+  font-weight: 600;
+  line-height: 1.01;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.small-test {
+  font-size: 20px;
+  line-height: 1.1;
 }
 
 .green-black {
