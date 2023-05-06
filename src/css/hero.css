@@ -1,0 +1,165 @@
+.hero {
+  background-color: var(--background-color-dark);
+  border-radius: 0px 0px 60px 60px;
+  position: relative;
+}
+.hero-container {
+  padding-top: 80px;
+  padding-bottom: 148px;
+}
+.hero-icon {
+  width: 20px;
+  height: 20px;
+}
+.hero-img {
+  max-width: 335px;
+  max-height: 259px;
+  margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-logo {
+  max-width: 323px;
+  max-height: 128px;
+  margin-bottom: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-text {
+  color: var(--first-text-color-light);
+  max-width: 291px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-bg-picture {
+  background: linear-gradient(
+    180deg,
+    #14182c 36.46%,
+    rgba(52, 56, 127, 0) 100%
+  );
+  border-radius: 200000px;
+  max-width: 335px;
+  max-height: 324px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 25px 5px 10px rgba(13, 23, 29, 0.9) inset;
+  -webkit-box-shadow: 1px 5px 25px 10px rgba(13, 23, 29, 0.9) inset;
+  -moz-box-shadow: 1px 25px 5px 10px rgba(13, 23, 29, 0.9) inset;
+}
+
+.hero-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--second-text-color-lighr);
+  position: absolute;
+  border-radius: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 40px;
+  right: 40px;
+}
+@media screen and (max-width: 767px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-mobile@1x.png);
+    background-repeat: no-repeat;
+    background-size: 104px 124px;
+    background-position: 224px 282px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-tablet@1x.png);
+    background-repeat: no-repeat;
+    background-size: 142px 171px;
+    background-position: 456px 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-desktop@1x.png);
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-size: 104px 124px;
+    background-position: 224px 282px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-mobile@2x.png);
+    background-repeat: no-repeat;
+    background-size: 104px 124px;
+    background-position: 224px 282px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-tablet@2x.png);
+    background-repeat: no-repeat;
+    background-size: 142px 171px;
+    background-position: 456px 260px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+  screen and (min-resolution: 192dpi) and (min-width: 1200px),
+  screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+  .hero-container {
+    background-image: url(../img/header-hero/hero-img-desktop@2x.png);
+    background-repeat: no-repeat;
+    max-width: 1440px;
+    background-size: 104px 124px;
+    background-position: 224px 282px;
+  }
+}
+@media screen and (min-width: 767px) {
+  .hero-btn {
+    bottom: 64px;
+    right: 32px;
+    width: 72px;
+    height: 72px;
+  }
+  .hero-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .hero-container {
+    padding-top: 44px;
+    padding-bottom: 64px;
+  }
+  .hero-img {
+    width: 532px;
+    height: 411px;
+  }
+  .hero-text {
+    width: 420px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+  .hero-bg-picture {
+    width: 526px;
+    height: 411px;
+  }
+  .hero-logo {
+    width: 426px;
+    height: 184px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero-btn {
+    bottom: 64px;
+    right: 128px;
+    width: 80px;
+    height: 80px;
+  }
+  .hero-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
