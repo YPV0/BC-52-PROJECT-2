@@ -63,4 +63,8 @@
     width: 18px;
     height: 18px;
   }
+  .header-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
