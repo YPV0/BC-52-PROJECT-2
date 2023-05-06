@@ -4,6 +4,7 @@
   | default @import url()
   |============================
 */
+
 @import url('./reset.css');
 @import url('./common.css');
 @import url('./header.css');
@@ -39,9 +40,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
 
-:root {
   --background-color-dark: #0d171d;
   --background-color-light: #fafafa;
 
