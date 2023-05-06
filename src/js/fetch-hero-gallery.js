@@ -1,75 +1,56 @@
-// 'use strict';
-// import axios from 'axios';
+import { getCharacters } from 'rickmortyapi';
 
-// // Fetch images from Pixabay API using Axios
+const refs = {
+  input: document.querySelector('.search__input'),
+  form: document.querySelector('.search__form'),
+  gallery: document.querySelector('.gallery'),
+  button: document.querySelector('.submit__button'),
+};
 
-// export default class ImagesFetcher {
-//     #BASE_URL = 'https://rickandmortyapi.com/api';
-//     constructor() {
-//         this.query = '';
-//         this.page = null;
-//         this.perPage = 20;
-//         this.totalPage = 1;
-//     }
-     
-//     async getRequest() {
-//         try {
-//           // const response = await axios.get(this.#BASE_URL/character?name=${characterName});
-          
+let timeoutId;
 
-//           if (response.data === 0) {Notify.failure("Sorry, we can't found any heroes for your request. Please try again.");} 
-          
-//           this.characters = response.data.character;
-//           this.locations = response.data.location;
-//           this.episodes = response.data.episode;
-//           console.log(this.characters);
-//           console.log(this.locations);
-//           console.log(this.episodes);  
+const renderGallery = data => {
+  const markup = data.results.map(item => {
+    console.log(item);
+    return `
+    <li class="gallery__item">
+      <img class="gallery__img" src="${item.image}" alt="${item.name}" />
+      <div class="gallery__text">
+        <h2 class="gallery__name">${item.name}</h2>
+        <p class="gallery__species">"Origin: "${item.species}</p>
+        <p class="gallery__species">"Location: "${item.location.dimension}</p>
+      </div>
+    </li>
+  `;
+});
 
-//           const data = await response.data;
-//           console.log(data); 
-//           return data;
-//         } catch (err) {
-//           console.log(err);
-//         }
-    
-//     };
-// }
-'use strict';
-import axios from 'axios';
+refs.gallery.insertAdjacentHTML('beforeend', markup.join(''));
+};
 
-export default class ImgsFetcher {
-  #BASE_URL = 'https://rickandmortyapi.com/api';
-  constructor() {
-    this.query = '';
-    this.page = null;
-    this.perPage = 20;
-    this.totalPage = 1;
+const clearGallery = () => {
+  refs.gallery.innerHTML = '';
+};
+
+const fetchCharacters = async name => {
+  try {
+    const response = await getCharacters({ name });
+    const data = response.data;
+    console.log(data.results);
+    clearGallery();
+    renderGallery(data);
+  } catch (error) {
+    console.log(error);
   }
-  async getRequest(characterName) {
-    try {
-      console.log('Hello!');
-      const response = await axios.get(
-        `${this.#BASE_URL}/character?name=${characterName}`
-      );
-      console.log(response.data);
+};
 
-      if (response.data.total === 0) {
-        Notify.failure(
-          "Sorry, we can't find any heroes for your request. Please try again."
-        );
-      }
+const handleInput = event => {
+  const name = event.target.value;
 
-      this.totalPage = Math.ceil(response.data.total / this.perPage);
-      console.log(this.totalPage);
+  clearTimeout(timeoutId);
 
-      const data = await response.data;
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
-  }
-}
+  timeoutId = setTimeout(() => {
+    fetchCharacters(name);
+  }, 500);
+};
 
-// const heroFetcher = new ImgsFetcher();
-// imagesFetcher.getRequest('Rick');
+refs.input.addEventListener('input', handleInput);

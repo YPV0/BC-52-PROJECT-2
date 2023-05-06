@@ -2,14 +2,14 @@
 // import SimpleLightbox from 'simplelightbox';
 // import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import ImgsFetcher from './js/fetch-hero-gallery';
+import { getCharacters } from 'rickmortyapi';
 // import { markupBuilder } from './js/markupBuilder';
 import { renderGallery } from './js/render-gallery';
 
 const gallery = document.querySelector('.gallery');
 const searchField = document.querySelector('.header-input');
 const loadMoreBtn = document.querySelector('.load-more');
-const heroFetcher = new ImgsFetcher();
+const heroFetcher = new getCharacters();
 // const lightbox = new SimpleLightbox('.gallery');
 
 let perPage = 20;
@@ -54,7 +54,7 @@ async function onInputSearchField(e) {
     } else  if (heroFetcher.page < heroFetcher.totalPage) {
         heroFetcher.page += 1;
         showLoadMoreBtn();
-        lightbox.refresh(); 
+        // lightbox.refresh(); 
     }
 
 }
