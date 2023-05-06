@@ -47,6 +47,14 @@ button {
 
 .gallery {
   background-color: red;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1{
+  font-style: italic;
+  font-syse: 30px;
 }
 
 #icon-search {   
@@ -190,8 +198,6 @@ input:placeholder-shown {
   position: absolute;
   min-width: 163px;
   min-height: 84px;
-  left: 193px;
-  top: 1139px;
 
   background: #FAFAFA;
   border-width: 0px 1px 1px 1px;
@@ -235,6 +241,11 @@ input:placeholder-shown {
 .button .chose-gender-btn
 {
   display: block;
+}
+
+.dropdown-content {
+  min-width: 178px;
+  min-height: 102px;
 }
 
 /** Desktop version */
