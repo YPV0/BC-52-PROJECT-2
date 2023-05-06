@@ -1,0 +1,105 @@
+/* ---------Mobile main-characters--------- */
+
+.main-container {
+  padding: 80px 20px;
+}
+.main-characters-item {
+  margin-bottom: 40px;
+}
+.img-component {
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  border-radius: 25px;
+}
+
+.morty-img {
+  display: none;
+  background-color: #0d171d;
+}
+.summer-img {
+  display: none;
+  background: #daf836;
+}
+.rick-img {
+  background-color: #a1d737;
+}
+
+.main-title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.first-part-title {
+  text-align: center;
+  width: 100px;
+  height: 44px;
+  border-radius: 44px;
+  line-height: 44px;
+}
+.main-subtitle {
+  width: 124px;
+  height: 24px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33;
+  display: flex;
+  align-items: center;
+  color: #111111;
+  margin-bottom: 14px;
+}
+.main-text {
+  width: 319px;
+  height: 108px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  display: flex;
+  align-items: center;
+  color: #111111;
+}
+@media screen and (min-width: 375px) {
+  .main-characters-item {
+    width: 335px;
+  }
+}
+/* ---------------Tablet------------------------- */
+@media screen and (min-width: 768px) {
+  .main-characters-item {
+    width: 336px;
+    margin-bottom: 32px;
+  }
+  .main-container {
+    padding: 128px 32px;
+  }
+  .img-component {
+    border-radius: 100px;
+  }
+
+  .main-title {
+    font-size: 44px;
+    line-height: 44px;
+    margin-bottom: 64px;
+  }
+  .first-part-title {
+    width: 145px;
+    height: 56px;
+  }
+  .main-subtitle {
+    width: 165px;
+    height: 28px;
+    font-size: 24px;
+    line-height: 1.17;
+    margin-bottom: 16px;
+  }
+  .main-text {
+    width: 704px;
+    height: 54px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+}
