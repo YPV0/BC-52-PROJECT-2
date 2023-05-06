@@ -1,7 +1,7 @@
 const gallery = document.querySelector('.gallery');
  export function renderGallery(array) {
     const markup = array.map(el => {
-        return`div class="search__btns">
+        return`<div class="search__btns">
 
         <div class="gallery-btn">
             <!-- <label>Name</label> -->
@@ -94,7 +94,7 @@ const gallery = document.querySelector('.gallery');
           <a class="hero__item">
             <img
               class="hero__image"
-              src="${el.imageURL}"
+              src="${el.image}"
               loading="lazy"
           /></a>
   
@@ -107,6 +107,7 @@ const gallery = document.querySelector('.gallery');
         </div>`;
       })
       .join('');
+      
     gallery.insertAdjacentHTML('beforeend', markup);
     // console.log(gallery);
     // console.log(markup);
