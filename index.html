@@ -1,40 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Rick and Morty</title>
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty</title>
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
       integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    
     <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/index-9040814b.js"></script>
-    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-2af23995.css">
+    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-eeb4bc80.css">
   </head>
 
-<body>
-  
-
-  <header class="header">
+  <body>
+    <header class="header">
   <a href="https://prnt.sc/TXrqWOFJ4HrP">Main header test</a>
   <div>
-  <a href="characters.html" style="color: aqua; margin-right: 200px;"> Characters Page</a>
-   <a href="episodes.html" style="color: blue;"> Episodes Page</a>
-   </div>
+    <a href="characters.html" style="color: aqua; margin-right: 200px">
+      Characters Page</a
+    >
+    <a href="episodes.html" style="color: blue"> Episodes Page</a>
+  </div>
+  <div class="container header-container">
+    <ul class="btn-list">
+      <li class="btn-green header-btn">
+        <a href="#">Characters</a>
+      </li>
+      <li class="btn-dark-bg header-btn">
+        <a href="#">Episodes</a>
+      </li>
+    </ul>
+    <form class="header-form">
+      <input
+        class="btn-dark-bg header-input header-hero-input"
+        type="text"
+        placeholder="Search"
+      />
+      <button class="header-search-btn header-hero" type="submit">
+        <svg class="header-icon">
+          <use href="../img/symbol-defs.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
 </header>
-<main>
 
-  <div><a href="https://prnt.sc/ccS1FPQPE1LL">Hero test</a></div>
-  <!-- <section class="tags" id="tags">
+    <main>
+      <div><a href="https://prnt.sc/ccS1FPQPE1LL">Hero test</a></div>
+<section class="hero">
+  <div class="container hero-container">
+    <h1 class="visually-hidden">Rick and Morty</h1>
+    <div class="hero-bg-picture">
+      <picture class="hero-img">
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
+          media="(min-width: 1440px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
+          media="(min-width: 768px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-mobile@1x-60a53736.png 1x, /BC-52-PROJECT-2/assets/hero-hero-mobile@2x-65ade732.png 2x"
+          media="(max-width: 767px)" />
+        <img src="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png" alt="cosmo-car"
+      /></picture>
+    </div>
+    <picture class="hero-logo">
+      <source
+        srcset="/BC-52-PROJECT-2/assets/logo-hero-desktop@1x-85da12ca.png 1x, /BC-52-PROJECT-2/assets/logo-hero-desktop@2x-878a8776.png 2x"
+        media="(min-width: 1440px)" />
+      <source
+        srcset="/BC-52-PROJECT-2/assets/logo-hero-desktop@1x-85da12ca.png 1x, /BC-52-PROJECT-2/assets/logo-hero-desktop@2x-878a8776.png 2x"
+        media="(min-width: 768px)" />
+      <source
+        srcset="/BC-52-PROJECT-2/assets/logo-hero-mobile@1x-e10bba37.png 1x, /BC-52-PROJECT-2/assets/logo-hero-mobile@2x-5bf803ad.png 2x"
+        media="(max-width: 767px)" />
+      <img src="/BC-52-PROJECT-2/assets/logo-hero-desktop@1x-85da12ca.png" alt="logo"
+    /></picture>
+    <p class="hero-text">
+      If you're a fan of Rick and Morty, you don't want to miss out on our app!
+      Start exploring the endless possibilities of Rick and Morty!
+    </p>
+    <a class="hero-btn" href="#"
+      ><svg class="hero-icon">
+        <use href="../img/symbol-defs.svg#icon-Vector-5"></use>
+      </svg>
+    </a>
+  </div>
+</section>
+
+      <!-- <section class="tags" id="tags">
   <div class="container">
     <ul class="tags-list">
         <li class="tags-item green-black"><p class="tags-text smaller-text">Animated</p></li>
@@ -54,10 +119,10 @@
   </div>
 
 </section> -->
-  <div><a href="https://prnt.sc/62sFliWofqVN">Main characters test</a></div>
-  <div><a href="https://prnt.sc/Gc1Arn0RimcZ">Explore test</a></div>
-</main>
-  <div><a href="https://prnt.sc/h8QTnrr-aj5Q">Footer test</a></div>
-
-</body>
+      <div><a href="https://prnt.sc/62sFliWofqVN">Main characters test</a></div>
+      <div><a href="https://prnt.sc/Gc1Arn0RimcZ">Explore test</a></div>
+    </main>
+    <div><a href="https://prnt.sc/h8QTnrr-aj5Q">Footer test</a></div>
+    
+  </body>
 </html>
