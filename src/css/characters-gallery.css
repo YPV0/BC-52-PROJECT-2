@@ -41,9 +41,9 @@ button {
   font: inherit;
 }
 
-.hidden {
-    display: none;
-}
+/* .hidden { */
+    /* display: none; */
+/* } */
 
 .gallery {
   background-color: red;
@@ -54,7 +54,7 @@ button {
 
 h1{
   font-style: italic;
-  font-syse: 30px;
+  font-size: 30px;
 }
 
 #icon-search {   
