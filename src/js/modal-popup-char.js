@@ -1,4 +1,4 @@
-const openModalBtn = document.querySelector('.open-modal-js');
+const openModalBtn = document.querySelector('.open-modal-popchar-js');
 const closeModalBtn = document.querySelector('.close-modal-js');
 const backdrop = document.querySelector('.backdrop-popchar');
 const modal = document.querySelector('.modal-popchar');
