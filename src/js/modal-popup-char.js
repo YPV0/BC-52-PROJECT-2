@@ -2,43 +2,56 @@ const openModalBtn = document.querySelector('.open-modal-js');
 const closeModalBtn = document.querySelector('.close-modal-js');
 const backdrop = document.querySelector('.backdrop-popchar');
 const modal = document.querySelector('.modal-popchar');
-const image = document.querySelector('.heroes-episode-img');
-const episodeList = document.querySelector('.popchar-episodes-list');
+const img = document.querySelector('.heroes-episode-img');
+const statusItems = document.querySelectorAll('.status-item');
+const episodesList = document.querySelector('.popchar-episodes-list');
 
-openModalBtn.addEventListener('click', openModal);
+openModalBtn.addEventListener('click', () => {
+  fetchData();
+  backdrop.classList.remove('is-hidden');
+  modal.classList.remove('is-hidden');
+});
+
 closeModalBtn.addEventListener('click', closeModal);
-backdrop.addEventListener('click', event => {
+backdrop.addEventListener('click', (event) => {
   if (event.target === backdrop) {
     closeModal();
   }
 });
 
-function openModal() {
-  backdrop.classList.remove('is-hidden');
-  modal.classList.remove('is-hidden');
-  fetch('https://rickandmortyapi.com/api/character/?page=1')
-    .then(response => response.json())
-    .then(data => {
-      const randomIndex = Math.floor(Math.random() * data.results.length);
-      const character = data.results[randomIndex];
-      image.src = character.image;
-      image.alt = character.name;
-
-      episodeList.innerHTML = '';
-      character.episode.forEach(episodeUrl => {
-        fetch(episodeUrl)
-          .then(response => response.json())
-          .then(episode => {
-            const episodeItem = document.createElement('li');
-            episodeItem.classList.add('episodes-item');
-            episodeItem.innerText = `${episode.episode} - ${episode.name}`;
-            episodeList.appendChild(episodeItem);
-          });
-      });
-    });
-}
-
 function closeModal() {
   backdrop.classList.add('is-hidden');
   modal.classList.add('is-hidden');
+  img.setAttribute('src', '');
+  statusItems.forEach((item) => (item.textContent = ''));
+  episodesList.innerHTML = '';
+}
+
+async function fetchData() {
+  try {
+    const response = await fetch('https://rickandmortyapi.com/api/character');
+    const data = await response.json();
+    const randomCharacter = data.results[Math.floor(Math.random() * data.results.length)];
+
+    img.setAttribute('src', randomCharacter.image);
+    statusItems[0].textContent = `Status: ${randomCharacter.status}`;
+    statusItems[1].textContent = `Species: ${randomCharacter.species}`;
+    statusItems[2].textContent = `Type: ${randomCharacter.type ? randomCharacter.type : 'unknown'}`;
+    statusItems[3].textContent = `Gender: ${randomCharacter.gender}`;
+    statusItems[4].textContent = `Origin: ${randomCharacter.origin.name}`;
+    statusItems[5].textContent = `Location: ${randomCharacter.location.name}`;
+
+    await Promise.all(randomCharacter.episode.slice(0, 5).map(async (episode) => {
+      const response = await fetch(episode);
+      const data = await response.json();
+
+      const episodeItem = document.createElement('li');
+      episodeItem.classList.add('episodes-item');
+      episodeItem.textContent = `${data.episode} - ${data.name}`;
+
+      episodesList.appendChild(episodeItem);
+    }));
+  } catch (error) {
+    console.error(error);
+  }
 }
