@@ -1,30 +1,28 @@
-<section class="hero">
+<section class="hero" id="hero">
   <div class="container hero-container">
     <h1 class="visually-hidden">Rick and Morty</h1>
     <div class="hero-images">
-      <div class="hero-bg-picture">
-        <picture class="hero-img">
-          <source
-            srcset="
-              ./img/header-hero/hero-hero-desktop@1x.png 1x,
-              ./img/header-hero/hero-hero-desktop@2x.png 2x
-            "
-            media="(min-width: 1440px)" />
-          <source
-            srcset="
-              ./img/header-hero/hero-hero-tablet@1x.png 1x,
-              ./img/header-hero/hero-hero-tablet@2x.png 2x
-            "
-            media="(min-width: 768px)" />
-          <source
-            srcset="
-              ./img/header-hero/hero-hero-mobile@1x.png 1x,
-              ./img/header-hero/hero-hero-mobile@2x.png 2x
-            "
-            media="(max-width: 767px)" />
-          <img src="./img/header-hero/hero-hero-desktop@1x.png" alt="cosmo-car"
-        /></picture>
-      </div>
+      <picture class="hero-img">
+        <source
+          srcset="
+            ./img/header-hero/hero-hero-desktop@1x.png 1x,
+            ./img/header-hero/hero-hero-desktop@2x.png 2x
+          "
+          media="(min-width: 1440px)" />
+        <source
+          srcset="
+            ./img/header-hero/hero-hero-tablet@1x.png 1x,
+            ./img/header-hero/hero-hero-tablet@2x.png 2x
+          "
+          media="(min-width: 768px)" />
+        <source
+          srcset="
+            ./img/header-hero/hero-hero-mobile@1x.png 1x,
+            ./img/header-hero/hero-hero-mobile@2x.png 2x
+          "
+          media="(max-width: 767px)" />
+        <img src="./img/header-hero/hero-hero-desktop@1x.png" alt="cosmo-car"
+      /></picture>
       <picture class="hero-logo">
         <source
           srcset="
@@ -51,7 +49,12 @@
       If you're a fan of Rick and Morty, you don't want to miss out on our app!
       Start exploring the endless possibilities of Rick and Morty!
     </p>
-    <a class="hero-btn" href="#"
+    <a class="hero-btn hero-btn-down smooth-scroll" href="#footer"
+      ><svg class="hero-icon">
+        <use href="./img/symbol-defs.svg#icon-Vector-5"></use>
+      </svg>
+    </a>
+    <a class="hero-btn hero-btn-rotate is-hidden smooth-scroll" href="#hero"
       ><svg class="hero-icon">
         <use href="./img/symbol-defs.svg#icon-Vector-5"></use>
       </svg>

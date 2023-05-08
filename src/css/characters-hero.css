@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 117px;
+    padding-top: 121px;
     padding-bottom: 208px;
   }
   .hero-img-character {
@@ -61,7 +61,7 @@
     line-height: 1.25;
   }
   .hero-container-character {
-    padding-top: 76px;
+    padding-top: 79px;
     padding-bottom: 126px;
   }
 }
@@ -138,6 +138,6 @@
     background-repeat: no-repeat;
     max-width: 1440px;
     background-size: 696px 566px;
-    background-position: 690px 85px;
+    background-position: 704px 172px;
   }
 }

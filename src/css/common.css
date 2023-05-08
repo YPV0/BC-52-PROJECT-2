@@ -48,6 +48,14 @@ body {
   color: var(--first-text-color-dark);
   border-radius: 18px;
   background-color: var(--first-color-accent);
+  transition: border var(--transition-dur-and-func),
+    color var(--transition-dur-and-func);
+}
+
+.btn-green:hover,
+.btn-green:focus {
+  border: 1px solid var(--first-text-color-light);
+  color: var(--first-text-color-light);
 }
 
 /* HEader,HERO,404 */
@@ -60,6 +68,15 @@ body {
   line-height: 1.33;
   color: var(--first-text-color-light);
   background-color: var(--background-color-dark);
+  transition: border var(--transition-dur-and-func),
+    color var(--transition-dur-and-func), outline var(--transition-dur-and-func);
+}
+
+.btn-dark-bg:hover,
+.btn-dark-bg:focus {
+  border: 1px solid var(--first-color-accent);
+  color: var(--first-color-accent);
+  outline: 1px solid var(--first-color-accent);
 }
 
 /* Main carachters,Ready to Explore */
