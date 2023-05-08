@@ -76,7 +76,7 @@ h1{
     fill: currentColor;
 }
 
-/**------------ Mobile version--------------- */
+/**------------ Mobile screen--------------- */
 .search__btns {
   display: flex;
   /* display: none; */
@@ -338,7 +338,7 @@ svg#search-icon {
 }
 
 
-/**---------------------Tablet version---------------------*/
+/**---------------------Tablet screen---------------------*/
 
 /* .search-form { */
   /* gap: 108px; */
