@@ -2,3 +2,4 @@ import './js/tags.js';
 import './js/main-characters.js';
 import './js/characters-gallery.js';
 import './js/main-header.js';
+import './js/hero.js';
