@@ -12,15 +12,16 @@
 
 <section class="hero-gallery">
   <div class="container">
-    <ul class="gallery-btn">
+    <div class="gallery-btn">
       <li class="gallery-search__form">
-        <p class="btn-text">Name</p>
-        <svg id="search-icon" stroke="111" class="search" width="18" height="18">
+        <p class="btn-text" id="btn-text-name">Enter name</p>
+        <svg id="search-icon" class="search" width="18" height="18">
           <use href="../img/symbol-defs.svg#icon-search"></use>
         </svg>
       </li>
       <div class="gallery-btns-flex-wrap">
-        <li class="gallery-btn">
+        <ul>
+          <li class="gallery-btn">
         <p class="btn-text" id="btn-text-status">Status</p>
         <!-- <svg id="icon-Vector" width="18" height="18"> -->
           <!-- <use href="../img/symbol-defs.svg#icon-vector-3"></use> -->
@@ -47,9 +48,13 @@
           <option class="dropdown-menu__link" value="mythological">Mythological creature</option>
         </select>
       </li>
+        </ul>
+      
       </div>
-      <li class="gallery-btn">
-        <p class="btn-text btn-text-type">Type</p>
+      <div class="gallery-btns-flex-wrap">
+        <ul>
+          <li class="gallery-btn">
+        <p class="btn-text" id="btn-text-type">Type</p>
         <select class="dropdown-item  dropdown-toggle type" name="type" id="type-select">
           <option class="dropdown-menu__link">All</option>
           <!-- Типи з API мають рендериться тут -->
@@ -66,7 +71,8 @@
           <option class="dropdown-menu__link" value="unknown">Unknown</option>
         </select>
       </li>
-    </ul>
+        </ul>
+    </div>
     <ul class="gallery"></ul>
     <button class="load-more-btn" type="button">Load More</button>
   </div>
