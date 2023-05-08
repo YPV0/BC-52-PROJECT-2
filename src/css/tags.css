@@ -7,16 +7,16 @@
 }
 
 .tags-wrapper {
+  width: 100%;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
 }
 
 .tags-list {
-  height: 100px;
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 15.45px;
+  margin-top: 45px;
 }
 .tags-item {
   display: flex;
@@ -24,26 +24,23 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  height: 45px;
+  height: 50px;
   border-radius: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 14px 26px;
+  letter-spacing: 0.44px;
+  letter-spacing: 0.44px;
+
   white-space: nowrap;
 }
 
 .tags-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  line-height: 1.05;
+  font-size: 21px;
+  line-height: 22px;
   font-weight: 600;
   line-height: 1.06;
   letter-spacing: 0.2px;
   text-align: center;
-}
-
-.smaller-text {
-  font-size: 16px;
-  line-height: 1.13;
 }
 
 .green-black {
@@ -72,80 +69,28 @@
 }
 
 .first-listed {
-  margin-right: 36px;
   margin-left: 16px;
-  padding-left: 23px;
-  padding-right: 23px;
+  margin-right: 36px;
 }
+
 .second-listed {
-  margin-right: 177px;
-  padding-left: 22px;
-  padding-right: 22px;
+  margin-right: 178px;
 }
+
 .third-listed {
-  margin-right: 11px;
-  transform: rotate(180deg);
+  margin-right: 4px;
 }
+
 .fourth-listed {
   margin-right: 39px;
 }
 
 .fifth-listed {
   margin-right: 123px;
-  transform: rotate(180deg);
-}
-
-.sixth-listed {
-  transform: rotate(180deg);
 }
 
 .first-abs {
   position: absolute;
-  top: 37px;
-  left: 73px;
-  height: 50px;
-}
-
-.second-abs {
-  position: absolute;
-  top: 5px;
-  left: 169px;
-  height: 50px;
-  transform: matrix(0.86, 0.52, -0.52, 0.85, 0, 0);
-}
-
-.third-abs {
-  position: absolute;
-  top: -9px;
-  left: 359px;
-  height: 45px;
-  transform: matrix(0.96, 0.29, -0.29, 0.96, 0, 0);
-}
-
-.fourth-abs {
-  position: absolute;
-  top: -15px;
-  left: 490px;
-  height: 50px;
-  transform: matrix(-0.67, 0.74, -0.74, -0.67, 0, 0);
-}
-
-.fifth-abs {
-  position: absolute;
-  top: -23px;
-  left: 745px;
-  transform: matrix(0.82, 0.57, -0.57, 0.82, 0, 0);
-}
-
-.fifth-abs .tags-text {
-  font-size: 17px;
-}
-
-.sixth-abs {
-  position: absolute;
-  z-index: -1;
-  top: 47px;
-  left: 1206px;
-  height: 50px;
-  transform: matrix(-0.86, 0.52, -0.52, -0.86, 0, 0);
+  top: -29px;
+  left: 50px;
 }
