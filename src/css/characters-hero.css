@@ -1,0 +1,143 @@
+.hero-img-character {
+  max-width: 335px;
+  max-height: 335px;
+  text-align: center;
+}
+.hero-title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--first-text-color-light);
+  margin-bottom: 14px;
+}
+.hero-text-character {
+  color: var(--first-text-color-light);
+  margin-bottom: 24px;
+}
+.hero-container-character {
+  padding-top: 42px;
+  padding-bottom: 80px;
+  border-radius: 0px 0px 60px 60px;
+}
+.hero-list {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container-character {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 121px;
+    padding-bottom: 208px;
+  }
+  .hero-img-character {
+    min-width: 346px;
+    min-height: 346px;
+  }
+  .hero-text-character {
+    max-width: 334px;
+    font-size: 16px;
+    line-height: 1.12;
+    margin-bottom: 44px;
+  }
+  .hero-title {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-img-character {
+    min-width: 504px;
+    min-height: 504px;
+  }
+  .hero-title {
+    font-size: 100px;
+  }
+  .hero-text-character {
+    max-width: 482px;
+    line-height: 1.25;
+  }
+  .hero-container-character {
+    padding-top: 79px;
+    padding-bottom: 126px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-mobile@1x.png);
+    background-repeat: no-repeat;
+    background-size: 346px 313px;
+    background-position: center 362px;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-mobile@1x.png);
+    background-repeat: no-repeat;
+    background-size: 346px 313px;
+    background-position: center 382px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-tablet@1x.png);
+    background-repeat: no-repeat;
+    background-size: 460px 460px;
+    background-position: 290px 140px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-desktop@1x.png);
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-size: 526px 476px;
+    background-position: 704px 172px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 374px),
+  screen and (min-resolution: 192dpi) and (max-width: 374px),
+  screen and (min-resolution: 2dppx) and (max-width: 374px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-mobile@2x.png);
+    background-repeat: no-repeat;
+    background-size: 346px 313px;
+    background-position: center 362px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 375px) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (min-width: 375px) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (min-width: 375px) and (max-width: 767px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-mobile@2x.png);
+    background-repeat: no-repeat;
+    background-size: 346px 313px;
+    background-position: center 382px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-tablet@2x.png);
+    background-repeat: no-repeat;
+    background-size: 460px 460px;
+    background-position: 290px 140px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
+  screen and (min-resolution: 192dpi) and (min-width: 1440px),
+  screen and (min-resolution: 2dppx) and (min-width: 1440px) {
+  .hero-container-character {
+    background-image: url(../img/header-hero/hero-hero-char-desktop@2x.png);
+    background-repeat: no-repeat;
+    max-width: 1440px;
+    background-size: 696px 566px;
+    background-position: 704px 172px;
+  }
+}

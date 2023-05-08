@@ -1,10 +1,15 @@
-.btn-list {
+.header-nav {
   display: flex;
   align-items: center;
 }
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   background-color: var(--background-color-dark);
 }
+
 .header-container {
   display: flex;
   padding-top: 20px;
@@ -14,10 +19,15 @@
 .header-form {
   display: flex;
   position: relative;
+  margin-left: auto;
 }
 .header-input {
   max-width: 108px;
   padding-left: 43px;
+  transition: max-width var(--transition-dur-and-func);
+}
+.header-input:focus {
+  max-width: 150px;
 }
 .header-input::placeholder {
   font-weight: 600;
@@ -28,6 +38,14 @@
   height: 16px;
   fill: var(--first-text-color-light);
   stroke: var(--first-text-color-light);
+  transition: stroke var(--transition-dur-and-func),
+    width var(--transition-dur-and-func), height var(--transition-dur-and-func);
+}
+.header-icon:hover,
+.header-icon:focus {
+  stroke: var(--first-color-accent);
+  width: 20px;
+  height: 20px;
 }
 .header-search-btn {
   position: absolute;
@@ -37,8 +55,9 @@
   top: 52%;
   transform: translate(0, -48%);
 }
+
 @media screen and (max-width: 350px) {
-  .header-hero {
+  .header-hero-btn {
     display: none;
   }
   .header-hero-input {
@@ -46,9 +65,17 @@
     padding-right: 12px;
     max-width: 68px;
   }
+  .header-input:focus {
+    max-width: 90px;
+  }
   .header-btn {
     padding-left: 12px;
     padding-right: 12px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .header-container {
+    min-width: 375px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -56,11 +83,18 @@
     min-width: 124px;
     padding-left: 50px;
   }
+  .header-input:focus {
+    max-width: 200px;
+  }
   .header-search-btn {
     left: 24px;
   }
   .header-icon {
     width: 18px;
     height: 18px;
+  }
+  .header-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
