@@ -1,18 +1,20 @@
 /* ---------Mobile main-characters--------- */
 .main-container {
   padding-top: 80px;
+  padding-bottom: 80px;
 }
 .main-characters-item {
   width: 100%;
 }
 .img-component {
-  width: 100%;
-  height: auto;
   margin-bottom: 32px;
   border-radius: 25px;
 }
 .img-hidden {
   display: none;
+}
+.img-shown {
+  display: block;
 }
 .morty-img {
   background-color: #0d171d;
@@ -56,7 +58,7 @@
   margin-top: 40px;
   transition: color var(--transition-dur-and-func);
 }
-.main-subtitle:hover {
+.main-link:hover .main-subtitle {
   color: #a1d737;
 }
 .rick-subtitle {
@@ -66,8 +68,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  display: flex;
-  align-items: center;
   color: #111111;
   border-bottom: 1px solid rgba(17, 17, 17, 0.2);
   padding-bottom: 20px;
@@ -77,19 +77,22 @@
   .main-characters-item {
     width: 335px;
   }
+  .img-component {
+    width: auto;
+  }
 }
 /* ---------------Tablet------------------------- */
 @media screen and (min-width: 768px) {
-  .main-characters-list {
-    display: flex;
-    flex-direction: column;
+  .img-component {
+    width: 704px;
+    height: 704px;
   }
   .main-characters-item {
     width: 100%;
-    margin-bottom: 32px;
   }
   .main-container {
     padding-top: 128px;
+    padding-bottom: 128px;
   }
 
   .main-title {
@@ -104,6 +107,8 @@
     font-size: 24px;
     line-height: 1.17;
     margin-bottom: 16px;
+  }
+  .main-characters-item:not(:first-child) {
     margin-top: 32px;
   }
   .main-text {
@@ -114,27 +119,21 @@
 /* ---------Desktop------- */
 
 @media screen and (min-width: 1440px) {
-  .main-hidden-img {
-    float: left;
-    margin-right: 20px;
+  .main-img-hidden-list {
+    height: 544px;
+    margin-right: 32px;
+  }
+  .img-component {
+    max-width: 504px;
+    height: 504px;
+    margin-bottom: 0;
   }
 
   .main-characters-wrapper {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    overflow: auto;
-  }
-  .main-characters-item {
-    display: flex;
     align-items: center;
-    max-width: 100%;
-    margin-right: 32px;
   }
 
-  .main-description {
-    flex: 1;
-  }
   .main-subtitle {
     font-size: 24px;
     line-height: 1.17;
@@ -147,6 +146,6 @@
     line-height: 1.12;
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    padding-bottom: 32px;
   }
 }
