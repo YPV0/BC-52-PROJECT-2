@@ -1,22 +1,32 @@
-const smoothScrollLinks = document.querySelectorAll('.smooth-scroll');
-
-smoothScrollLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault();
-
-    const targetId = link.getAttribute('href');
-
-    const targetSection = document.querySelector(targetId);
-
-    targetSection.scrollIntoView({
-      behavior: 'smooth',
-    });
-  });
-});
-
 const btnDown = document.querySelector('.hero-btn-down');
 const btnUp = document.querySelector('.hero-btn-rotate');
 const footerEl = document.querySelector('#footer');
+const heroEl = document.querySelector('#hero');
+
+let currentSection = document.querySelector('section:not(.is-hidden)');
+let nextSection = currentSection.nextElementSibling;
+let currentNewSection = '';
+
+function callbackFoo() {
+  if (currentNewSection.id == 'slider') {
+    currentNewSection = '';
+    nextSection = currentSection.nextElementSibling;
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+    currentNewSection = nextSection;
+    return currentNewSection;
+  } else if (currentNewSection) {
+    nextSection = currentNewSection.nextElementSibling;
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+    currentNewSection = nextSection;
+    return currentNewSection;
+  } else {
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+    currentNewSection = nextSection;
+    return currentNewSection;
+  }
+}
+
+btnDown.addEventListener('click', callbackFoo);
 
 const observer = new IntersectionObserver(entry);
 observer.observe(footerEl);
@@ -32,3 +42,9 @@ function entry(entries) {
     }
   });
 }
+
+const scrollUp = () => {
+  heroEl.scrollIntoView({ behavior: 'smooth' });
+};
+
+btnUp.addEventListener('click', scrollUp);
