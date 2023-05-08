@@ -19,30 +19,26 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/characters-gallery-104864a0.js"></script>
-    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-21ebcf18.css">
+    <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/hero-d903ee53.js"></script>
+    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-af789f0e.css">
   </head>
 
   <body>
     <header class="header">
   <div class="container header-container">
-    <ul class="btn-list">
-      <li class="btn-green header-btn">
-        <a href="#">Characters</a>
-      </li>
-      <li class="btn-dark-bg header-btn">
-        <a href="#">Episodes</a>
-      </li>
-    </ul>
+    <nav class="header-nav">
+      <a class="btn-green header-btn" href="characters.html">Characters</a>
+      <a class="btn-dark-bg header-btn" href="episodes.html">Episodes</a>
+    </nav>
     <form class="header-form">
       <input
         class="btn-dark-bg header-input header-hero-input"
         type="text"
         placeholder="Search"
       />
-      <button class="header-search-btn header-hero" type="submit">
+      <button class="header-search-btn header-hero-btn" type="submit">
         <svg class="header-icon">
-          <use href="/BC-52-PROJECT-2/assets/symbol-defs-0a2dc9f2.svg#icon-search"></use>
+          <use href="/BC-52-PROJECT-2/assets/symbol-defs-7eb9d878.svg#icon-search"></use>
         </svg>
       </button>
     </form>
@@ -50,24 +46,22 @@
 </header>
 
     <main>
-      <section class="hero">
+      <section class="hero" id="hero">
   <div class="container hero-container">
     <h1 class="visually-hidden">Rick and Morty</h1>
     <div class="hero-images">
-      <div class="hero-bg-picture">
-        <picture class="hero-img">
-          <source
-            srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
-            media="(min-width: 1440px)" />
-          <source
-            srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
-            media="(min-width: 768px)" />
-          <source
-            srcset="/BC-52-PROJECT-2/assets/hero-hero-mobile@1x-60a53736.png 1x, /BC-52-PROJECT-2/assets/hero-hero-mobile@2x-65ade732.png 2x"
-            media="(max-width: 767px)" />
-          <img src="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png" alt="cosmo-car"
-        /></picture>
-      </div>
+      <picture class="hero-img">
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
+          media="(min-width: 1440px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png 1x, /BC-52-PROJECT-2/assets/hero-hero-desktop@2x-ff222a45.png 2x"
+          media="(min-width: 768px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/hero-hero-mobile@1x-60a53736.png 1x, /BC-52-PROJECT-2/assets/hero-hero-mobile@2x-65ade732.png 2x"
+          media="(max-width: 767px)" />
+        <img src="/BC-52-PROJECT-2/assets/hero-hero-desktop@1x-b68d44aa.png" alt="cosmo-car"
+      /></picture>
       <picture class="hero-logo">
         <source
           srcset="/BC-52-PROJECT-2/assets/logo-hero-desktop@1x-85da12ca.png 1x, /BC-52-PROJECT-2/assets/logo-hero-desktop@2x-878a8776.png 2x"
@@ -85,9 +79,14 @@
       If you're a fan of Rick and Morty, you don't want to miss out on our app!
       Start exploring the endless possibilities of Rick and Morty!
     </p>
-    <a class="hero-btn" href="#"
+    <a class="hero-btn hero-btn-down smooth-scroll" href="#footer"
       ><svg class="hero-icon">
-        <use href="/BC-52-PROJECT-2/assets/symbol-defs-0a2dc9f2.svg#icon-Vector-5"></use>
+        <use href="/BC-52-PROJECT-2/assets/symbol-defs-7eb9d878.svg#icon-Vector-5"></use>
+      </svg>
+    </a>
+    <a class="hero-btn hero-btn-rotate is-hidden smooth-scroll" href="#hero"
+      ><svg class="hero-icon">
+        <use href="/BC-52-PROJECT-2/assets/symbol-defs-7eb9d878.svg#icon-Vector-5"></use>
       </svg>
     </a>
   </div>
@@ -232,7 +231,10 @@
 
       
     </main>
-    
+    <footer id="footer">
+  <div class="footer"></div>
+</footer>
+
     
   </body>
 </html>
