@@ -1,13 +1,17 @@
 <section class="hero-gallery">
   <div class="container">
     <ul class="dropdown-filter">
-      <li class="dropdown-filter">
-        <p>Name</p>
-        <input class="characters-search" type="text" />
+      <li class="dropdown-filter input-wrapper">
+        <p class="text-about">Name</p>
+        <input
+          class="characters-search input-green"
+          type="text"
+          placeholder="Enter name"
+        />
       </li>
       <li class="dropdown-item">
-        <p>Status</p>
-        <select name="status" id="status-select">
+        <p class="text-about">Status</p>
+        <select name="status" id="status-select" class="input-white">
           <option value="all">All</option>
           <option value="alive">Alive</option>
           <option value="dead">Dead</option>
@@ -15,8 +19,8 @@
         </select>
       </li>
       <li class="dropdown-item">
-        <p>Species</p>
-        <select name="species" id="species-select">
+        <p class="text-about">Species</p>
+        <select name="species" id="species-select" class="input-white">
           <option value="all">All</option>
           <option value="human">Human</option>
           <option value="alien">Alien</option>
@@ -30,15 +34,15 @@
         </select>
       </li>
       <li class="dropdown-item">
-        <p>Type</p>
-        <select name="type" id="type-select">
+        <p class="text-about">Type</p>
+        <select name="type" id="type-select" class="input-white">
           <option value="all">All</option>
           <!-- Типи з API мають рендериться тут -->
         </select>
       </li>
       <li class="dropdown-item">
-        <p>Gender</p>
-        <select name="gender" id="gender-select">
+        <p class="text-about">Gender</p>
+        <select name="gender" id="gender-select" class="input-white">
           <option value="all">All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -48,6 +52,6 @@
       </li>
     </ul>
     <ul class="gallery"></ul>
-    <button class="load-more-btn" type="button">Load More</button>
+    <button class="load-more-btn btn-green" type="button">Load More</button>
   </div>
 </section>
