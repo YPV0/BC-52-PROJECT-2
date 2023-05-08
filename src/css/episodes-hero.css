@@ -1,0 +1,18 @@
+.hero-text-episode {
+  color: var(--first-text-color-light);
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .hero-text-episode {
+    max-width: 305px;
+    font-size: 16px;
+    line-height: 1.12;
+    margin-bottom: 44px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero-text-episode {
+    max-width: 482px;
+    line-height: 1.25;
+  }
+}
