@@ -1,4 +1,5 @@
 .backdrop-popchar {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -38,6 +39,7 @@
   opacity: 1;
   visibility: visible;
 }
+
 .popchar-close-btn {
   margin-top: -18px;
   margin-right: -18px;
@@ -49,24 +51,17 @@
   padding: 0;
   border: none;
 }
+
 .icon-close {
   width: 22px;
   height: 22px;
 }
+
 .heroes-episode-img {
   width: 278px;
   height: 292px;
   border: 2px solid #a1d737;
   border-radius: 18px;
-}
-.status-list {
-  margin-top: 8px;
-  border: 2px solid #a1d737;
-  border-radius: 18px;
-  color: #a1d737;
-
-  width: 278px;
-  height: 146px;
 }
 
 .modal-title {
@@ -81,13 +76,12 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 28px;
-  /* identical to box height, or 117% */
-
   display: flex;
   align-items: center;
 
   color: #fafafa;
 }
+
 .popchar-episodes-list {
   position: relative;
   bottom: 436px;
@@ -95,14 +89,146 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-.episodes-item {
-  width: 352px;
-  height: 68px;
-  border: 2px solid #a1d737;
-  border-radius: 18px;
-  color: #fafafa;
+
+.popchar-episodes-list::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
 }
+
 .is-hidden {
   display: none;
+}
+
+.popchar-episodes-item {
+  display: flex;
+
+  padding: 16px;
+  min-width: 352px;
+  max-height: 68px;
+  border: 2px solid #a1d737;
+  border-radius: 18px;
+  color: #a1d737;
+}
+.episode-name-title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  display: block;
+  color: #a1d737;
+  max-width: 105px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.season-count,
+.air-data {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.season-count span:nth-child(2),
+.air-data span:nth-child(2) {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fafafa;
+}
+
+.status-list {
+  display: grid;
+  grid-template-areas:
+    'item1 item2 item4 item5'
+    'item3 item6 . .';
+  grid-gap: 16px;
+  grid-auto-rows: max-content; /* добавлено свойство */
+  margin-top: 8px;
+  border: 2px solid #a1d737;
+  border-radius: 18px;
+  width: 278px;
+  height: 146px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.status-item:nth-child(1) {
+  grid-area: item1;
+} /* Status */
+.status-item:nth-child(2) {
+  grid-area: item2;
+} /* Species */
+.status-item:nth-child(3) {
+  grid-area: item3;
+} /* Type */
+.status-item:nth-child(4) {
+  grid-area: item4;
+} /* Gender */
+.status-item:nth-child(5) {
+  grid-area: item5;
+} /* Origin */
+.status-item:nth-child(6) {
+  grid-area: item6;
+} /* Location */
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-item .status-key {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(250, 250, 250, 0.5);
+  margin-bottom: 8px;
+}
+
+.status-item .status-value {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #fafafa;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.season-data {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.season-count span,
+.air-data span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(250, 250, 250, 0.5);
+}
+
+.season-count span:nth-child(2),
+.air-data span:nth-child(2) {
+  font-size: 14px;
+  line-height: 18px;
+  color: #fafafa;
 }
