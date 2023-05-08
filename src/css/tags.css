@@ -1,8 +1,7 @@
 .tags-container {
   padding-left: 0px;
   padding-right: 0px;
-  max-width: 100%;
-  height: 100px;
+  width: 100%;
   overflow-x: clip;
   position: relative;
 }
@@ -10,14 +9,14 @@
 .tags-wrapper {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
 }
 
 .tags-list {
   height: 100px;
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 88.8px;
+  margin-top: 15.45px;
 }
 .tags-item {
   display: flex;
@@ -27,24 +26,24 @@
   width: fit-content;
   height: 45px;
   border-radius: 25px;
-  padding-left: 22px;
-  padding-right: 22px;
+  padding-left: 20px;
+  padding-right: 20px;
   white-space: nowrap;
 }
 
 .tags-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 21px;
+  font-size: 16px;
   line-height: 1.05;
   font-weight: 600;
-  line-height: 1.01;
+  line-height: 1.06;
   letter-spacing: 0.2px;
   text-align: center;
 }
 
 .smaller-text {
-  font-size: 20px;
-  line-height: 1.1;
+  font-size: 16px;
+  line-height: 1.13;
 }
 
 .green-black {
@@ -75,12 +74,16 @@
 .first-listed {
   margin-right: 36px;
   margin-left: 16px;
+  padding-left: 23px;
+  padding-right: 23px;
 }
 .second-listed {
   margin-right: 177px;
+  padding-left: 22px;
+  padding-right: 22px;
 }
 .third-listed {
-  margin-right: 3px;
+  margin-right: 11px;
   transform: rotate(180deg);
 }
 .fourth-listed {
@@ -113,26 +116,29 @@
 
 .third-abs {
   position: absolute;
-  top: 55px;
-  left: 377px;
-  height: 50px;
+  top: -9px;
+  left: 359px;
+  height: 45px;
   transform: matrix(0.96, 0.29, -0.29, 0.96, 0, 0);
 }
 
 .fourth-abs {
   position: absolute;
-  top: 55px;
-  left: 577px;
+  top: -15px;
+  left: 490px;
   height: 50px;
   transform: matrix(-0.67, 0.74, -0.74, -0.67, 0, 0);
 }
 
 .fifth-abs {
   position: absolute;
-  top: 67px;
-  left: 920px;
-  height: 50px;
+  top: -23px;
+  left: 745px;
   transform: matrix(0.82, 0.57, -0.57, 0.82, 0, 0);
+}
+
+.fifth-abs .tags-text {
+  font-size: 17px;
 }
 
 .sixth-abs {
