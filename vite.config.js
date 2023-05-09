@@ -10,6 +10,7 @@ export default defineConfig({
       input: glob.sync('./src/*.html'),
     },
     outDir: '../dist',
+    target: 'esnext',
   },
   plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
 });
