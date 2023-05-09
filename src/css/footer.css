@@ -102,7 +102,6 @@ footer {
 
 @media screen and (min-width: 768px) {
   footer {
-    position: relative;
     max-width: 768px;
     margin: 0 auto;
   }
@@ -114,6 +113,7 @@ footer {
     width: 99px;
     height: 84px;
   }
+
   .footer-container {
     display: flex;
     padding: 64px 32px 128px;
@@ -188,5 +188,43 @@ footer {
   .privacy-policy:last-child {
     font-size: 14px;
     line-height: 1.29;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+
+  footer {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    margin-right: 311px;
+  }
+
+  .footer-container {
+    display: flex;
+  }
+
+  .footer-navigation {
+    display: flex;
+    align-items: center;
+    padding: 27.5px 0;
+    margin-left: auto;
+    gap: 0;
+  }
+  .footer-sections {
+    width: 144px;
+  }
+  .footer-social {
+    margin-left: 252px;
+  }
+  .footer-social .list {
+    gap: 32px;
   }
 }
