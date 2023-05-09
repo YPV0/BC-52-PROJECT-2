@@ -1,11 +1,15 @@
 
 .hero-gallery {
-  padding-top: 61px;
+  padding-top: 128px;
   padding-bottom: 80px;
   margin-right: 20px;
   margin-left: 20px;
   margin-top: 0px;
 }
+/* .hero-gallery { */
+  /* padding-top: 126px; */
+  /* padding-bottom: 80px; */
+/* } */
 
 .container {
   margin: auto;
@@ -14,6 +18,7 @@
 .characters-search::placeholder {
   color: var(--first-text-color-dark);
 }
+
 .input-wrapper .input-green {
   padding: 14px 24px;
   margin-top: 8px;
@@ -34,9 +39,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
   gap: 20px;
 }
+
+/* .dropdown-filter { */
+  /* margin-top: 20px; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+/* } */
 .dropdown-item:nth-child(-n + 2) {
   margin-bottom: 20px;
 }
@@ -45,7 +57,18 @@
   width: calc((100vw - 40px - 30px) / 2);
   max-width: 355px;
   height: 46px;
+  padding-top: 0;
+  padding-bottom: 0;
   gap: 10px;
+}
+
+/* .input-white { */
+  /* width: calc((100vw - 40px - 10px) / 2); */
+/* } */
+
+.characters-search {
+  width: calc(100vw - 40px);
+  margin-bottom: 20px;
 }
 
 .gallery {
@@ -54,8 +77,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px 10px;
-  
+  gap: 39px;
 }
 
 svg.search-icon {
@@ -67,6 +89,7 @@ img.card-img {
   display: block;
   width: 100%;
   height: auto;
+  margin-bottom: 13px;
   gap: 10px;
   background: #0D171D;
   border: 2px solid #A1D737;
@@ -76,13 +99,13 @@ img.card-img {
 .card-info p.card-name {
   width: 100%;
   height: 18px;
-  margin-top: 14px;
+  margin-bottom: 8px;
 
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 1.12;
 
   display: flex;
   align-items: center;
@@ -107,15 +130,48 @@ img.card-img {
   color: rgba(17, 17, 17, 0.5);
 }
 
+.card-info p.card-origin-title {
+  margin-bottom: 4px;
+}
+
+.card-origin-info,
+.card-location-info {
+  color: #111111;
+}
+
 .load-more-btn {
   border: none;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 
+  
 @media screen and (min-width: 768px) and (max-width: 1439px) {
+  .hero-gallery {
+    padding-top: 61px;
+  }
+/* @media screen and (min-width: 768px) {*/
+  .dropdown-item:nth-child(-n + 2) {
+    margin-bottom: 0;
+  }
+
+  /* .gallery-card:nth-child(-n + 2) { */
+    /* margin-top: 61px; */
+  /* } */
+  .gallery {
+    flex-wrap: wrap;
+    gap: 65px 32px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .gallery-card {
+    flex-basis: calc((100% - 32px - 64px) / 2);
+  }
+
   .characters-search {
     max-width: 290px;
     height: 54px;
@@ -133,6 +189,11 @@ img.card-img {
   #gender-select {
     width: 167px;
   }
+  /* .hero-gallery { */
+    /* padding-top: 176px; */
+    /* padding-bottom: 140px; */
+  /* } */
+
   .dropdown-filter {
     margin-top: 0;
     justify-content: start;
@@ -150,7 +211,7 @@ img.card-img {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.29;
 
     display: flex;
     align-items: center;
@@ -158,10 +219,14 @@ img.card-img {
     color: #111111;
   }
 
-  .input-wrapper .input-green {
+  .input-wrapper {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-right: 16px;
+  }
+
+  .input-wrapper .input-green {
     margin-right: auto;
     margin-left: auto;
     max-width: 269px;
@@ -198,6 +263,20 @@ img.card-img {
     max-width: 233px;
   }
 
+  .dropdown-filter {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .dropdown-item:nth-child(3n) {
+    margin-right: 16px;
+  }
+  .gallery-card:nth-child(-n + 2) {
+    margin-top: 0;
+  }
+  /* .gallery-card:nth-child(-n + 4) { */
+    /* margin-top: 61px; */
+  /* } */
+
   .dropdown-item .input-white {
     width: 165px;
     gap: 10px;
@@ -209,6 +288,17 @@ img.card-img {
   
   .dropdown-item:nth-child(3n) {
     margin-right: 16px;
+  }
+  .characters-search {
+    margin-bottom: 0;
+  }
+  .gallery {
+    flex-wrap: wrap;
+    gap: 61px 24px;
+    flex-direction: row;
+  }
+  .gallery-card {
+    flex-basis: calc((100% - 96px) / 4);
   }
 
   .gallery-card img.card-img {
@@ -242,6 +332,7 @@ img.card-img {
     height: auto;
     gap: 10px 24px;
   }
+  .dropdown-item:nth-child(-n + 2) {
+    margin-bottom: 20px;
+  }
 }
-
-
