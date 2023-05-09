@@ -1,0 +1,101 @@
+footer {
+  background-color: var(--background-color-light);
+}
+
+.footer-container {
+  display: flex;
+  padding: 40px 20px 80px;
+}
+
+.footer-logo {
+  position: relative;
+  width: 149px;
+}
+
+.footer-logo .rick {
+  position: absolute;
+  width: 120px;
+  height: 46px;
+  left: 1px;
+  top: 54.5px;
+
+  border-radius: 25px;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.12;
+
+  background: var(--background-color-dark);
+  color: var(--background-color-light);
+}
+.footer-logo .morty {
+  position: absolute;
+  width: 97px;
+  height: 42px;
+  left: 54.87px;
+  top: 16px;
+  z-index: 2;
+
+  border-radius: 25px;
+  transform: matrix(0.85, 0.53, -0.53, 0.85, 0, 0);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.12;
+
+  background: var(--second-color-accent);
+  color: var(--border-color-dark);
+}
+
+.footer-sections {
+  margin-bottom: 20px;
+}
+
+.footer-sections .item {
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+}
+
+.footer-sections .item:last-child {
+  margin-bottom: 0;
+}
+
+.footer-navigation {
+  margin-left: auto;
+}
+
+.footer-social .list {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social .item {
+  display: flex;
+  border: 1px solid rgba(17, 17, 17, 0.2);
+  border-radius: 8px;
+}
+
+.footer-social .link {
+  padding: 11px;
+}
+
+.footer-social .footer-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.privacy-policy:last-child {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.17;
+  color: rgba(17, 17, 17, 0.4);
+}
+
+@media screen and (min-width: 375px) {
+  footer {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+}
