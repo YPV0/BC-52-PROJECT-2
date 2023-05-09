@@ -10,6 +10,9 @@ const refs = {
   hiddenType: document.querySelector('#hidden-type-select'),
   hiddenGender: document.querySelector('#hidden-gender-select'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
+  mainHeaderForm: document.querySelector('#main-header-form'),
+  hiddenSection: document.querySelector('#hidden-section'),
+  mainHeaderInput: document.querySelector('#hidden-input'),
 };
 
 let currentPage = 1;
@@ -82,6 +85,16 @@ async function fetchCharacters() {
   }
 }
 
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const searchInput = refs.mainHeaderInput.value;
+  refs.hiddenInput.value = searchInput;
+
+  handleFilterChange();
+
+  refs.hiddenSection.classList.remove('is-hidden');
+}
+
 function updateSelectOptions(select, characters, selectedValue, attribute) {
   const currentValue = select.value;
 
@@ -111,14 +124,6 @@ function updateSelectOptions(select, characters, selectedValue, attribute) {
     select.value = selectedValue;
   }
   selectedValues[select.id] = select.value;
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const searchInput = refs.hiddenInput.value;
-  refs.mainInput.value = searchInput;
-
-  handleFilterChange();
 }
 
 function renderGallery() {
@@ -201,6 +206,8 @@ function initialize() {
   refs.hiddenType.addEventListener('change', handleFilterChange);
   refs.hiddenGender.addEventListener('change', handleFilterChange);
   refs.loadMoreBtn.addEventListener('click', handleLoadMore);
+
+  refs.mainHeaderForm.addEventListener('submit', handleFormSubmit);
 
   fetchCharacters();
 }
