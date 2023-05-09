@@ -6,7 +6,6 @@ let PAGE = 1;
 const refs = {
   gallery: document.querySelector('.episodes-gallery-list'),
   btnLoadMore: document.querySelector('.btn-load-more'),
-  test: document.querySelector('.btn-test'),
 };
 
 let seasonImg = '';
@@ -20,12 +19,13 @@ const media = window.matchMedia('(min-width: 1440px)');
 let pageSize = media.matches ? 20 : 10;
 let displayedCount = pageSize;
 
-refs.gallery.insertAdjacentHTML(
-  'beforeend',
-  onCreateGalleryEpisodes(loadEpisode.data.results.slice(0, pageSize))
-);
-
-refs.btnLoadMore.addEventListener('click', debounce(onLoadMore, 250));
+if (refs.gallery && refs.btnLoadMore) {
+  refs.gallery.insertAdjacentHTML(
+    'beforeend',
+    onCreateGalleryEpisodes(loadEpisode.data.results.slice(0, pageSize))
+  );
+  refs.btnLoadMore.addEventListener('click', debounce(onLoadMore, 250));
+}
 
 function onCreateGalleryEpisodes(ep) {
   return ep
@@ -99,9 +99,6 @@ async function onLoadMore() {
   const newData = parserData.concat(loadEpisode.data.results);
   localStorage.setItem('data', JSON.stringify(newData));
 }
-
-
-
 
 // refs.test.addEventListener('click', onGalleryFilter);
 
