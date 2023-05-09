@@ -52,14 +52,12 @@ async function fetchCharacters() {
   });
 
   if (response.data && Array.isArray(response.data.results)) {
-    const fetchedCharacters = response.data.results;
-    totalItems = response.data.info.count;
-
     if (window.innerWidth < 1440) {
-      remainingCharacters = [...remainingCharacters, ...fetchedCharacters];
+      remainingCharacters = [...remainingCharacters, ...response.data.results];
       renderNextCharacters();
     } else {
-      characters = [...characters, ...fetchedCharacters];
+      characters = [...characters, ...response.data.results];
+      totalItems = response.data.info.count;
       renderGallery();
     }
   } else {
@@ -89,7 +87,8 @@ function renderNextCharacters() {
   const gallery = refs.mainGallery;
   const wrapper = document.createElement('div');
 
-  remainingCharacters.slice(0, itemsPerPage).forEach(character => {
+  const charactersToRender = remainingCharacters.slice(0, itemsPerPage);
+  charactersToRender.forEach(character => {
     const li = renderCharacterCard(character);
     wrapper.appendChild(li);
   });
@@ -97,6 +96,11 @@ function renderNextCharacters() {
   gallery.appendChild(wrapper);
 
   remainingCharacters = remainingCharacters.slice(itemsPerPage);
+
+  if (remainingCharacters.length === 0) {
+    currentPage += 1;
+    fetchCharacters();
+  }
 
   updateLoadMoreButton();
 }
@@ -114,45 +118,41 @@ function renderCharacterCard(character) {
       <p class="card-name">${character.name}</p>
       <p class="card-origin-title">
         Origin: <span class="card-origin-info">${character.origin.name}</span>
-      </p>
-      <p class="card-location-title">
-        Location: <span class="card-location-info">${character.location.name}</span>
-      </p>
-    </div>
-  `;
+</p>
+<p class="card-location-title">
+Location: <span class="card-location-info">${character.location.name}</span>
+</p>
+</div>
+`;
 
   li.appendChild(wrapper);
 
   return li;
 }
 
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const searchInput = refs.mainHeaderInput.value;
-  refs.hiddenInput.value = searchInput;
-
-  handleFilterChange();
-
-  refs.hiddenSection.classList.remove('is-hidden');
-}
-
 function updateLoadMoreButton() {
   if (window.innerWidth < 1440) {
     refs.loadMoreBtn.style.display =
-      remainingCharacters.length > 0 ? 'block' : 'none';
+      characters.length > 0 || remainingCharacters.length > 0
+        ? 'block'
+        : 'none';
   } else {
-    const hasMoreItems =
-      currentPage * itemsPerPage < totalItems || remainingCharacters.length > 0;
+    const hasMoreItems = currentPage * itemsPerPage < totalItems;
     refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
   }
 }
 
 async function handleLoadMore() {
   if (window.innerWidth < 1440) {
+    if (remainingCharacters.length < 1) {
+      currentPage += 1;
+      await fetchCharacters();
+    }
     renderNextCharacters();
   } else {
     currentPage += 1;
     await fetchCharacters();
+    renderGallery();
   }
 }
 
@@ -167,6 +167,16 @@ function initialize() {
   refs.mainHeaderForm.addEventListener('submit', handleFormSubmit);
 
   fetchCharacters();
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const searchInput = refs.mainHeaderInput.value;
+  refs.hiddenInput.value = searchInput;
+
+  handleFilterChange();
+
+  refs.hiddenSection.classList.remove('is-hidden');
 }
 
 if (
