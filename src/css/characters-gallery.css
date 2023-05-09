@@ -17,10 +17,10 @@
 .input-wrapper .input-green {
   padding: 14px 24px;
   margin-top: 8px;
-  width: 100hv;
+  height: 46px;
   max-width: 335px;
-  margin-left: calc((100vw - 40px - 335px) / 2);
-  margin-right: calc((100vw - 40px - 335px) / 2);
+  margin-left: auto;
+  margin-right: auto;
   border: 1.5px solid var(--first-text-color-dark);
   border-radius: 100px;
   background-color: var(--second-color-accent);
@@ -44,6 +44,7 @@
 .dropdown-item .input-white {
   width: calc((100vw - 40px - 30px) / 2);
   max-width: 355px;
+  height: 46px;
   gap: 10px;
 }
 
@@ -145,8 +146,16 @@ img.card-img {
   }
   .text-about,
   .text-about-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 1.29;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+
+    color: #111111;
   }
 
   .input-wrapper .input-green {
@@ -232,6 +241,20 @@ img.card-img {
     max-width: 278px;
     height: auto;
     gap: 10px 24px;
+  }
+
+  .text-about,
+  .text-about-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+
+    color: #111111;
   }
 }
 
