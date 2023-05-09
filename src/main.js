@@ -1,4 +1,3 @@
-import './js/tags.js';
 import './js/main-characters.js';
 import './js/characters-gallery.js';
 import './js/episode-gallery.js';
