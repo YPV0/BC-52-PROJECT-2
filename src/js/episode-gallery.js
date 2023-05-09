@@ -6,6 +6,7 @@ let PAGE = 1;
 const refs = {
   gallery: document.querySelector('.episodes-gallery-list'),
   btnLoadMore: document.querySelector('.btn-load-more'),
+  
 };
 
 let seasonImg = '';
@@ -102,7 +103,7 @@ async function onLoadMore() {
 
 // refs.test.addEventListener('click', onGalleryFilter);
 
-// let FILTER = { episode: 's01' };
+let FILTER = {};
 
 async function onGalleryFilter() {
   refs.gallery.innerHTML = '';
@@ -112,3 +113,57 @@ async function onGalleryFilter() {
     onCreateGalleryEpisodes(loadEpisode.data.results)
   );
 }
+
+
+const dropdownBtn = document.getElementById("all-series-btn");
+const dropdownMenu = document.getElementById("dropdown");
+
+const toggleDropdown = function () {
+  dropdownMenu.classList.toggle("show");
+};
+
+dropdownBtn.addEventListener("click", function (e) {
+  e.stopPropagation();
+  toggleDropdown();
+});
+
+document.querySelector('.season-menu').addEventListener("click", function () {
+      toggleDropdown();
+  // if (dropdownMenu.classList.contains("show")) {
+  //   toggleDropdown();
+  // }
+});
+
+// document.getElementById("1-season").addEventListener("click", () => {
+//   document.getElementById("1-season").children[0].classList.toggle('season-menu');
+// })
+
+document.getElementById("1-season").addEventListener("click", () => {
+  document.getElementById("1-season").children[0].classList.toggle('season-menu');
+  FILTER = {episode: 's01'};
+  onGalleryFilter();
+});
+
+document.getElementById("2-season").addEventListener("click", () => {
+  document.getElementById("2-season").children[0].classList.toggle('season-menu');
+  FILTER = {episode: 's02'};
+  onGalleryFilter();
+});
+
+document.getElementById("3-season").addEventListener("click", () => {
+  document.getElementById("3-season").children[0].classList.toggle('season-menu');
+  FILTER = {episode: 's03'};
+  onGalleryFilter();
+});
+
+document.getElementById("4-season").addEventListener("click", () => {
+  document.getElementById("4-season").children[0].classList.toggle('season-menu');
+  FILTER = {episode: 's04'};
+  onGalleryFilter();
+});
+
+document.getElementById("5-season").addEventListener("click", () => {
+  document.getElementById("5-season").children[0].classList.toggle('season-menu');
+  FILTER = {episode: 's05'};
+  onGalleryFilter();
+});
