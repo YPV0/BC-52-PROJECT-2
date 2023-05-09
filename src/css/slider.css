@@ -31,7 +31,7 @@
   float: right;
   margin-right: 20px;
 }
-.slider-btn:hover,:focus{
+.slider-btn:hover, .slider-btn:focus{
 background-color: var(--btn-hover-slider);
 
 }

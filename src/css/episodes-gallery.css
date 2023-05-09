@@ -1,0 +1,123 @@
+.episodes-item {
+  width: 335px;
+  height: 250px;
+
+  background: var(--background-color-dark);
+  border: 2px solid var(--first-color-accent);
+  border-radius: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.episodes-item-photo {
+  border-radius: 18px;
+  width: auto;
+  height: 100%;
+}
+
+.episodes-item-name {
+  line-height: 1.12;
+  color: var(--first-color-accent);
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 224px;
+}
+
+.episodes-item-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 17px;
+}
+
+.episodes-item-info-name {
+  width: auto;
+  height: 14px;
+  display: inline-block;
+
+  font-size: 12px;
+  line-height: 1.17;
+
+  color: var(--second-text-color-lighr);
+  margin-bottom: 4px;
+}
+
+.episodes-item-info-data {
+  font-size: 14px;
+  line-height: 1.29;
+
+  display: flex;
+  align-items: center;
+
+  color: var(--background-color-light);
+}
+
+.btn-load-more {
+  width: 126px;
+  height: 42px;
+  background: var(--first-color-accent);
+  border-radius: 1000px;
+  border: 0;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 80px;
+}
+
+.episodes-gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+
+  justify-content: center;
+
+  margin: 25px auto 40px;
+  width: 335px;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .episodes-gallery-list {
+    gap: 32px;
+    width: 100%;
+  }
+  .episodes-item {
+    width: 336px;
+    height: 250px;
+  }
+  .episodes-gallery-list {
+    margin-bottom: 64px;
+    justify-content: left;
+  }
+  .btn-load-more {
+    margin-bottom: 128px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .episodes-gallery-list {
+    column-gap: 16px;
+    row-gap: 32px;
+    justify-content: left;
+  }
+
+  .episodes-item {
+    width: 284px;
+    height: 200px;
+  }
+}
