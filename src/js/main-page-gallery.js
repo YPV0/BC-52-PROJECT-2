@@ -3,15 +3,13 @@ import debounce from 'lodash.debounce';
 import anime from 'animejs';
 
 const refs = {
-  gallery: document.querySelector('.gallery'),
-  input: document.querySelector('.characters-search'),
-  status: document.querySelector('#status-select'),
-  species: document.querySelector('#species-select'),
-  type: document.querySelector('#type-select'),
-  gender: document.querySelector('#gender-select'),
+  mainGallery: document.querySelector('.main-gallery'),
+  hiddenInput: document.querySelector('.hidden-characters-search'),
+  hiddenStatus: document.querySelector('#hidden-status-select'),
+  hiddenSpecies: document.querySelector('#hidden-species-select'),
+  hiddenType: document.querySelector('#hidden-type-select'),
+  hiddenGender: document.querySelector('#hidden-gender-select'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
-  charactersSearchForm: document.querySelector('.header-form'),
-  charactersSearchInput: document.querySelector('.header-input'),
 };
 
 let currentPage = 1;
@@ -29,19 +27,19 @@ const selectedValues = {
 const handleFilterChange = debounce(async () => {
   currentPage = 1;
   characters = [];
-  refs.gallery.innerHTML = '';
+  refs.mainGallery.innerHTML = '';
 
-  selectedValues.status = refs.status.value;
-  selectedValues.species = refs.species.value;
-  selectedValues.type = refs.type.value;
-  selectedValues.gender = refs.gender.value;
+  selectedValues.status = refs.hiddenStatus.value;
+  selectedValues.species = refs.hiddenSpecies.value;
+  selectedValues.type = refs.hiddenType.value;
+  selectedValues.gender = refs.hiddenGender.value;
 
   await fetchCharacters();
 }, 300);
 
 async function fetchCharacters() {
   const response = await getCharacters({
-    name: refs.input.value,
+    name: refs.hiddenInput.value,
     status: selectedValues.status === 'all' ? '' : selectedValues.status,
     species: selectedValues.species === 'all' ? '' : selectedValues.species,
     type: selectedValues.type === 'all' ? '' : selectedValues.type,
@@ -54,20 +52,25 @@ async function fetchCharacters() {
     totalItems = response.data.info.count;
 
     updateSelectOptions(
-      refs.status,
+      refs.hiddenStatus,
       characters,
       selectedValues.status,
       'status'
     );
     updateSelectOptions(
-      refs.species,
+      refs.hiddenSpecies,
       characters,
       selectedValues.species,
       'species'
     );
-    updateSelectOptions(refs.type, characters, selectedValues.type, 'type');
     updateSelectOptions(
-      refs.gender,
+      refs.hiddenType,
+      characters,
+      selectedValues.type,
+      'type'
+    );
+    updateSelectOptions(
+      refs.hiddenGender,
       characters,
       selectedValues.gender,
       'gender'
@@ -112,8 +115,8 @@ function updateSelectOptions(select, characters, selectedValue, attribute) {
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  const searchInput = refs.charactersSearchInput.value;
-  refs.input.value = searchInput;
+  const searchInput = refs.hiddenInput.value;
+  refs.mainInput.value = searchInput;
 
   handleFilterChange();
 }
@@ -123,7 +126,7 @@ function renderGallery() {
   const endIndex = startIndex + itemsPerPage;
   const charactersToRender = characters.slice(startIndex, endIndex);
 
-  const gallery = refs.gallery;
+  const gallery = refs.mainGallery;
   const wrapper = document.createElement('div');
 
   charactersToRender.forEach(character => {
@@ -179,27 +182,27 @@ function renderCharacterCard(character) {
 }
 
 function updateLoadMoreButton() {
-  const hasMoreItems = currentPage * itemsPerPage < totalItems;
-  refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
+  if (characters.length < totalItems) {
+    refs.loadMoreBtn.style.display = 'block';
+  } else {
+    refs.loadMoreBtn.style.display = 'none';
+  }
 }
 
-async function loadMoreItems() {
-  currentPage += 1;
-  await fetchCharacters();
+function handleLoadMore() {
+  currentPage++;
+  fetchCharacters();
 }
 
-if (
-  refs.charactersSearchForm &&
-  refs.input &&
-  refs.status &&
-  refs.species &&
-  refs.type &&
-  refs.loadMoreBtn
-) {
-  refs.charactersSearchForm.addEventListener('submit', handleFormSubmit);
-  refs.input.addEventListener('input', handleFilterChange);
-  refs.status.addEventListener('change', handleFilterChange);
-  refs.species.addEventListener('change', handleFilterChange);
-  refs.type.addEventListener('change', handleFilterChange);
-  refs.loadMoreBtn.addEventListener('click', loadMoreItems);
+function initialize() {
+  refs.hiddenInput.addEventListener('input', handleFilterChange);
+  refs.hiddenStatus.addEventListener('change', handleFilterChange);
+  refs.hiddenSpecies.addEventListener('change', handleFilterChange);
+  refs.hiddenType.addEventListener('change', handleFilterChange);
+  refs.hiddenGender.addEventListener('change', handleFilterChange);
+  refs.loadMoreBtn.addEventListener('click', handleLoadMore);
+
+  fetchCharacters();
 }
+
+initialize();
