@@ -51,7 +51,10 @@ input {
 
 .season-menu {
   display: none;
+<<<<<<< Updated upstream
   margin-top: 11px;
+=======
+>>>>>>> Stashed changes
 }
 
 .all-series-btn {
@@ -119,7 +122,13 @@ input {
   color: #A1D737;
 }
 
+<<<<<<< Updated upstream
 
+=======
+.season-menu {
+  margin-top: 11px;
+}
+>>>>>>> Stashed changes
 
 .vector-icon {
   width: 18px;
@@ -144,8 +153,11 @@ input {
 
 
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 .episodes-item {
   width: 335px;
   height: 250px;
