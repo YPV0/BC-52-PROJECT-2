@@ -1,6 +1,5 @@
 import { getCharacters } from 'rickmortyapi';
 import debounce from 'lodash.debounce';
-import anime from 'animejs';
 
 const refs = {
   mainGallery: document.querySelector('.main-gallery'),
@@ -19,6 +18,7 @@ let currentPage = 1;
 let itemsPerPage = window.innerWidth >= 1440 ? 20 : 10;
 let totalItems = 0;
 let characters = [];
+let remainingCharacters = [];
 
 const selectedValues = {
   status: 'all',
@@ -30,6 +30,7 @@ const selectedValues = {
 const handleFilterChange = debounce(async () => {
   currentPage = 1;
   characters = [];
+  remainingCharacters = [];
   refs.mainGallery.innerHTML = '';
 
   selectedValues.status = refs.hiddenStatus.value;
@@ -51,79 +52,19 @@ async function fetchCharacters() {
   });
 
   if (response.data && Array.isArray(response.data.results)) {
-    characters.push(...response.data.results);
+    const fetchedCharacters = response.data.results;
     totalItems = response.data.info.count;
 
-    updateSelectOptions(
-      refs.hiddenStatus,
-      characters,
-      selectedValues.status,
-      'status'
-    );
-    updateSelectOptions(
-      refs.hiddenSpecies,
-      characters,
-      selectedValues.species,
-      'species'
-    );
-    updateSelectOptions(
-      refs.hiddenType,
-      characters,
-      selectedValues.type,
-      'type'
-    );
-    updateSelectOptions(
-      refs.hiddenGender,
-      characters,
-      selectedValues.gender,
-      'gender'
-    );
-
-    renderGallery();
+    if (window.innerWidth < 1440) {
+      remainingCharacters = [...remainingCharacters, ...fetchedCharacters];
+      renderNextCharacters();
+    } else {
+      characters = [...characters, ...fetchedCharacters];
+      renderGallery();
+    }
   } else {
     console.log('Invalid API response:', response);
   }
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const searchInput = refs.mainHeaderInput.value;
-  refs.hiddenInput.value = searchInput;
-
-  handleFilterChange();
-
-  refs.hiddenSection.classList.remove('is-hidden');
-}
-
-function updateSelectOptions(select, characters, selectedValue, attribute) {
-  const currentValue = select.value;
-
-  select.innerHTML = '';
-
-  const allOption = document.createElement('option');
-  allOption.value = 'all';
-  allOption.textContent = 'All';
-  select.appendChild(allOption);
-
-  const availableOptions = [
-    ...new Set(characters.map(character => character[attribute])),
-  ];
-
-  availableOptions.forEach(option => {
-    if (option) {
-      const optionElement = document.createElement('option');
-      optionElement.value = option;
-      optionElement.textContent = option;
-      select.appendChild(optionElement);
-    }
-  });
-
-  if (select.querySelector(`option[value="${currentValue}"]`)) {
-    select.value = currentValue;
-  } else {
-    select.value = selectedValue;
-  }
-  selectedValues[select.id] = select.value;
 }
 
 function renderGallery() {
@@ -139,26 +80,25 @@ function renderGallery() {
     wrapper.appendChild(li);
   });
 
-  gallery.innerHTML = '';
   gallery.appendChild(wrapper);
 
-  const cards = wrapper.querySelectorAll('.gallery-card');
-  cards.forEach(card => {
-    card.style.opacity = 0;
+  updateLoadMoreButton();
+}
+
+function renderNextCharacters() {
+  const gallery = refs.mainGallery;
+  const wrapper = document.createElement('div');
+
+  remainingCharacters.slice(0, itemsPerPage).forEach(character => {
+    const li = renderCharacterCard(character);
+    wrapper.appendChild(li);
   });
 
-  anime({
-    targets: cards,
-    opacity: [0, 1],
-    translateY: [20, 0],
-    easing: 'easeOutSine',
-    duration: 500,
-  });
+  gallery.appendChild(wrapper);
+
+  remainingCharacters = remainingCharacters.slice(itemsPerPage);
 
   updateLoadMoreButton();
-
-  const wrapperHeight = wrapper.offsetHeight;
-  gallery.style.height = `${wrapperHeight}px`;
 }
 
 function renderCharacterCard(character) {
@@ -186,17 +126,34 @@ function renderCharacterCard(character) {
   return li;
 }
 
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const searchInput = refs.mainHeaderInput.value;
+  refs.hiddenInput.value = searchInput;
+
+  handleFilterChange();
+
+  refs.hiddenSection.classList.remove('is-hidden');
+}
+
 function updateLoadMoreButton() {
-  if (characters.length < totalItems) {
-    refs.loadMoreBtn.style.display = 'block';
+  if (window.innerWidth < 1440) {
+    refs.loadMoreBtn.style.display =
+      remainingCharacters.length > 0 ? 'block' : 'none';
   } else {
-    refs.loadMoreBtn.style.display = 'none';
+    const hasMoreItems =
+      currentPage * itemsPerPage < totalItems || remainingCharacters.length > 0;
+    refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
   }
 }
 
-function handleLoadMore() {
-  currentPage++;
-  fetchCharacters();
+async function handleLoadMore() {
+  if (window.innerWidth < 1440) {
+    renderNextCharacters();
+  } else {
+    currentPage += 1;
+    await fetchCharacters();
+  }
 }
 
 function initialize() {
@@ -212,4 +169,21 @@ function initialize() {
   fetchCharacters();
 }
 
-initialize();
+if (
+  refs.hiddenInput &&
+  refs.hiddenStatus &&
+  refs.hiddenSpecies &&
+  refs.hiddenType &&
+  refs.hiddenGender &&
+  refs.loadMoreBtn &&
+  refs.mainHeaderForm
+) {
+  initialize();
+}
+
+const ricksTen = await getCharacters({
+  name: 'rick',
+  page: 1,
+  perPage: 10,
+});
+console.log(ricksTen);
