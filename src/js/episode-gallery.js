@@ -127,20 +127,20 @@ dropdownBtn.addEventListener("click", function (e) {
   toggleDropdown();
 });
 
-<<<<<<< Updated upstream
+
 document.querySelector('.season-menu').addEventListener("click", function () {
       toggleDropdown();
   // if (dropdownMenu.classList.contains("show")) {
   //   toggleDropdown();
   // }
 });
-=======
+
 // document.documentElement.addEventListener("click", function () {
 //   if (dropdownMenu.classList.contains("show")) {
 //     toggleDropdown();
 //   }
 // });
->>>>>>> Stashed changes
+
 
 // document.getElementById("1-season").addEventListener("click", () => {
 //   document.getElementById("1-season").children[0].classList.toggle('season-menu');
@@ -148,45 +148,40 @@ document.querySelector('.season-menu').addEventListener("click", function () {
 
 document.getElementById("1-season").addEventListener("click", () => {
   document.getElementById("1-season").children[0].classList.toggle('season-menu');
-<<<<<<< Updated upstream
+
   FILTER = {episode: 's01'};
   onGalleryFilter();
-=======
->>>>>>> Stashed changes
+
 });
 
 document.getElementById("2-season").addEventListener("click", () => {
   document.getElementById("2-season").children[0].classList.toggle('season-menu');
-<<<<<<< Updated upstream
+
   FILTER = {episode: 's02'};
   onGalleryFilter();
-=======
->>>>>>> Stashed changes
+
 });
 
 document.getElementById("3-season").addEventListener("click", () => {
   document.getElementById("3-season").children[0].classList.toggle('season-menu');
-<<<<<<< Updated upstream
+
   FILTER = {episode: 's03'};
   onGalleryFilter();
-=======
->>>>>>> Stashed changes
+
 });
 
 document.getElementById("4-season").addEventListener("click", () => {
   document.getElementById("4-season").children[0].classList.toggle('season-menu');
-<<<<<<< Updated upstream
+
   FILTER = {episode: 's04'};
   onGalleryFilter();
-=======
->>>>>>> Stashed changes
+
 });
 
 document.getElementById("5-season").addEventListener("click", () => {
   document.getElementById("5-season").children[0].classList.toggle('season-menu');
-<<<<<<< Updated upstream
+
   FILTER = {episode: 's05'};
   onGalleryFilter();
-=======
->>>>>>> Stashed changes
+
 });
