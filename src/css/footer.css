@@ -84,9 +84,12 @@ footer {
   width: 18px;
   height: 18px;
 }
+.twitter-home {
+  stroke: var(--second-text-color-dark);
+}
 
 .privacy-policy:last-child {
-  margin-bottom: 16px;
+  padding-bottom: 16px;
   text-align: center;
   font-size: 12px;
   line-height: 1.17;
@@ -106,7 +109,7 @@ footer {
     margin: 0 auto;
   }
 
-  img {
+  .rick-morty {
     position: absolute;
     left: 25px;
     top: -28px;
