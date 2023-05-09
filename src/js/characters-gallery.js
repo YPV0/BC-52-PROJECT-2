@@ -1,5 +1,6 @@
 import { getCharacters } from 'rickmortyapi';
 import debounce from 'lodash.debounce';
+import anime from 'animejs';
 
 const refs = {
   gallery: document.querySelector('.gallery'),
@@ -122,30 +123,55 @@ function renderGallery() {
   const endIndex = startIndex + itemsPerPage;
   const charactersToRender = characters.slice(startIndex, endIndex);
 
-  charactersToRender.forEach(character => {
+  const animation = anime.timeline();
+  const gallery = refs.gallery;
+  const wrapper = document.createElement('div');
+
+  charactersToRender.forEach((character, index) => {
     const li = renderCharacterCard(character);
-    refs.gallery.appendChild(li);
+    li.style.opacity = 0;
+    wrapper.appendChild(li);
+
+    animation.add({
+      targets: li,
+      opacity: [0, 1],
+      translateY: [20, 0],
+      easing: 'easeOutSine',
+      duration: 500,
+      delay: 100 * index,
+    });
   });
 
+  gallery.innerHTML = '';
+  gallery.appendChild(wrapper);
+
   updateLoadMoreButton();
+
+  const wrapperHeight = wrapper.offsetHeight;
+  gallery.style.height = `${wrapperHeight}px`;
 }
 
 function renderCharacterCard(character) {
   const li = document.createElement('li');
   li.className = 'gallery-card';
 
-  li.innerHTML = `
+  const wrapper = document.createElement('div');
+  wrapper.className = 'gallery-card-wrapper';
+
+  wrapper.innerHTML = `
     <img src="${character.image}" alt="${character.name}" class="card-img" />
-       <div class="card-info">
+    <div class="card-info">
       <p class="card-name">${character.name}</p>
       <p class="card-origin-title">
-       Origin: <span class="card-origin-info">${character.origin.name}</span>
+        Origin: <span class="card-origin-info">${character.origin.name}</span>
       </p>
       <p class="card-location-title">
-       Location: <span class="card-location-info">${character.location.name}</span>
+        Location: <span class="card-location-info">${character.location.name}</span>
       </p>
     </div>
   `;
+
+  li.appendChild(wrapper);
 
   return li;
 }
