@@ -1,6 +1,7 @@
 .charac-epis-footer {
   background-color: var(--background-color-dark);
   color: var(--background-color-light);
+  max-width: 100%;
 }
 
 .footer-logo .rick-char-epic {
