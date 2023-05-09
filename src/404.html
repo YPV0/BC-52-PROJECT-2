@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>404 Error</title>
+  </head>
+
+  <body>
+    <div class="error-container">
+      <img class="error-logo" src="./img/header-hero/logo.png" alt="logo" />
+      <picture>
+        <source
+          srcset="
+            ./img/error-desktop@1x-min.png 1x,
+            ./img/error-desktop@2x-min.png 2x
+          "
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="
+            ./img/error-tablet@1x-min.png 1x,
+            ./img/error-tablet@2x-min.png 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./img/error-mobile@1x-min.png 1x,
+            ./img/error-mobile@2x-min.png 2x
+          "
+          media="(min-width: 375px)"
+        />
+
+        <img
+          class="error-img"
+          src="./img/error-mobile@1x-min.png"
+          alt="Rick Sanchez face"
+        />
+      </picture>
+
+      <picture>
+        <source
+          srcset="
+            ./img/404-desktop@1x-min.png 1x,
+            ./img/404-desktop@2x-min.png 2x
+          "
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="
+            ./img/404-tablet@1x-min.png 1x,
+            ./img/404-tablet@2x-min.png 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./img/404-mobile@1x-min.png 1x,
+            ./img/404-mobile@2x-min.png 2x
+          "
+          media="(min-width: 375px)"
+        />
+
+        <img
+          class="error-number"
+          src="./img/404-mobile@1x-min.png"
+          alt="404 Error"
+        />
+      </picture>
+      <p class="error-text">Wubba Lubba Dub Dub! That page can’t be found.</p>
+      <a class="btn-dark-bg error-btn" href="index.html">Back home</a>
+    </div>
+  </body>
+</html>

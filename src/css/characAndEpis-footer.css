@@ -1,0 +1,73 @@
+.charac-epis-footer {
+  background-color: var(--background-color-dark);
+  color: var(--background-color-light);
+  max-width: 100%;
+}
+
+.footer-logo .rick-char-epic {
+  background: var(--first-color-accent);
+  color: var(--second-text-color-dark);
+}
+.footer-logo .morty-char-epic {
+  background: var(--second-color-accent);
+  color: var(--second-text-color-dark);
+}
+.footer-social .item-char-epic {
+  display: flex;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 8px;
+}
+
+.footer-icon-char-epic {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: var(--background-color-light);
+}
+
+.twitter {
+  stroke: var(--background-color-light);
+}
+
+.privacy:last-child {
+  padding-bottom: 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.17;
+  color: var(--text-color-privacy);
+}
+
+@media screen and (min-width: 375px) {
+  footer {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .footer-social .item-char-epic {
+    border-radius: 12px;
+  }
+
+  .footer-social .footer-icon-char-epic {
+    width: 28px;
+    height: 28px;
+  }
+
+  .privacy:last-child {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  footer {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
