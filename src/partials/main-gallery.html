@@ -50,4 +50,19 @@
     <ul class="main-gallery"></ul>
     <button class="load-more-btn" type="button">Load More</button>
   </div>
+  <div class="oops-list is-hidden">
+    <picture>
+      <source
+        srcset="./img/oops-desktop@1x.png 1x, ./img/oops-desktop@2x.png 2x"
+        media="(min-width: 1440px)" />
+      <source
+        srcset="./img/oops-tablet@1x.png 1x, ./img/oops-tablet@2x.png 2x"
+        media="(min-width: 768px)" />
+      <source
+        srcset="./img/oops-mobile@1x.png 1x, ./img/oops-mobile@2x.png 2x"
+        media="(max-width: 767px)" />
+      <img class="oops-img" src="./img/oops-desktop@1x.png" alt="oops"
+    /></picture>
+    <p class="oops-text">Oops! Try looking for something else...</p>
+  </div>
 </section>
