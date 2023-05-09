@@ -12,6 +12,7 @@ const refs = {
   charactersSearchForm: document.querySelector('#main-header-form'),
   charactersSearchInput: document.querySelector('#hidden-input'),
   hiddenSection: document.querySelector('#hidden-section'),
+  oopsList: document.querySelector('.oops-list'),
 };
 
 let currentPage = 1;
@@ -77,6 +78,7 @@ async function fetchCharacters() {
   } else {
     console.log('Invalid API response:', response);
     refs.loadMoreBtn.style.display = 'none';
+    refs.oopsList.classList.remove('is-hidden');
   }
 }
 
