@@ -54,6 +54,7 @@
   right: 40px;
   bottom: 40px;
   transition: border var(--transition-dur-and-func);
+  z-index: 1000;
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -151,7 +152,7 @@
     width: 72px;
     height: 72px;
     right: 32px;
-    bottom: 64px;
+    bottom: 32px;
   }
   .hero-icon {
     width: 32px;
@@ -185,7 +186,7 @@
     width: 80px;
     height: 80px;
     right: 128px;
-    bottom: 64px;
+    bottom: 128px;
   }
   .hero-icon {
     width: 40px;
