@@ -136,13 +136,13 @@ function renderCharacterCard(character) {
 
   li.innerHTML = `
     <img src="${character.image}" alt="${character.name}" class="card-img" />
-       <div class="card-info">
+    <div class="card-info">
       <p class="card-name">${character.name}</p>
       <p class="card-origin-title">
-       Origin: <span class="card-origin-info">${character.origin.name}</span>
+        Origin: <span class="card-origin-info">${character.origin.name}</span>
       </p>
       <p class="card-location-title">
-       Location: <span class="card-location-info">${character.location.name}</span>
+        Location: <span class="card-location-info">${character.location.name}</span>
       </p>
     </div>
   `;
