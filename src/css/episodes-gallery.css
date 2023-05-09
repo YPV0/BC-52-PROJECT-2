@@ -51,11 +51,11 @@ input {
 
 .season-menu {
   display: none;
-<<<<<<< Updated upstream
+  
   margin-top: 11px;
-=======
->>>>>>> Stashed changes
 }
+
+
 
 .all-series-btn {
   text-align: left;
@@ -108,8 +108,11 @@ input {
 }
 
 .seasons {
+
   margin-bottom: 8px;
 }
+
+
 
 .seasons-gap li {
   margin-top: 11px;
@@ -121,14 +124,6 @@ input {
 .seasons-gap li:hover {
   color: #A1D737;
 }
-
-<<<<<<< Updated upstream
-
-=======
-.season-menu {
-  margin-top: 11px;
-}
->>>>>>> Stashed changes
 
 .vector-icon {
   width: 18px;
@@ -153,11 +148,7 @@ input {
 
 
 
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
 .episodes-item {
   width: 335px;
   height: 250px;
