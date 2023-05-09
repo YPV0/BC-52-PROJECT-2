@@ -1,6 +1,6 @@
 
 .hero-gallery {
-  padding-top: 64px;
+  padding-top: 61px;
   padding-bottom: 80px;
   margin-right: 20px;
   margin-left: 20px;
@@ -163,8 +163,7 @@ img.card-img {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* margin: 44px; */
-    gap: 32px;
+    gap: 64px 32px;
   }
 }
 
