@@ -17,9 +17,6 @@
 .img-shown {
   display: block;
 }
-.img-transition {
-  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
-}
 
 .main-title {
   font-weight: 600;
@@ -48,8 +45,10 @@
   align-items: center;
   color: #111111;
   margin-bottom: 14px;
-  margin-top: 40px;
   transition: color var(--transition-dur-and-func);
+}
+.main-characters-item:not(:first-child) {
+  padding-top: 40px;
 }
 .main-link:hover .main-subtitle {
   color: #a1d737;
@@ -118,7 +117,7 @@
   }
   .img-component {
     max-width: 504px;
-    height: 504px;
+    height: 544px;
     margin-bottom: 0;
   }
 
@@ -140,6 +139,6 @@
     line-height: 1.12;
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    padding-bottom: 32px;
   }
 }
