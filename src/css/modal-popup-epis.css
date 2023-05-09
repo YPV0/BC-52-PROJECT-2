@@ -1,0 +1,175 @@
+/* ------Mobile------ */
+.container-pop-epis {
+  position: relative;
+  width: 335px;
+  height: 410px;
+
+  background: #0d171d;
+  border-radius: 14px;
+}
+.close-pop-epis-btn {
+  position: absolute;
+
+  right: 16px;
+  top: 14px;
+  cursor: pointer;
+  background-color: #0d171d;
+  border-radius: 50%;
+  border: 0;
+}
+.close-pop-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #a1d737;
+}
+
+.pop-epis-block {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 295px;
+  height: 330px;
+  left: 20px;
+  top: 40px;
+
+  background: #0d171d;
+  border: 2px solid #a1d737;
+  border-radius: 18px;
+}
+.pop-epis-pilot-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #fafafa;
+  margin-left: 20px;
+  margin-bottom: 14px;
+}
+.pop-epis-pilot-title:first-child {
+  margin-top: 20px;
+}
+.pop-epis-pilot-subskr {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  color: rgba(250, 250, 250, 0.5);
+  margin-right: 30px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+.pop-epis-id {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  display: flex;
+  align-items: center;
+  color: #fafafa;
+  margin-top: 8px;
+}
+.pop-epis-date {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  display: flex;
+  align-items: center;
+  color: #fafafa;
+  margin-top: 8px;
+}
+
+.pop-hero-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 8px;
+  margin-left: 20px;
+}
+.pop-hero-name {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  display: flex;
+  align-items: center;
+  color: #fafafa;
+}
+.pop-epis-hero {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pop-epis-tablet-subtitle {
+  display: none;
+}
+
+/* --------Tablet--------- */
+@media screen and (min-width: 768px) {
+  .container-pop-epis {
+    width: 673px;
+    height: 370px;
+
+    background: #0d171d;
+    border-radius: 18px;
+  }
+  .close-pop-epis-btn {
+    right: 14px;
+    top: 14px;
+  }
+  .close-pop-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pop-epis-block {
+    width: 609px;
+    height: 306px;
+    left: 32px;
+    top: 32px;
+  }
+  .pop-epis-pilot-title {
+    font-size: 24px;
+    line-height: 1.17;
+    margin-left: 32px;
+    margin-bottom: 16px;
+  }
+  .pop-epis-pilot-title:first-child {
+    margin-top: 32px;
+  }
+  .pop-epis-tablet-subtitle {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    display: flex;
+    align-items: center;
+    color: rgba(250, 250, 250, 0.5);
+    margin-left: 32px;
+  }
+
+  .pop-epis-pilot-subskr {
+    margin-right: 52px;
+    margin-left: 32px;
+    margin-bottom: 32px;
+  }
+  .pop-epis-id {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+  .pop-epis-date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  .pop-hero-img {
+    width: 60px;
+    height: 60px;
+    margin-top: 8px;
+    margin-right: 14px;
+    margin-left: 32px;
+  }
+  .pop-hero-name {
+    font-size: 16px;
+    line-height: 1.12;
+  }
+}
