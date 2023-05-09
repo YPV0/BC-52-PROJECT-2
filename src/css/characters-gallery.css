@@ -18,6 +18,8 @@
   padding: 14px 24px;
   width: 100hv;
   max-width: 335px;
+  margin-left: calc((100vw - 40px - 335px) / 2);
+  margin-right: calc((100vw - 40px - 335px) / 2);
   border: 1.5px solid var(--first-text-color-dark);
   border-radius: 100px;
   background-color: var(--second-color-accent);
@@ -37,14 +39,13 @@
 .dropdown-item:nth-child(-n + 2) {
   margin-bottom: 20px;
 }
-.characters-search {
-  width: calc(100vw - 40px);
-}
+
 .dropdown-item .input-white {
   width: calc((100vw - 40px - 30px) / 2);
   max-width: 355px;
   gap: 10px;
 }
+
 .gallery {
   display: flex;
   flex-direction: column;
@@ -144,6 +145,8 @@ img.card-img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
     max-width: 269px;
   }
 
@@ -155,14 +158,14 @@ img.card-img {
     height: auto;
     gap: 10px 24px;
   }
-}
 
-.gallery.gallery-cards.hero-gallery {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* margin: 44px; */
-  gap: 32px;
+  .gallery.gallery-cards.hero-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin: 44px; */
+    gap: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -170,13 +173,16 @@ img.card-img {
     justify-content: center;
     flex-wrap: nowrap;
   }
-
   .input-wrapper .input-green {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-right: 10px;
+    margin-left: 10px;
     max-width: 233px;
   }
 
   .dropdown-item .input-white {
-    /* width: calc((100vw - 40px - 30px) / 2); */
     width: 165px;
     gap: 10px;
   }
@@ -204,20 +210,18 @@ img.card-img {
 
   .gallery.gallery-cards.hero-gallery {
     align-items: center;
-    justify-content: center;
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: calc((100vw - 40px - 10px) / 4);
-    width: 278px;
-    height: 314px;
+    width: 100vw;
+    height: auto;
     gap: 32px;
   }
 
   .gallery-card img.card-img {
     display: flex;
     justify-content: center;
-    width: calc((100vw - 40px - 10px) / 2);
+    flex-wrap: nowrap;
+    width: calc((100vw - 40px - 10px) / 4);
     max-width: 278px;
     height: auto;
     gap: 10px 24px;
