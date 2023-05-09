@@ -3,7 +3,7 @@ const btnUp = document.querySelector('.hero-btn-rotate');
 const footerEl = document.querySelector('#footer');
 const heroEl = document.querySelector('#hero');
 
-let currentSection = document.querySelector('section:not(.is-hidden)');
+let currentSection = document.querySelector('section');
 let nextSection = currentSection.nextElementSibling;
 let currentNewSection = '';
 
@@ -16,12 +16,19 @@ function callbackFoo() {
     return currentNewSection;
   } else if (currentNewSection) {
     nextSection = currentNewSection.nextElementSibling;
-    nextSection.scrollIntoView({ behavior: 'smooth' });
+    if (nextSection.classList.contains('is-hidden')) {
+      nextSection = nextSection.nextElementSibling;
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
     currentNewSection = nextSection;
     return currentNewSection;
   } else {
     nextSection.scrollIntoView({ behavior: 'smooth' });
-    currentNewSection = nextSection;
+    if (nextSection.classList.contains('is-hidden')) {
+      currentNewSection = nextSection.nextElementSibling;
+    } else currentNewSection = nextSection;
     return currentNewSection;
   }
 }
