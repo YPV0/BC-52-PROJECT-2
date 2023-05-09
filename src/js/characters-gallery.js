@@ -75,6 +75,7 @@ async function fetchCharacters() {
     renderGallery();
   } else {
     console.log('Invalid API response:', response);
+    refs.loadMoreBtn.style.display = 'none';
   }
 }
 

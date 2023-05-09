@@ -2,23 +2,22 @@ import { getCharacters } from 'rickmortyapi';
 import debounce from 'lodash.debounce';
 
 const refs = {
-  mainGallery: document.querySelector('.main-gallery'),
-  hiddenInput: document.querySelector('.hidden-characters-search'),
-  hiddenStatus: document.querySelector('#hidden-status-select'),
-  hiddenSpecies: document.querySelector('#hidden-species-select'),
-  hiddenType: document.querySelector('#hidden-type-select'),
-  hiddenGender: document.querySelector('#hidden-gender-select'),
+  galleryMain: document.querySelector('.main-gallery'),
+  inputMain: document.querySelector('.hidden-characters-search'),
+  statusMain: document.querySelector('#hidden-status-select'),
+  speciesMain: document.querySelector('#hidden-species-select'),
+  typeMain: document.querySelector('#hidden-type-select'),
+  genderMain: document.querySelector('#hidden-gender-select'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
-  mainHeaderForm: document.querySelector('#main-header-form'),
+  charactersSearchForm: document.querySelector('#main-header-form'),
+  charactersSearchInput: document.querySelector('#hidden-input'),
   hiddenSection: document.querySelector('#hidden-section'),
-  mainHeaderInput: document.querySelector('#hidden-input'),
 };
 
 let currentPage = 1;
 let itemsPerPage = window.innerWidth >= 1440 ? 20 : 10;
 let totalItems = 0;
 let characters = [];
-let remainingCharacters = [];
 
 const selectedValues = {
   status: 'all',
@@ -30,20 +29,19 @@ const selectedValues = {
 const handleFilterChange = debounce(async () => {
   currentPage = 1;
   characters = [];
-  remainingCharacters = [];
-  refs.mainGallery.innerHTML = '';
+  refs.galleryMain.innerHTML = '';
 
-  selectedValues.status = refs.hiddenStatus.value;
-  selectedValues.species = refs.hiddenSpecies.value;
-  selectedValues.type = refs.hiddenType.value;
-  selectedValues.gender = refs.hiddenGender.value;
+  selectedValues.status = refs.statusMain.value;
+  selectedValues.species = refs.speciesMain.value;
+  selectedValues.type = refs.typeMain.value;
+  selectedValues.gender = refs.genderMain.value;
 
   await fetchCharacters();
 }, 300);
 
 async function fetchCharacters() {
   const response = await getCharacters({
-    name: refs.hiddenInput.value,
+    name: refs.inputMain.value,
     status: selectedValues.status === 'all' ? '' : selectedValues.status,
     species: selectedValues.species === 'all' ? '' : selectedValues.species,
     type: selectedValues.type === 'all' ? '' : selectedValues.type,
@@ -52,17 +50,74 @@ async function fetchCharacters() {
   });
 
   if (response.data && Array.isArray(response.data.results)) {
-    if (window.innerWidth < 1440) {
-      remainingCharacters = [...remainingCharacters, ...response.data.results];
-      renderNextCharacters();
-    } else {
-      characters = [...characters, ...response.data.results];
-      totalItems = response.data.info.count;
-      renderGallery();
-    }
+    characters.push(...response.data.results);
+    totalItems = response.data.info.count;
+
+    updateSelectOptions(
+      refs.statusMain,
+      characters,
+      selectedValues.status,
+      'status'
+    );
+    updateSelectOptions(
+      refs.speciesMain,
+      characters,
+      selectedValues.species,
+      'species'
+    );
+    updateSelectOptions(refs.typeMain, characters, selectedValues.type, 'type');
+    updateSelectOptions(
+      refs.genderMain,
+      characters,
+      selectedValues.gender,
+      'gender'
+    );
+
+    renderGallery();
   } else {
     console.log('Invalid API response:', response);
+    refs.loadMoreBtn.style.display = 'none';
   }
+}
+
+function updateSelectOptions(select, characters, selectedValue, attribute) {
+  const currentValue = select.value;
+
+  select.innerHTML = '';
+
+  const allOption = document.createElement('option');
+  allOption.value = 'all';
+  allOption.textContent = 'All';
+  select.appendChild(allOption);
+
+  const availableOptions = [
+    ...new Set(characters.map(character => character[attribute])),
+  ];
+
+  availableOptions.forEach(option => {
+    if (option) {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.textContent = option;
+      select.appendChild(optionElement);
+    }
+  });
+
+  if (select.querySelector(`option[value="${currentValue}"]`)) {
+    select.value = currentValue;
+  } else {
+    select.value = selectedValue;
+  }
+  selectedValues[select.id] = select.value;
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  refs.hiddenSection.classList.remove('is-hidden');
+  const searchInput = refs.charactersSearchInput.value;
+  refs.inputMain.value = searchInput;
+
+  handleFilterChange();
 }
 
 function renderGallery() {
@@ -70,37 +125,10 @@ function renderGallery() {
   const endIndex = startIndex + itemsPerPage;
   const charactersToRender = characters.slice(startIndex, endIndex);
 
-  const gallery = refs.mainGallery;
-  const wrapper = document.createElement('div');
-
   charactersToRender.forEach(character => {
     const li = renderCharacterCard(character);
-    wrapper.appendChild(li);
+    refs.galleryMain.appendChild(li);
   });
-
-  gallery.appendChild(wrapper);
-
-  updateLoadMoreButton();
-}
-
-function renderNextCharacters() {
-  const gallery = refs.mainGallery;
-  const wrapper = document.createElement('div');
-
-  const charactersToRender = remainingCharacters.slice(0, itemsPerPage);
-  charactersToRender.forEach(character => {
-    const li = renderCharacterCard(character);
-    wrapper.appendChild(li);
-  });
-
-  gallery.appendChild(wrapper);
-
-  remainingCharacters = remainingCharacters.slice(itemsPerPage);
-
-  if (remainingCharacters.length === 0) {
-    currentPage += 1;
-    fetchCharacters();
-  }
 
   updateLoadMoreButton();
 }
@@ -109,84 +137,46 @@ function renderCharacterCard(character) {
   const li = document.createElement('li');
   li.className = 'gallery-card';
 
-  const wrapper = document.createElement('div');
-  wrapper.className = 'gallery-card-wrapper';
-
-  wrapper.innerHTML = `
+  li.innerHTML = `
     <img src="${character.image}" alt="${character.name}" class="card-img" />
     <div class="card-info">
       <p class="card-name">${character.name}</p>
       <p class="card-origin-title">
         Origin: <span class="card-origin-info">${character.origin.name}</span>
-</p>
-<p class="card-location-title">
-Location: <span class="card-location-info">${character.location.name}</span>
-</p>
-</div>
-`;
-
-  li.appendChild(wrapper);
+      </p>
+      <p class="card-location-title">
+        Location: <span class="card-location-info">${character.location.name}</span>
+      </p>
+    </div>
+  `;
 
   return li;
 }
 
 function updateLoadMoreButton() {
-  if (window.innerWidth < 1440) {
-    refs.loadMoreBtn.style.display =
-      characters.length > 0 || remainingCharacters.length > 0
-        ? 'block'
-        : 'none';
-  } else {
-    const hasMoreItems = currentPage * itemsPerPage < totalItems;
-    refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
-  }
+  const hasMoreItems = currentPage * itemsPerPage < totalItems;
+  refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
 }
 
-async function handleLoadMore() {
-  if (window.innerWidth < 1440) {
-    if (remainingCharacters.length < 1) {
-      currentPage += 1;
-      await fetchCharacters();
-    }
-    renderNextCharacters();
-  } else {
-    currentPage += 1;
-    await fetchCharacters();
-    renderGallery();
-  }
-}
-
-function initialize() {
-  refs.hiddenInput.addEventListener('input', handleFilterChange);
-  refs.hiddenStatus.addEventListener('change', handleFilterChange);
-  refs.hiddenSpecies.addEventListener('change', handleFilterChange);
-  refs.hiddenType.addEventListener('change', handleFilterChange);
-  refs.hiddenGender.addEventListener('change', handleFilterChange);
-  refs.loadMoreBtn.addEventListener('click', handleLoadMore);
-
-  refs.mainHeaderForm.addEventListener('submit', handleFormSubmit);
-
-  fetchCharacters();
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const searchInput = refs.mainHeaderInput.value;
-  refs.hiddenInput.value = searchInput;
-
-  handleFilterChange();
-
-  refs.hiddenSection.classList.remove('is-hidden');
+async function loadMoreItems() {
+  currentPage += 1;
+  await fetchCharacters();
 }
 
 if (
-  refs.hiddenInput &&
-  refs.hiddenStatus &&
-  refs.hiddenSpecies &&
-  refs.hiddenType &&
-  refs.hiddenGender &&
+  refs.charactersSearchForm &&
+  refs.inputMain &&
+  refs.statusMain &&
+  refs.speciesMain &&
+  refs.typeMain &&
   refs.loadMoreBtn &&
-  refs.mainHeaderForm
+  refs.genderMain
 ) {
-  initialize();
+  refs.charactersSearchForm.addEventListener('submit', handleFormSubmit);
+  refs.inputMain.addEventListener('input', handleFilterChange);
+  refs.statusMain.addEventListener('change', handleFilterChange);
+  refs.speciesMain.addEventListener('change', handleFilterChange);
+  refs.genderMain.addEventListener('change', handleFilterChange);
+  refs.typeMain.addEventListener('change', handleFilterChange);
+  refs.loadMoreBtn.addEventListener('click', loadMoreItems);
 }
