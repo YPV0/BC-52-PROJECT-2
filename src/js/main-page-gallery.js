@@ -190,10 +190,3 @@ if (
 ) {
   initialize();
 }
-
-const ricksTen = await getCharacters({
-  name: 'rick',
-  page: 1,
-  perPage: 10,
-});
-console.log(ricksTen);
