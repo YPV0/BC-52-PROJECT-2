@@ -3,11 +3,11 @@
   color: var(--background-color-light);
 }
 
-.footer-logo .rick {
+.footer-logo .rick-char-epic {
   background: var(--first-color-accent);
   color: var(--second-text-color-dark);
 }
-.footer-logo .morty {
+.footer-logo .morty-char-epic {
   background: var(--second-color-accent);
   color: var(--second-text-color-dark);
 }

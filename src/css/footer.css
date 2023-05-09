@@ -109,7 +109,7 @@ footer {
     margin: 0 auto;
   }
 
-  img {
+  .rick-morty {
     position: absolute;
     left: 25px;
     top: -28px;
