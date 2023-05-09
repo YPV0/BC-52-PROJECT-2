@@ -54,6 +54,7 @@
   right: 40px;
   bottom: 40px;
   transition: border var(--transition-dur-and-func);
+  z-index: 1000;
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -70,10 +71,6 @@
     background-repeat: no-repeat;
     background-size: 104px 124px, 335px 324px;
     background-position: 200px 355px, center 162px;
-  }
-  .hero-btn {
-    right: 84px;
-    bottom: 144px;
   }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) {
