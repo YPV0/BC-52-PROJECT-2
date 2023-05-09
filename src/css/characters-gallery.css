@@ -16,6 +16,7 @@
 }
 .input-wrapper .input-green {
   padding: 14px 24px;
+  margin-top: 8px;
   width: 100hv;
   max-width: 335px;
   margin-left: calc((100vw - 40px - 335px) / 2);
@@ -54,6 +55,11 @@
   justify-content: center;
   gap: 10px 10px;
   
+}
+
+svg.search-icon {
+  stroke:rgba(17, 17, 17, 0.5);
+  fill:#111111;
 }
 
 img.card-img {
@@ -137,10 +143,12 @@ img.card-img {
   .dropdown-item:nth-child(3n) {
     margin-right: 0px;
   }
-  .text-about {
+  .text-about,
+  .text-about-name {
     font-size: 14px;
     line-height: 1.29;
   }
+
   .input-wrapper .input-green {
     display: flex;
     flex-direction: column;
