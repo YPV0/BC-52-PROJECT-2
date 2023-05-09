@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="dropdown-filter">
       <li class="dropdown-item input-wrapper">
-        <p class="text-about-name">Name</p>
+        <p class="text-about" id="dropdown-item-name">Name</p>
         <input
           class="characters-search input-green"
           type="text"
@@ -10,18 +10,18 @@
         />
       </li>
       <li class="dropdown-item">
-        <p class="text-about">Status</p>
+        <p class="text-about" id="dropdown-item-status">Status</p>
         <select name="status" id="status-select" class="input-white">
-          <option value="alive">Alive</option>
+          <option value="alive" selected>Alive</option>
           <option value="dead">Dead</option>
           <option value="unknow">Unknow</option>
           <option value="all">All</option>
         </select>
       </li>
       <li class="dropdown-item">
-        <p class="text-about">Species</p>
+        <p class="text-about" id="dropdown-item-species">Species</p>
         <select name="species" id="species-select" class="input-white">
-          <option value="human">Human</option>
+          <option value="human" selected>Human</option>
           <option value="alien">Alien</option>
           <option value="humanoid">Humanoid</option>
           <option value="animal">Animal</option>
@@ -34,17 +34,17 @@
         </select>
       </li>
       <li class="dropdown-item">
-        <p class="text-about">Type</p>
+        <p class="text-about" id="dropdown-item-type">Type</p>
         <select name="type" id="type-select" class="input-white">
           <!-- <option value="all">All</option> -->
-          <option value="all">Parasite</option>
+          <option value="all" selected>Parasite</option>
           <!-- Типи з API мають рендериться тут -->
         </select>
       </li>
       <li class="dropdown-item">
-        <p class="text-about">Gender</p>
+        <p class="text-about" id="dropdown-item-gender">Gender</p>
         <select name="gender" id="gender-select" class="input-white">
-          <option value="all">All</option>
+          <option value="all" selected>All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="genderless">Genderless</option>

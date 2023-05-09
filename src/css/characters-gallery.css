@@ -80,6 +80,12 @@
   gap: 39px;
 }
 
+.my {
+  background-color: rgb(194, 194, 194);
+  width: 200px;
+  height: 200px;
+}
+
 svg.search-icon {
   stroke:rgba(17, 17, 17, 0.5);
   fill:#111111;
@@ -205,9 +211,14 @@ img.card-img {
   .dropdown-item:nth-child(3n) {
     margin-right: 0px;
   }
-  .text-about,
-  .text-about-name {
-    font-family: 'Poppins';
+
+  .dropdown-item #dropdown-item-name,
+  .dropdown-item #dropdown-item-status,
+  .dropdown-item #dropdown-item-species,
+  .dropdown-item #dropdown-item-type,
+  .dropdown-item #dropdown-item-gender {
+    margin-bottom: 6px;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -258,8 +269,8 @@ img.card-img {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin-right: 10px;
-    margin-left: 10px;
+    /* margin-right: 0px; */
+    /* margin-left: 0px; */
     max-width: 233px;
   }
 
@@ -267,9 +278,7 @@ img.card-img {
     justify-content: center;
     align-items: flex-start;
   }
-  .dropdown-item:nth-child(3n) {
-    margin-right: 16px;
-  }
+ 
   .gallery-card:nth-child(-n + 2) {
     margin-top: 0;
   }
@@ -286,8 +295,8 @@ img.card-img {
     width: 204px;
   }
   
-  .dropdown-item:nth-child(3n) {
-    margin-right: 16px;
+  .dropdown-item .input-white#species-select > option {
+    width: 204px;
   }
   .characters-search {
     margin-bottom: 0;
