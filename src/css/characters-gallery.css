@@ -2,12 +2,9 @@
 .hero-gallery {
   padding-top: 128px;
   padding-bottom: 80px;
+  /* margin-right: 20px; */
+  /* margin-left: 20px; */
   margin-top: 0px;
-}
-
-.gallery.gallery-cards.hero-gallery {
-  margin-bottom: 0px;
-  padding-bottom: 0ox;
 }
 
 .characters-search::placeholder {
@@ -24,19 +21,6 @@
   position: relative;
 }
 
-
-.hero-gallery {
-  padding-top: 61px;
-  padding-bottom: 80px;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 0px;
-}
-
-.container {
-  margin: auto;
-  padding: 0;
-}
 .characters-search::placeholder {
   color: var(--first-text-color-dark);
 }
@@ -69,6 +53,8 @@
 .dropdown-item .input-white {
   width: calc((100vw - 40px - 30px) / 2);
   max-width: 355px;
+  padding-top: 0;
+  padding-bottom: 0;
   height: 46px;
   gap: 10px;
 }
