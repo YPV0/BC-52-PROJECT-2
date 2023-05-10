@@ -38,45 +38,46 @@ async function fetchData() {
     img.setAttribute('src', randomCharacter.image);
    statusItems[0].innerHTML = `<span class="status-key">Status:</span><span class="status-value">${randomCharacter.status.split(' ')[0] === "unknown" ? "" : randomCharacter.status.split(' ')[0]}</span>`;
 statusItems[1].innerHTML = `<span class="status-key">Species:</span><span class="status-value">${randomCharacter.species.split(' ')[0] === "unknown" ? "" : randomCharacter.species.split(' ')[0]}</span>`;
-statusItems[2].innerHTML = `<span class="status-key">Type:</span><span class="status-value">${randomCharacter.type && randomCharacter.type.split(' ')[0] !== "unknown" ? randomCharacter.type.split(' ')[0] : ""}</span>`;
-statusItems[3].innerHTML = `<span class="status-key">Gender:</span><span class="status-value">${randomCharacter.gender.split(' ')[0] === "unknown" ? "" : randomCharacter.gender.split(' ')[0]}</span>`;
-statusItems[4].innerHTML = `<span class="status-key">Origin:</span><span class="status-value">${randomCharacter.origin.name.split(' ')[0] === "unknown" ? "" : randomCharacter.origin.name.split(' ')[0]}</span>`;
-statusItems[5].innerHTML = `<span class="status-key">Location:</span><span class="status-value">${randomCharacter.location.name.split(' ')[0] === "unknown" ? "" : randomCharacter.location.name.split(' ')[0]}</span>`;
-    
-for (let item of statusItems) {
-  const valueEl = item.querySelector('.status-value');
-  valueEl.innerText = valueEl.innerText ? valueEl.innerText : '';
-}
-await Promise.all(randomCharacter.episode.map(async (episode) => {
-  const response = await fetch(episode);
-  const data = await response.json();
-  const seasonEpisode = data.episode.match(/S(\d+)E(\d+)/);
-  const season = parseInt(seasonEpisode[1], 10);
-  const episodeItem = document.createElement('li');
-  episodeItem.classList.add('popchar-episodes-item');
+statusItems[2].innerHTML = `<span class="status-key">Gender:</span><span class="status-value">${randomCharacter.gender.split(' ')[0] === "unknown" ? "" : randomCharacter.gender.split(' ')[0]}</span>`;
+statusItems[3].innerHTML = `<span class="status-key">Origin:</span><span class="status-value">${randomCharacter.origin.name.split(' ')[0] === "unknown" ? "" : randomCharacter.origin.name.split(' ')[0]}</span>`;
+statusItems[4].innerHTML = `<span class="status-key">Location:</span><span class="status-value">${randomCharacter.location.name.split(' ')[0] === "unknown" ? "" : randomCharacter.location.name.split(' ')[0]}</span>`;
+statusItems[6].innerHTML = `<span class="status-key">Type:</span><span class="status-value">${randomCharacter.type && randomCharacter.type.split(' ')[0] !== "unknown" ? randomCharacter.type.split(' ')[0] : ""}</span>`;
 
-  const episodeName = document.createElement('span');
-  episodeName.classList.add('episode-name-title');
-  episodeName.textContent = data.name;
-  episodeItem.appendChild(episodeName);
+    const episodeUrls = randomCharacter.episode
+    const episodeNumbers = episodeUrls.map((url) => url.match(/(\d+)$/)[0]);
+    statusItems[5].innerHTML = `<span class="status-key">Episodes:</span><span class="status-value episodes-count">${episodeNumbers.join(', ')}</span>`;
 
-  const seasonData = document.createElement('div');
-  seasonData.classList.add('season-data');
-  episodeItem.appendChild(seasonData);
+    episodesList.innerHTML = '';
 
-  const seasonCount = document.createElement('div');
+    await Promise.all(episodeUrls.map(async (episodeUrl) => {
+      const response = await fetch(episodeUrl);
+      const data = await response.json();
+      const seasonEpisode = data.episode.match(/S(\d+)E(\d+)/);
+      const season = parseInt(seasonEpisode[1], 10);
+      const episodeItem = document.createElement('li');
+      episodeItem.classList.add('popchar-episodes-item');
+
+      const episodeName = document.createElement('span');
+      episodeName.classList.add('episode-name-title');
+      episodeName.textContent = data.name;
+      episodeItem.appendChild(episodeName);
+
+      const seasonData = document.createElement('div');
+      seasonData.classList.add('season-data');
+      episodeItem.appendChild(seasonData);
+ const seasonCount = document.createElement('div');
   seasonCount.classList.add('season-count');
   seasonCount.innerHTML = `<span>Season</span><span>${season}</span>`;
   seasonData.appendChild(seasonCount);
 
   const airData = document.createElement('div');
   airData.classList.add('air-data');
-  airData.innerHTML = `<span>Air data</span><span>${data.air_date}</span>`;
+  airData.innerHTML = `<span>Air date</span><span>${data.air_date}</span>`;
   seasonData.appendChild(airData);
 
   episodesList.appendChild(episodeItem);
 }));
-  } catch (error) {
-    console.error(error);
-  }
+} catch (error) {
+console.error(error);
+}
 }
