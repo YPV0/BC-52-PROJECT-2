@@ -3,10 +3,19 @@ const btnUp = document.querySelector('.hero-btn-rotate');
 const footerEl = document.querySelector('#footer');
 const heroEl = document.querySelector('#hero');
 
-let currentSection = document.querySelector('section');
+let currentSection = document.querySelector('.tags');
+const sectionHidden = document.querySelector('.hero-gallery');
 let nextSection = '';
 let currentNewSection = '';
 
+const callbacks = () => {
+  if (sectionHidden.classList.contains('is-hidden')) {
+    callbackFoo();
+  } else {
+    currentSection = sectionHidden;
+    callbackFoo();
+  }
+};
 function callbackFoo() {
   if (currentNewSection.id == 'slider') {
     footerEl.scrollIntoView({ behavior: 'smooth' });
@@ -25,12 +34,13 @@ function callbackFoo() {
     nextSection = currentSection.nextElementSibling;
     if (nextSection.classList.contains('is-hidden')) {
       currentNewSection = nextSection.nextElementSibling;
+      currentNewSection.scrollIntoView({ behavior: 'smooth' });
       return currentNewSection;
     } else {
       currentNewSection = nextSection.nextElementSibling;
+      currentNewSection.scrollIntoView({ behavior: 'smooth' });
+      return currentNewSection;
     }
-    currentNewSection.scrollIntoView({ behavior: 'smooth' });
-    return currentNewSection;
   }
 }
 
@@ -51,7 +61,7 @@ const scrollUp = () => {
 };
 
 if (btnDown && btnUp) {
-  btnDown.addEventListener('click', callbackFoo);
+  btnDown.addEventListener('click', callbacks);
   const observer = new IntersectionObserver(entry);
   observer.observe(footerEl);
   btnUp.addEventListener('click', scrollUp);
