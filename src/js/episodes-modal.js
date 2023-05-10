@@ -10,6 +10,7 @@ const refs = {
   modalEpisodesList: document.querySelector('.popchar-episodes-list'),
   charactersModal: document.querySelector('.backdrop-popchar'),
   charactersBackdrop: document.querySelector('.backdrop-popchar'),
+  closeEpisModalBtn: document.querySelector('.close-pop-epis-btn'),
 };
 
 let episodeName = '';
@@ -46,6 +47,10 @@ function handleCharModalClick(event) {
     fetchClickedEpisode();
     fetchCharacters(renderHeroesInfo);
   }
+}
+
+function closeEpisModal() {
+  refs.modal.classList.add('is-hidden');
 }
 
 async function renderHeroesInfo() {
@@ -96,4 +101,8 @@ if (
 
 if (refs.modalEpisodesList) {
   refs.modalEpisodesList.addEventListener('click', handleCharModalClick);
+}
+
+if (refs.closeEpisModalBtn) {
+  refs.closeEpisModalBtn.addEventListener('click', closeEpisModal);
 }
