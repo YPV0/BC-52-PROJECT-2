@@ -190,7 +190,6 @@ document.getElementById('5-season').addEventListener('click', () => {
   onGalleryFilter();
 });
 
-console.log(episodeNumber);
 function displayEpisode(e) {
   const episodeNumber = e.target.dataset.episode;
 
