@@ -118,7 +118,7 @@ function handleFormSubmit(event) {
   refs.hiddenSection.classList.remove('is-hidden');
   const searchInput = refs.charactersSearchInput.value;
   refs.inputMain.value = searchInput;
-
+  refs.inputMain.scrollIntoView({ behavior: 'smooth' });
   handleFilterChange();
 }
 

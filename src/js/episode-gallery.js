@@ -130,9 +130,6 @@ if (
   dropdownMenu &&
   document &&
   input
-  
-
-
 ) {
   document.addEventListener('click', function (e) {
     if (!dropdownMenu.contains(e.target)) {
@@ -141,8 +138,8 @@ if (
   });
 
   dropdownBtn.addEventListener('click', function (e) {
-  e.stopPropagation();
-  toggleDropdown();
+    e.stopPropagation();
+    toggleDropdown();
   });
 
   dropdownMenu.addEventListener('click', function (e) {
@@ -154,15 +151,15 @@ if (
       return;
     }
 
-  onGalleryFilter();
-  toggleDropdown();
-  refs.btnLoadMore.classList.add('is-hidden');
+    onGalleryFilter();
+    toggleDropdown();
+    refs.btnLoadMore.classList.add('is-hidden');
   });
   document.getElementById('1-season').addEventListener('click', e => {
     document
       .getElementById('1-season')
       .children[0].classList.toggle('season-menu');
-  
+
     FILTER = { episode: 's01' };
     onGalleryFilter();
   });
@@ -170,69 +167,43 @@ if (
     document
       .getElementById('2-season')
       .children[0].classList.toggle('season-menu');
-  
+
     FILTER = { episode: 's02' };
     onGalleryFilter();
   });
-  
+
   document.getElementById('3-season').addEventListener('click', () => {
     document
       .getElementById('3-season')
       .children[0].classList.toggle('season-menu');
-  
+
     FILTER = { episode: 's03' };
     onGalleryFilter();
   });
-  
+
   document.getElementById('4-season').addEventListener('click', () => {
     document
       .getElementById('4-season')
       .children[0].classList.toggle('season-menu');
-  
+
     FILTER = { episode: 's04' };
     onGalleryFilter();
   });
-  
+
   document.getElementById('5-season').addEventListener('click', () => {
     document
       .getElementById('5-season')
       .children[0].classList.toggle('season-menu');
-  
+
     FILTER = { episode: 's05' };
     onGalleryFilter();
   });
 
-  
-  
-
-  input.addEventListener('input', function(e) {
+  input.addEventListener('input', function (e) {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
       FILTER = { name: e.target.value };
       onGalleryFilter();
     }, 500);
   });
-
-  // input.addEventListener('keydown', function(e) {
-  //   if (e.key === 'Enter') {
-  //     FILTER = { name: e.target.value };
-  //     onGalleryFilter();
-  //   }
-  // });
 }
-
-
-
-// const searchInput = document.getElementById('episode-name-input');
-
-// searchInput.addEventListener('input', function (event) {
-//   const inputText = event.target.value.trim();
-//   if (inputText.length > 0) {
-//     FILTER = { name: inputText };
-//   } else {
-//     FILTER = {};
-//   }
-//   onGalleryFilter();
-// });
-
-
