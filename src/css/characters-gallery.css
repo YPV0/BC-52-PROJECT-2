@@ -15,7 +15,6 @@
 }
 
 .input-wrapper .input-green {
-  /* position: absolute; */
   /* top: 40px; */
   /* right: 40px; */
   padding: 14px 24px;
@@ -29,10 +28,14 @@
 }
 
 .gallery-search-btn {
-  position: absolute;
+  
   background-color: transparent;
   border: none;
   transform: translate(0, -48%);
+}
+
+.header-form {
+  position: relative;
 }
 
 svg.search-icon {
@@ -174,6 +177,29 @@ img.card-img {
     max-width: 290px;
     height: 54px;
   }
+
+  .gallery-search-btn {
+    position: absolute;
+    top: 925px;
+    left: 345px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .search-icon {
+    fill: var(--svg-btn-fill);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
 
   #status-select {
     width: 190px;
