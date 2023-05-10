@@ -6,23 +6,33 @@ const statusItems = document.querySelectorAll('.status-item');
 const episodesList = document.querySelector('.popchar-episodes-list');
 const gallery = document.querySelector('.gallery');
 
-gallery.addEventListener('click', (event) => {
-  const clickedCard = event.target.closest('.gallery-card');
-  if (clickedCard) {
-    const cardName = clickedCard.querySelector('.card-name').textContent;
-    fetchData(cardName);
-    backdrop.classList.remove('is-hidden');
-    modal.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
-  }
-});
+if (
+  closeModalBtn &&
+  backdrop &&
+  modal &&
+  img &&
+  statusItems &&
+  episodesList &&
+  gallery
+) {
+  gallery.addEventListener('click', event => {
+    const clickedCard = event.target.closest('.gallery-card');
+    if (clickedCard) {
+      const cardName = clickedCard.querySelector('.card-name').textContent;
+      fetchData(cardName);
+      backdrop.classList.remove('is-hidden');
+      modal.classList.remove('is-hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  });
 
-closeModalBtn.addEventListener('click', closeModal);
-backdrop.addEventListener('click', (event) => {
-  if (event.target === backdrop) {
-    closeModal();
-  }
-});
+  closeModalBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', event => {
+    if (event.target === backdrop) {
+      closeModal();
+    }
+  });
+}
 
 function closeModal() {
   backdrop.classList.add('is-hidden');
