@@ -1,5 +1,5 @@
 import { getCharacter, getEpisodes } from 'rickmortyapi';
-
+console.log('object');
 const refs = {
   modal: document.querySelector('.section-pop-epis'),
   title: document.querySelector('.pop-epis-pilot-title'),
@@ -7,6 +7,10 @@ const refs = {
   episodeDate: document.querySelector('.pop-epis-date'),
   episodesContainer: document.querySelector('.episodes-gallery-list'),
   characterContainer: document.querySelector('.pop-epis-hero'),
+  modalEpisodesList: document.querySelector('.popchar-episodes-list'),
+  charactersModal: document.querySelector('.backdrop-popchar'),
+  charactersBackdrop: document.querySelector('.backdrop-popchar'),
+  closeEpisModalBtn: document.querySelector('.close-pop-epis-btn'),
 };
 
 let episodeName = '';
@@ -16,15 +20,37 @@ let charactersArray = [];
 
 function handleEpisodeItemClick(event) {
   const episodeItem = event.target.closest('.episodes-item');
-  if (episodeItem) {
-    getEpisodeNameOnClick(episodeItem);
-  }
 
-  refs.modal.classList.remove('is-hidden');
-  refs.title.textContent = episodeName;
-  refs.episodeId.textContent = currentEpisode.id;
-  refs.episodeDate.textContent = currentEpisode.air_date;
-  fetchCharacters(renderHeroesInfo);
+  if (episodeItem) {
+    episodeName = episodeItem.querySelector('p').textContent;
+    refs.modal.classList.remove('is-hidden');
+    refs.title.textContent = episodeName;
+    refs.episodeId.textContent = currentEpisode.id;
+    refs.episodeDate.textContent = currentEpisode.air_date;
+    fetchClickedEpisode();
+    fetchCharacters(renderHeroesInfo);
+  }
+}
+
+function handleCharModalClick(event) {
+  const episodeItem = event.target.closest('.popchar-episodes-item');
+
+  if (episodeItem) {
+    episodeName = episodeItem.querySelector('.episode-name-title').textContent;
+    refs.charactersModal.classList.add('is-hidden');
+    refs.charactersBackdrop.classList.add('is-hidden');
+    document.body.style.overflow = 'auto';
+    refs.modal.classList.remove('is-hidden');
+    refs.title.textContent = episodeName;
+    refs.episodeId.textContent = currentEpisode.id;
+    refs.episodeDate.textContent = currentEpisode.air_date;
+    fetchClickedEpisode();
+    fetchCharacters(renderHeroesInfo);
+  }
+}
+
+function closeEpisModal() {
+  refs.modal.classList.add('is-hidden');
 }
 
 async function renderHeroesInfo() {
@@ -39,18 +65,16 @@ async function renderHeroesInfo() {
   refs.characterContainer.insertAdjacentHTML('beforeend', characters.join(''));
 }
 
-function getEpisodeNameOnClick(episodeItem) {
-  episodeName = episodeItem.querySelector('p').textContent;
-  fetchClickedEpisode();
-}
-
 async function fetchClickedEpisode() {
   const getClickedEpisode = await getEpisodes({
     name: episodeName,
   });
 
   currentEpisode = getClickedEpisode.data.results[0];
-  let lastFourCharactersUrl = currentEpisode.characters.slice(-4); // Get the last four characters
+  refs.title.textContent = episodeName;
+  refs.episodeId.textContent = currentEpisode.id;
+  refs.episodeDate.textContent = currentEpisode.air_date;
+  let lastFourCharactersUrl = currentEpisode.characters;
   ids = lastFourCharactersUrl.map(url => {
     const urlParts = url.split('/');
     return parseInt(urlParts[urlParts.length - 1], 10);
@@ -73,4 +97,12 @@ if (
   refs.characterContainer
 ) {
   refs.episodesContainer.addEventListener('click', handleEpisodeItemClick);
+}
+
+if (refs.modalEpisodesList) {
+  refs.modalEpisodesList.addEventListener('click', handleCharModalClick);
+}
+
+if (refs.closeEpisModalBtn) {
+  refs.closeEpisModalBtn.addEventListener('click', closeEpisModal);
 }

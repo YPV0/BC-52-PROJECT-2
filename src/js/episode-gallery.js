@@ -31,19 +31,19 @@ function onCreateGalleryEpisodes(ep) {
   return ep
     .map(({ name, air_date, id }) => {
       if (id < 12) {
-        seasonImg = './img/season-img/season-1.png';
+        seasonImg = '/img/season-img/season-1.png';
         season = '1';
       } else if (id < 22) {
-        seasonImg = './img/season-img/season-2.png';
+        seasonImg = '/img/season-img/season-2.png';
         season = '2';
       } else if (id < 32) {
-        seasonImg = './img/season-img/season-3.png';
+        seasonImg = '/img/season-img/season-3.png';
         season = '3';
       } else if (id < 42) {
-        seasonImg = './img/season-img/season-4.png';
+        seasonImg = '/img/season-img/season-4.png';
         season = '4';
       } else if (id < 52) {
-        seasonImg = './img/season-img/season-5.png';
+        seasonImg = '/img/season-img/season-5.png';
         season = '5';
         refs.btnLoadMore.classList.add('is-hidden');
       }
@@ -100,9 +100,8 @@ async function onLoadMore() {
   localStorage.setItem('data', JSON.stringify(newData));
 }
 
-// refs.test.addEventListener('click', onGalleryFilter);
-
 let FILTER = {};
+let searchTimeout;
 
 async function onGalleryFilter() {
   refs.gallery.innerHTML = '';
@@ -115,89 +114,96 @@ async function onGalleryFilter() {
 
 const dropdownBtn = document.getElementById('all-series-btn');
 const dropdownMenu = document.getElementById('dropdown');
+const input = document.getElementById('episode-name-input');
 
 const toggleDropdown = function () {
   dropdownMenu.classList.toggle('show');
 };
 
-dropdownBtn.addEventListener('click', function (e) {
-  e.stopPropagation();
-  toggleDropdown();
-});
+if (
+  document.getElementById('1-season') &&
+  document.getElementById('2-season') &&
+  document.getElementById('3-season') &&
+  document.getElementById('4-season') &&
+  document.getElementById('5-season') &&
+  dropdownBtn &&
+  dropdownMenu &&
+  document &&
+  input
+) {
+  document.addEventListener('click', function (e) {
+    if (!dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
 
-dropdownMenu.addEventListener('click', function (e) {
-  if (e.target.nodeName !== 'LI') {
-    return;
-  }
-  if (e.target.closest('.season-menu') === null) {
-    return;
-  }
+  dropdownBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleDropdown();
+  });
 
-  FILTER.episode = e.target.dataset.episode;
-  console.log(FILTER.episode);
-  onGalleryFilter();
-  toggleDropdown();
-});
+  dropdownMenu.addEventListener('click', function (e) {
+    if (e.target.nodeName !== 'LI') {
+      return;
+    }
 
-document.addEventListener('click', function (e) {
-  if (!dropdownMenu.contains(e.target)) {
-    dropdownMenu.classList.remove('show');
-  }
-});
+    if (e.target.closest('.season-menu') === null) {
+      return;
+    }
 
-document.getElementById('1-season').addEventListener('click', () => {
-  document
-    .getElementById('1-season')
-    .children[0].classList.toggle('season-menu');
+    onGalleryFilter();
+    toggleDropdown();
+    refs.btnLoadMore.classList.add('is-hidden');
+  });
+  document.getElementById('1-season').addEventListener('click', e => {
+    document
+      .getElementById('1-season')
+      .children[0].classList.toggle('season-menu');
 
-  FILTER = { episode: 's01' };
-  onGalleryFilter();
-});
+    FILTER = { episode: 's01' };
+    onGalleryFilter();
+  });
+  document.getElementById('2-season').addEventListener('click', () => {
+    document
+      .getElementById('2-season')
+      .children[0].classList.toggle('season-menu');
 
-document.getElementById('2-season').addEventListener('click', () => {
-  document
-    .getElementById('2-season')
-    .children[0].classList.toggle('season-menu');
+    FILTER = { episode: 's02' };
+    onGalleryFilter();
+  });
 
-  FILTER = { episode: 's02' };
-  onGalleryFilter();
-});
+  document.getElementById('3-season').addEventListener('click', () => {
+    document
+      .getElementById('3-season')
+      .children[0].classList.toggle('season-menu');
 
-document.getElementById('3-season').addEventListener('click', () => {
-  document
-    .getElementById('3-season')
-    .children[0].classList.toggle('season-menu');
+    FILTER = { episode: 's03' };
+    onGalleryFilter();
+  });
 
-  FILTER = { episode: 's03' };
-  onGalleryFilter();
-});
+  document.getElementById('4-season').addEventListener('click', () => {
+    document
+      .getElementById('4-season')
+      .children[0].classList.toggle('season-menu');
 
-document.getElementById('4-season').addEventListener('click', () => {
-  document
-    .getElementById('4-season')
-    .children[0].classList.toggle('season-menu');
+    FILTER = { episode: 's04' };
+    onGalleryFilter();
+  });
 
-  FILTER = { episode: 's04' };
-  onGalleryFilter();
-});
+  document.getElementById('5-season').addEventListener('click', () => {
+    document
+      .getElementById('5-season')
+      .children[0].classList.toggle('season-menu');
 
-document.getElementById('5-season').addEventListener('click', () => {
-  document
-    .getElementById('5-season')
-    .children[0].classList.toggle('season-menu');
+    FILTER = { episode: 's05' };
+    onGalleryFilter();
+  });
 
-  FILTER = { episode: 's05' };
-  onGalleryFilter();
-});
-
-function displayEpisode(e) {
-  const episodeNumber = e.target.dataset.episode;
-
-  FILTER.episode = episodeNumber;
-  onGalleryFilter();
-  console.log(onGalleryFilter());
+  input.addEventListener('input', function (e) {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      FILTER = { name: e.target.value };
+      onGalleryFilter();
+    }, 500);
+  });
 }
-
-episodes.forEach(episode => {
-  episode.addEventListener('click', displayEpisode);
-});
