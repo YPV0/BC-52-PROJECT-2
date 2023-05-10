@@ -200,6 +200,38 @@ img.card-img {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  gallery-form {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+  }
+  .gallery-search-btn {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    left: 18px;
+    top: 52%;
+    transform: translate(0, -48%);
+  }
+  
+  .gallery-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--first-text-color-dark);
+    stroke: var(--first-text-color-dark);
+    transition: stroke var(--transition-dur-and-func),
+      width var(--transition-dur-and-func), height var(--transition-dur-and-func);
+  }
+  .gallery-icon:hover,
+  .gallery-icon:focus {
+    stroke: var(--first-text-color-dark);
+    width: 20px;
+    height: 20px;
+  }
+  .gallery-search-btn {
+    right: calc(100% - 50px); top: 50px;
+  } 
+
 
   #status-select {
     width: 190px;
