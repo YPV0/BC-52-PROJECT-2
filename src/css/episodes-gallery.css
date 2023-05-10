@@ -47,6 +47,8 @@ input {
   background: white;
   border: 1.5px solid #111111;
   border-radius: 100px;
+  max-height: 246px;
+  overflow-y: scroll;
 }
 
 .season-menu {
@@ -94,7 +96,7 @@ input {
   cursor: pointer;
 }
 
-.dropdown .seasons:hover
+.seasons:hover
  {
   
   color: #A1D737;
@@ -107,18 +109,27 @@ input {
   opacity: 1;
 }
 
-.seasons {
+.all-season:hover {
+  color: #A1D737;
+}
 
-  margin-bottom: 8px;
+.seasons {
+  
+  margin-top: 8px;
+  
+  
+  
+}
+.series-margin {
+  margin-top: 11px;
 }
 
 
-
 .seasons-gap li {
-  margin-top: 11px;
+  
   
   color: rgba(17, 17, 17, 0.3);
-  padding-left: 24px;
+  padding-left: 10px;
 }
 
 .seasons-gap li:hover {

@@ -129,7 +129,7 @@ dropdownBtn.addEventListener("click", function (e) {
 
 
 dropdownMenu.addEventListener("click", function (e) {
-      console.log(e.target);
+      
       if (e.target.nodeName !== "LI") {
         return
         
@@ -138,9 +138,21 @@ dropdownMenu.addEventListener("click", function (e) {
         return;
       }
     
+      FILTER.episode = e.target.dataset.episode;
+      console.log(FILTER.episode);
+      FILTER = {episode: FILTER.episode}
+      console.log(FILTER);
+      onGalleryFilter();
       toggleDropdown();
   
 });
+
+document.addEventListener("click", function(e) {
+  if (!dropdownMenu.contains(e.target)) {
+    dropdownMenu.classList.remove("show");
+  }
+});
+
 
 document.getElementById("1-season").addEventListener("click", () => {
   document.getElementById("1-season").children[0].classList.toggle('season-menu');
@@ -181,3 +193,20 @@ document.getElementById("5-season").addEventListener("click", () => {
   onGalleryFilter();
 
 });
+
+// function displayEpisode (e) {
+//   const episodeNumber = e.target.dataset.episode.slice(3, 5);
+//   const seasonNumber = e.target.dataset.episode.slice(3, 5);
+//  console.log(episodeNumber);
+  
+//   FILTER.episode = `s${seasonNumber}e${episodeNumber}`;
+//   onGalleryFilter();
+// };
+
+// episodes.forEach((episode) => {
+//   episode.addEventListener("click", displayEpisode);
+// });
+
+
+
+
