@@ -47,45 +47,27 @@ function onCreateGalleryEpisodes(ep) {
         season = '5';
         refs.btnLoadMore.classList.add('is-hidden');
       }
-
-      const img = new Image();
-      img.src = seasonImg;
-      img.alt = name;
-      img.className = 'episodes-item-photo';
-
-      img.addEventListener('load', function () {
-        const li = document.createElement('li');
-        li.className = 'episodes-item';
-        li.appendChild(img);
-
-        const nameElement = document.createElement('p');
-        nameElement.className = 'episodes-item-name';
-        nameElement.textContent = name;
-        li.appendChild(nameElement);
-
-        const infoElement = document.createElement('div');
-        infoElement.className = 'episodes-item-info';
-
-        const seasonElement = document.createElement('p');
-        seasonElement.innerHTML = `
-          <span class="episodes-item-info-name">Season</span>
-          <span class="episodes-item-info-data">${season}</span>
+      return `
+             <li class="episodes-item">
+        <img
+          src="${seasonImg}"
+          alt="${name}"
+          class="episodes-item-photo"
+        />
+       <p class="episodes-item-name">${name}</p>
+        <div class="episodes-item-info">
+          <p>
+            <span class="episodes-item-info-name">Season</span>
+            <span class="episodes-item-info-data">${season}</span>
+          </p>
+          <p>
+            <span class="episodes-item-info-name">Air date</span>
+            <span class="episodes-item-info-data">${air_date}</span>
+          </p>
+        </div>
+      </li>
+        
         `;
-        infoElement.appendChild(seasonElement);
-
-        const airDateElement = document.createElement('p');
-        airDateElement.innerHTML = `
-          <span class="episodes-item-info-name">Air date</span>
-          <span class="episodes-item-info-data">${air_date}</span>
-        `;
-        infoElement.appendChild(airDateElement);
-
-        li.appendChild(infoElement);
-
-        refs.gallery.appendChild(li);
-      });
-
-      return '';
     })
     .join('');
 }
