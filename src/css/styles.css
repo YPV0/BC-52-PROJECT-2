@@ -27,6 +27,9 @@
 @import url('./episodes-gallery.css');
 @import url('./modal-popup-epis.css');
 
+/* Error 404 */
+@import url('./error.css');
+
 :root {
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -47,7 +50,7 @@
 
   --first-color-accent: rgba(161, 215, 55, 1);
   --second-color-accent: rgba(218, 248, 54, 1);
-   --btn-hover-slider:rgba(130, 175, 30, 1);
+  --btn-hover-slider: rgba(130, 175, 30, 1);
   --first-text-color-light: rgba(250, 250, 250, 1);
   --second-text-color-lighr: rgba(250, 250, 250, 0.5);
   --first-text-color-dark: rgba(13, 23, 29, 1);
