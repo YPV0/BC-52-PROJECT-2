@@ -1,3 +1,165 @@
+.episodes-navigation {
+  margin-top: 120px;
+  width: 100%;
+  max-width: 335px;
+}
+
+.name {
+  margin-bottom: 8px;
+}
+
+input {
+  padding-left: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 100%;
+  background: var(--second-color-accent);
+  border: 1.5px solid #111111;
+  border-radius: 100px;
+}
+
+::placeholder {
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: #111111;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  opacity: 1;
+}
+
+.input-btn {
+  position: absolute;
+}
+
+.input-border {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.allseason-bar {
+  padding-left: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  width: 100%;
+  max-width: 335px;
+  background: white;
+  border: 1.5px solid #111111;
+  border-radius: 100px;
+  max-height: 246px;
+  overflow-y: scroll;
+}
+
+.season-menu {
+  display: none;
+  
+  margin-top: 11px;
+}
+
+
+
+.all-series-btn {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  cursor: pointer;
+  
+}
+
+.dropdown {
+  position: absolute;
+  width: 335px;
+  background: #FAFAFA;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  margin-top: 0.3rem;
+  
+  border: none;
+  z-index: 1;
+
+  transform: translateY(0.5rem);
+  visibility: hidden;
+  opacity: 0;
+  
+}
+
+.dropdown li {
+  /* display: flex;
+  align-items: center;
+  column-gap: 10px; */
+  padding: 4px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.seasons:hover
+ {
+  
+  color: #A1D737;
+}
+
+
+.show {
+  transform: translateY(0rem);
+  visibility: visible;
+  opacity: 1;
+}
+
+.all-season:hover {
+  color: #A1D737;
+}
+
+.seasons {
+  
+  margin-top: 8px;
+  
+  
+  
+}
+.series-margin {
+  margin-top: 11px;
+}
+
+
+.seasons-gap li {
+  
+  
+  color: rgba(17, 17, 17, 0.3);
+  padding-left: 10px;
+}
+
+.seasons-gap li:hover {
+  color: #A1D737;
+}
+
+.vector-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #111111;
+  position: absolute;
+  right: 24px;
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #111111;
+  position: absolute;
+  right: 24px;
+  top: 14px
+}
+
+
+
+
+
+
+
+
 .episodes-item {
   width: 335px;
   height: 250px;
