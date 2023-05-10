@@ -1,4 +1,3 @@
-console.log('hello world');
 import { getCharacter, getEpisodes } from 'rickmortyapi';
 
 const refs = {
@@ -56,9 +55,6 @@ async function fetchClickedEpisode() {
     const urlParts = url.split('/');
     return parseInt(urlParts[urlParts.length - 1], 10);
   });
-
-  console.log(ids);
-  console.log(currentEpisode);
   fetchCharacters(renderHeroesInfo);
 }
 
