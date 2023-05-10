@@ -47,8 +47,8 @@ input {
   background: white;
   border: 1.5px solid #111111;
   border-radius: 100px;
-  max-height: 246px;
-  overflow-y: scroll;
+  max-height: 242px;
+  
 }
 
 .season-menu {
@@ -83,6 +83,8 @@ input {
   transform: translateY(0.5rem);
   visibility: hidden;
   opacity: 0;
+
+  overflow-y: scroll;
   
 }
 
