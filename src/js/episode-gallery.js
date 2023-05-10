@@ -101,6 +101,7 @@ async function onLoadMore() {
 }
 
 let FILTER = {};
+let searchTimeout;
 
 async function onGalleryFilter() {
   refs.gallery.innerHTML = '';
@@ -113,89 +114,125 @@ async function onGalleryFilter() {
 
 const dropdownBtn = document.getElementById('all-series-btn');
 const dropdownMenu = document.getElementById('dropdown');
+const input = document.getElementById('episode-name-input');
 
 const toggleDropdown = function () {
   dropdownMenu.classList.toggle('show');
 };
 
-dropdownBtn.addEventListener('click', function (e) {
+if (
+  document.getElementById('1-season') &&
+  document.getElementById('2-season') &&
+  document.getElementById('3-season') &&
+  document.getElementById('4-season') &&
+  document.getElementById('5-season') &&
+  dropdownBtn &&
+  dropdownMenu &&
+  document &&
+  input
+  
+
+
+) {
+  document.addEventListener('click', function (e) {
+    if (!dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+
+  dropdownBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   toggleDropdown();
-});
+  });
 
-dropdownMenu.addEventListener('click', function (e) {
-  if (e.target.nodeName !== 'LI') {
-    return;
-  }
+  dropdownMenu.addEventListener('click', function (e) {
+    if (e.target.nodeName !== 'LI') {
+      return;
+    }
 
-  if (e.target.closest('.season-menu') === null) {
-    return;
-  }
+    if (e.target.closest('.season-menu') === null) {
+      return;
+    }
 
   onGalleryFilter();
   toggleDropdown();
   refs.btnLoadMore.classList.add('is-hidden');
-});
+  });
+  document.getElementById('1-season').addEventListener('click', e => {
+    document
+      .getElementById('1-season')
+      .children[0].classList.toggle('season-menu');
+  
+    FILTER = { episode: 's01' };
+    onGalleryFilter();
+  });
+  document.getElementById('2-season').addEventListener('click', () => {
+    document
+      .getElementById('2-season')
+      .children[0].classList.toggle('season-menu');
+  
+    FILTER = { episode: 's02' };
+    onGalleryFilter();
+  });
+  
+  document.getElementById('3-season').addEventListener('click', () => {
+    document
+      .getElementById('3-season')
+      .children[0].classList.toggle('season-menu');
+  
+    FILTER = { episode: 's03' };
+    onGalleryFilter();
+  });
+  
+  document.getElementById('4-season').addEventListener('click', () => {
+    document
+      .getElementById('4-season')
+      .children[0].classList.toggle('season-menu');
+  
+    FILTER = { episode: 's04' };
+    onGalleryFilter();
+  });
+  
+  document.getElementById('5-season').addEventListener('click', () => {
+    document
+      .getElementById('5-season')
+      .children[0].classList.toggle('season-menu');
+  
+    FILTER = { episode: 's05' };
+    onGalleryFilter();
+  });
 
-document.addEventListener('click', function (e) {
-  if (!dropdownMenu.contains(e.target)) {
-    dropdownMenu.classList.remove('show');
-  }
-});
+  
+  
 
-document.getElementById('1-season').addEventListener('click', e => {
-  document
-    .getElementById('1-season')
-    .children[0].classList.toggle('season-menu');
+  input.addEventListener('input', function(e) {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      FILTER = { name: e.target.value };
+      onGalleryFilter();
+    }, 500);
+  });
 
-  FILTER = { episode: 's01' };
-  onGalleryFilter();
-});
+  // input.addEventListener('keydown', function(e) {
+  //   if (e.key === 'Enter') {
+  //     FILTER = { name: e.target.value };
+  //     onGalleryFilter();
+  //   }
+  // });
+}
 
-document.getElementById('2-season').addEventListener('click', () => {
-  document
-    .getElementById('2-season')
-    .children[0].classList.toggle('season-menu');
 
-  FILTER = { episode: 's02' };
-  onGalleryFilter();
-});
 
-document.getElementById('3-season').addEventListener('click', () => {
-  document
-    .getElementById('3-season')
-    .children[0].classList.toggle('season-menu');
+// const searchInput = document.getElementById('episode-name-input');
 
-  FILTER = { episode: 's03' };
-  onGalleryFilter();
-});
+// searchInput.addEventListener('input', function (event) {
+//   const inputText = event.target.value.trim();
+//   if (inputText.length > 0) {
+//     FILTER = { name: inputText };
+//   } else {
+//     FILTER = {};
+//   }
+//   onGalleryFilter();
+// });
 
-document.getElementById('4-season').addEventListener('click', () => {
-  document
-    .getElementById('4-season')
-    .children[0].classList.toggle('season-menu');
 
-  FILTER = { episode: 's04' };
-  onGalleryFilter();
-});
-
-document.getElementById('5-season').addEventListener('click', () => {
-  document
-    .getElementById('5-season')
-    .children[0].classList.toggle('season-menu');
-
-  FILTER = { episode: 's05' };
-  onGalleryFilter();
-});
-
-const searchInput = document.getElementById('episode-name-input');
-
-searchInput.addEventListener('input', function (event) {
-  const inputText = event.target.value.trim();
-  if (inputText.length > 0) {
-    FILTER = { name: inputText };
-  } else {
-    FILTER = {};
-  }
-  onGalleryFilter();
-});
