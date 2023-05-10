@@ -6,7 +6,6 @@ let PAGE = 1;
 const refs = {
   gallery: document.querySelector('.episodes-gallery-list'),
   btnLoadMore: document.querySelector('.btn-load-more'),
-  
 };
 
 let seasonImg = '';
@@ -114,99 +113,92 @@ async function onGalleryFilter() {
   );
 }
 
-
-const dropdownBtn = document.getElementById("all-series-btn");
-const dropdownMenu = document.getElementById("dropdown");
+const dropdownBtn = document.getElementById('all-series-btn');
+const dropdownMenu = document.getElementById('dropdown');
 
 const toggleDropdown = function () {
-  dropdownMenu.classList.toggle("show");
+  dropdownMenu.classList.toggle('show');
 };
 
-dropdownBtn.addEventListener("click", function (e) {
+dropdownBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   toggleDropdown();
 });
 
+dropdownMenu.addEventListener('click', function (e) {
+  if (e.target.nodeName !== 'LI') {
+    return;
+  }
+  if (e.target.closest('.season-menu') === null) {
+    return;
+  }
 
-dropdownMenu.addEventListener("click", function (e) {
-      
-      if (e.target.nodeName !== "LI") {
-        return
-        
-      }
-      if (e.target.closest(".season-menu") === null) {
-        return;
-      }
-    
-      FILTER.episode = e.target.dataset.episode;
-      console.log(FILTER.episode);
-      FILTER = {episode: FILTER.episode}
-      console.log(FILTER);
-      onGalleryFilter();
-      toggleDropdown();
-  
+  FILTER.episode = e.target.dataset.episode;
+  console.log(FILTER.episode);
+  onGalleryFilter();
+  toggleDropdown();
 });
 
-document.addEventListener("click", function(e) {
+document.addEventListener('click', function (e) {
   if (!dropdownMenu.contains(e.target)) {
-    dropdownMenu.classList.remove("show");
+    dropdownMenu.classList.remove('show');
   }
 });
 
+document.getElementById('1-season').addEventListener('click', () => {
+  document
+    .getElementById('1-season')
+    .children[0].classList.toggle('season-menu');
 
-document.getElementById("1-season").addEventListener("click", () => {
-  document.getElementById("1-season").children[0].classList.toggle('season-menu');
-
-  FILTER = {episode: 's01'};
+  FILTER = { episode: 's01' };
   onGalleryFilter();
-
 });
 
-document.getElementById("2-season").addEventListener("click", () => {
-  document.getElementById("2-season").children[0].classList.toggle('season-menu');
+document.getElementById('2-season').addEventListener('click', () => {
+  document
+    .getElementById('2-season')
+    .children[0].classList.toggle('season-menu');
 
-  FILTER = {episode: 's02'};
+  FILTER = { episode: 's02' };
   onGalleryFilter();
-
 });
 
-document.getElementById("3-season").addEventListener("click", () => {
-  document.getElementById("3-season").children[0].classList.toggle('season-menu');
+document.getElementById('3-season').addEventListener('click', () => {
+  document
+    .getElementById('3-season')
+    .children[0].classList.toggle('season-menu');
 
-  FILTER = {episode: 's03'};
+  FILTER = { episode: 's03' };
   onGalleryFilter();
-
 });
 
-document.getElementById("4-season").addEventListener("click", () => {
-  document.getElementById("4-season").children[0].classList.toggle('season-menu');
+document.getElementById('4-season').addEventListener('click', () => {
+  document
+    .getElementById('4-season')
+    .children[0].classList.toggle('season-menu');
 
-  FILTER = {episode: 's04'};
+  FILTER = { episode: 's04' };
   onGalleryFilter();
-
 });
 
-document.getElementById("5-season").addEventListener("click", () => {
-  document.getElementById("5-season").children[0].classList.toggle('season-menu');
+document.getElementById('5-season').addEventListener('click', () => {
+  document
+    .getElementById('5-season')
+    .children[0].classList.toggle('season-menu');
 
-  FILTER = {episode: 's05'};
+  FILTER = { episode: 's05' };
   onGalleryFilter();
-
 });
 
-// function displayEpisode (e) {
-//   const episodeNumber = e.target.dataset.episode.slice(3, 5);
-//   const seasonNumber = e.target.dataset.episode.slice(3, 5);
-//  console.log(episodeNumber);
-  
-//   FILTER.episode = `s${seasonNumber}e${episodeNumber}`;
-//   onGalleryFilter();
-// };
+console.log(episodeNumber);
+function displayEpisode(e) {
+  const episodeNumber = e.target.dataset.episode;
 
-// episodes.forEach((episode) => {
-//   episode.addEventListener("click", displayEpisode);
-// });
+  FILTER.episode = episodeNumber;
+  onGalleryFilter();
+  console.log(onGalleryFilter());
+}
 
-
-
-
+episodes.forEach(episode => {
+  episode.addEventListener('click', displayEpisode);
+});
