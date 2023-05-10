@@ -1,13 +1,24 @@
 <section class="hero-gallery">
   <div class="container">
-    <ul class="dropdown-filter">
+    <ul class="dropdown-filter hidden">
       <li class="dropdown-item input-wrapper">
         <p class="text-about" id="dropdown-item-name">Name</p>
-        <input
-          class="characters-search input-green"
-          type="text"
-          placeholder="Enter name"
-        />
+        <form class="header-form" id="main-header-form"></form>
+          <input
+            class="characters-search input-green"
+            type="text"
+            placeholder="Enter name"
+          />
+          <button
+            class="gallery-search-btn gallery-btn"
+            id="gallery-search"
+            type="submit"
+          >
+            <svg class="search-icon">
+              <use href="./img/symbol-defs.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
       </li>
       <li class="dropdown-item">
         <p class="text-about" id="dropdown-item-status">Status</p>
