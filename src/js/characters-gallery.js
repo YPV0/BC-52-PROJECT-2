@@ -114,7 +114,7 @@ function handleFormSubmit(event) {
   event.preventDefault();
   const searchInput = refs.charactersSearchInput.value;
   refs.input.value = searchInput;
-
+  refs.input.scrollIntoView({ behavior: 'smooth' });
   handleFilterChange();
 }
 
