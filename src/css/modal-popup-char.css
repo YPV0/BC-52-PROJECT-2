@@ -6,21 +6,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(46, 47, 66, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition-dur-and-func),
-    visibility var(--transition-dur-and-func) step-end;
-}
-
-.backdrop-popchar:not(.is-hidden) {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity var(--transition-dur-and-func),
-    visibility var(--transition-dur-and-func) step-start;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-popchar {
+  cursor: pointer;
   width: 335px;
   height: 993px;
   padding: 40px 20px;
@@ -29,20 +19,9 @@
   left: 50%;
   background: var(--background-color-dark);
   border-radius: 18px;
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform var(--transition-dur-and-func),
-    opacity var(--transition-dur-and-func),
-    visibility var(--transition-dur-and-func) step-end;
 }
-
 .modal-popchar:not(.is-hidden) {
   transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-  visibility: visible;
-  transition: transform var(--transition-dur-and-func),
-    opacity var(--transition-dur-and-func), visibility 0ms step-start;
 }
 
 .popchar-close-btn {
@@ -76,7 +55,7 @@
   margin-bottom: 20px;
   font-weight: 600;
   font-size: 18px;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
 
