@@ -21,7 +21,7 @@
     
     <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/modal-popup-char-e3114f54.js"></script>
     <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/modal-popup-char-b099ecf4.css">
-    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-9012ddb8.css">
+    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-ec543297.css">
   </head>
 
   <body>
@@ -154,11 +154,17 @@
     <ul class="dropdown-filter">
       <li class="dropdown-filter input-wrapper">
         <p class="text-about">Name</p>
-        <input
-          placeholder="Enter name"
-          class="characters-search input-green"
-          type="text"
-        />
+        <form class="gallery-form">
+          <input
+            placeholder="Enter name"
+            class="characters-search input-green"
+            type="text"
+          /><button type="submit" class="gallery-search-btn">
+            <svg class="gallery-search-icon">
+              <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
       </li>
       <li class="dropdown-item">
         <p class="text-about">Status</p>
@@ -169,7 +175,9 @@
             id="status-select"
             data-path="status"
           >
-            All
+            All<svg class="drop-down-icon">
+              <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-chevron-down"></use>
+            </svg>
           </button>
           <ul
             class="dropdown-list"
@@ -192,7 +200,9 @@
             id="species-select"
             data-path="species"
           >
-            All
+            All<svg class="drop-down-icon">
+              <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-chevron-down"></use>
+            </svg>
           </button>
           <ul
             class="dropdown-list"
@@ -225,7 +235,9 @@
             id="type-select"
             data-path="type"
           >
-            All
+            All<svg class="drop-down-icon">
+              <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-chevron-down"></use>
+            </svg>
           </button>
           <ul
             class="dropdown-list"
@@ -245,7 +257,9 @@
             id="gender-select"
             data-path="gender"
           >
-            All
+            All<svg class="drop-down-icon">
+              <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-chevron-down"></use>
+            </svg>
           </button>
           <ul
             class="dropdown-list"
