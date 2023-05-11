@@ -11,6 +11,8 @@ let PAGE = 1;
 const refs = {
   gallery: document.querySelector('.episodes-gallery-list'),
   btnLoadMore: document.querySelector('.btn-load-more'),
+  episodesSearchInput: document.querySelector('#episodes-search-input'),
+  episodesSearchForm: document.querySelector('#episodes-search-form'),
 };
 
 let seasonImg = '';
@@ -237,6 +239,18 @@ if (
     FILTER = { page: PAGE };
     onGalleryFilter();
   });
+}
+
+if (refs.episodesSearchForm) {
+  refs.episodesSearchForm.addEventListener('submit', onHeaderFormSubmit);
+}
+
+function onHeaderFormSubmit(e) {
+  e.preventDefault();
+  const inputVal = refs.episodesSearchInput.value.trim().toLowerCase();
+  input.value = inputVal;
+  input.scrollIntoView({ behavior: 'smooth' });
+  input.dispatchEvent(new Event('input'));
 }
 
 function toggleOopsList() {
