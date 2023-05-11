@@ -67,6 +67,7 @@ input {
   border: 1.5px solid #111111;
   border-radius: 100px;
   max-height: 242px;
+  cursor: url(/img/cursor.png), move;
   
 }
 
@@ -137,6 +138,7 @@ input {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  cursor: url(/img/cursor.png), move;
 }
 
 .seasons:hover {

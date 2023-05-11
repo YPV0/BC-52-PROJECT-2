@@ -234,8 +234,10 @@ if (
     seasonMenus.forEach(function (seasonMenu) {
       seasonMenu.classList.add('season-menu');
     });
+    
     FILTER = { page: PAGE };
     onGalleryFilter();
+    refs.btnLoadMore.classList.remove('is-hidden');
   });
 }
 
@@ -248,8 +250,13 @@ function toggleOopsList() {
   const oopsList = document.querySelector('.oops-list');
   if (!hasSearchResults) {
     oopsList.classList.remove('is-hidden');
+    refs.btnLoadMore.classList.add('is-hidden');
   } else {
     oopsList.classList.add('is-hidden');
+    if (loadEpisode.data.results.length > 12) {
+      refs.btnLoadMore.classList.remove('is-hidden');
+    } else {
+      refs.btnLoadMore.classList.add('is-hidden');
   }
-  refs.btnLoadMore.classList.add('is-hidden');
+  } 
 }
