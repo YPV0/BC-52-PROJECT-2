@@ -1,29 +1,34 @@
 const closeModalBtn = document.querySelector('.close-modal-js');
 const backdrop = document.querySelector('.backdrop-popchar');
 const modal = document.querySelector('.modal-popchar');
+const episodesModal = document.querySelector('.section-pop-epis');
 const img = document.querySelector('.heroes-episode-img');
 const statusItems = document.querySelectorAll('.status-item');
 const episodesList = document.querySelector('.popchar-episodes-list');
-const gallery = document.querySelector('.gallery');
+const galleryElements = document.querySelectorAll('.gallery, .main-gallery, .pop-epis-hero');
 
 if (
-  closeModal &&
+  closeModalBtn &&
   backdrop &&
   modal &&
+  episodesModal &&
   img &&
-  statusItems &&
+  statusItems.length > 0 &&
   episodesList &&
-  gallery
+  galleryElements.length > 0
 ) {
-  gallery.addEventListener('click', event => {
-    const clickedCard = event.target.closest('.gallery-card');
-    if (clickedCard) {
-      const cardName = clickedCard.querySelector('.card-name').textContent;
-      fetchData(cardName);
-      backdrop.classList.remove('is-hidden');
-      modal.classList.remove('is-hidden');
-      document.body.style.overflow = 'hidden';
-    }
+  galleryElements.forEach(gallery => {
+    gallery.addEventListener('click', event => {
+      const clickedCard = event.target.closest('.gallery-card, .epis-img-block');
+      if (clickedCard) {
+        const cardName = clickedCard.querySelector('.card-name, .pop-hero-name').textContent;
+        fetchData(cardName);
+        backdrop.classList.remove('is-hidden');
+        modal.classList.remove('is-hidden');
+        episodesModal.classList.add('is-hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    });
   });
 
   closeModalBtn.addEventListener('click', closeModal);
@@ -33,15 +38,17 @@ if (
     }
   });
 }
-function closeModal() {
-  backdrop.classList.add('is-hidden');
-  modal.classList.add('is-hidden');
-  document.body.style.overflow = 'auto';
-  img.setAttribute('src', '');
-  statusItems.forEach(item => (item.textContent = ''));
-  episodesList.innerHTML = '';
-}
 
+function closeModal() {
+  if (!backdrop.classList.contains('is-hidden')) {
+    backdrop.classList.add('is-hidden');
+    modal.classList.add('is-hidden');
+    document.body.style.overflow = 'auto';
+    img.setAttribute('src', '');
+    statusItems.forEach(item => (item.textContent = ''));
+    episodesList.innerHTML = '';
+  }
+}
 async function fetchData(characterName) {
   try {
     const response = await fetch(
@@ -64,24 +71,20 @@ async function fetchData(characterName) {
         : randomCharacter.species.split(' ')[0]
     }</span>`;
     statusItems[2].innerHTML = `<span class="status-key">Gender:</span><span class="status-value">${
-      randomCharacter.gender.split(' ')[0] === 'unknown'
+      randomCharacter.gender === 'unknown'
         ? ''
-        : randomCharacter.gender.split(' ')[0]
-    }</span>`;
+        : randomCharacter.gender     }</span>`;
     statusItems[3].innerHTML = `<span class="status-key">Origin:</span><span class="status-value">${
-      randomCharacter.origin.name.split(' ')[0] === 'unknown'
+      randomCharacter.origin.name === 'unknown'
         ? ''
-        : randomCharacter.origin.name.split(' ')[0]
-    }</span>`;
+        : randomCharacter.origin.name}</span>`;
     statusItems[4].innerHTML = `<span class="status-key">Location:</span><span class="status-value">${
-      randomCharacter.location.name.split(' ')[0] === 'unknown'
+      randomCharacter.location.name === 'unknown'
         ? ''
-        : randomCharacter.location.name.split(' ')[0]
-    }</span>`;
+        : randomCharacter.location.name}</span>`;
     statusItems[6].innerHTML = `<span class="status-key">Type:</span><span class="status-value">${
       randomCharacter.type && randomCharacter.type.split(' ')[0] !== 'unknown'
-        ? randomCharacter.type.split(' ')[0]
-        : ''
+        ? randomCharacter.type: ''
     }</span>`;
 
     const episodeUrls = randomCharacter.episode;

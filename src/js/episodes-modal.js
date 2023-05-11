@@ -1,5 +1,4 @@
 import { getCharacter, getEpisodes } from 'rickmortyapi';
-console.log('object');
 const refs = {
   modal: document.querySelector('.section-pop-epis'),
   title: document.querySelector('.pop-epis-pilot-title'),

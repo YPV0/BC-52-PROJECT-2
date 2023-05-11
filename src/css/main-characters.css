@@ -1,6 +1,6 @@
 /* ---------Mobile main-characters--------- */
 .main-container {
-  padding-top: 80px;
+  padding-top: 151px;
   padding-bottom: 80px;
 }
 .main-characters-item {
@@ -83,7 +83,7 @@
     width: 100%;
   }
   .main-container {
-    padding-top: 128px;
+    padding-top: 237px;
     padding-bottom: 128px;
   }
 
@@ -111,6 +111,9 @@
 /* ---------Desktop------- */
 
 @media screen and (min-width: 1440px) {
+  .main-container {
+    padding-top: 255px;
+  }
   .main-img-hidden-list {
     height: 544px;
     margin-right: 32px;
