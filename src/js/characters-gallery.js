@@ -116,7 +116,7 @@ async function fetchCharacters() {
       selectedValues.gender,
       'gender'
     );
-
+    refs.oopsList.classList.add('is-hidden');
     renderGallery();
   } else {
     console.log('Invalid API response:', response);
