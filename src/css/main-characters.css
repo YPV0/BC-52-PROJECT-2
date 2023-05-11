@@ -5,6 +5,7 @@
 }
 .main-characters-item {
   width: 100%;
+  cursor: pointer;
 }
 .img-component {
   margin-bottom: 32px;
