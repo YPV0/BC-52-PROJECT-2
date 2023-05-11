@@ -1,5 +1,10 @@
 import { getEpisodes } from 'rickmortyapi';
 import debounce from 'lodash.debounce';
+import season1 from '/img/season1.png';
+import season2 from '/img/season2.png';
+import season3 from '/img/season3.png';
+import season4 from '/img/season4.png';
+import season5 from '/img/season5.png';
 
 let PAGE = 1;
 
@@ -31,19 +36,19 @@ function onCreateGalleryEpisodes(ep) {
   return ep
     .map(({ name, air_date, id }) => {
       if (id < 12) {
-        seasonImg = '/img/season-img/season-1.png';
+        seasonImg = season1;
         season = '1';
       } else if (id < 22) {
-        seasonImg = '/img/season-img/season-2.png';
+        seasonImg = season2;
         season = '2';
       } else if (id < 32) {
-        seasonImg = '/img/season-img/season-3.png';
+        seasonImg = season3;
         season = '3';
       } else if (id < 42) {
-        seasonImg = '/img/season-img/season-4.png';
+        seasonImg = season4;
         season = '4';
       } else if (id < 52) {
-        seasonImg = '/img/season-img/season-5.png';
+        seasonImg = season5;
         season = '5';
         refs.btnLoadMore.classList.add('is-hidden');
       }

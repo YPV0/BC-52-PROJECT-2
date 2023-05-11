@@ -58,8 +58,10 @@ async function renderHeroesInfo() {
 
   const characters = charactersArray.map(character => {
     return `
+    <div class="epis-img-block">
     <img class="pop-hero-img" src="${character.image}" alt="${character.name}">
     <p class="pop-hero-name">${character.name}</p>
+    </div>
    `;
   });
   refs.characterContainer.insertAdjacentHTML('beforeend', characters.join(''));
