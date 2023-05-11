@@ -19,9 +19,9 @@
     />
     
     <title>Episodes 3</title>
-    <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/modal-popup-char-1bd4e9e5.js"></script>
+    <script type="module" crossorigin src="/BC-52-PROJECT-2/assets/modal-popup-char-c9ae8b2c.js"></script>
     <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/modal-popup-char-b099ecf4.css">
-    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-84795040.css">
+    <link rel="stylesheet" href="/BC-52-PROJECT-2/assets/styles-12e88dbf.css">
   </head>
 
   <body>
@@ -38,7 +38,7 @@
       />
       <button class="header-search-btn" type="submit">
         <svg class="header-icon">
-          <use href="/BC-52-PROJECT-2/assets/symbol-defs-759511a2.svg#icon-search"></use>
+          <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-search"></use>
         </svg>
       </button>
     </form>
@@ -129,46 +129,46 @@
       <section class="episodes-gallery"></section>
 <div class="container">
   <ul class="episodes-navigation">
-    <li>
+    <li class="name-width">
       <p class="name">Name</p>
       <div class="input-border">
         <input type="text" placeholder="Enter name" id="episode-name-input"/>
         <svg class="search-icon">
-          <use href="/BC-52-PROJECT-2/assets/symbol-defs-759511a2.svg#icon-search"></use>
+          <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-search"></use>
         </svg>
       </div>
     </li>
 
-    <li>
+    <li class="episode-code-width">
       <p class="name">Episode code</p>
 
       <div class="allseason-sub-menu">
         <button
           type="button"
-          class="all-series-btn allseason-bar"
+          class="all-series-btn"
           id="all-series-btn"
         >
           All season
-          <svg class="vector-icon">
-            <use href="/BC-52-PROJECT-2/assets/symbol-defs-759511a2.svg#icon-chevron-down"></use>
+          <svg class="vector-icon" id="arrow">
+            <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-chevron-down"></use>
           </svg>
         </button>
-        <ul class="allseason-bar dropdown" id="dropdown">
+        <ul class="dropdown" id="dropdown">
           <li class="all-season">All season</li>
           <li class="seasons" id="1-season">
             1 season
             <ul class="season-menu seasons-gap">
               <li class="series-margin" data-episode="s01e01">1 series</li>
-              <li class="series-margin" data-episode="s01e02">2 series</li>
-              <li class="series-margin" data-episode="s01e03">3 series</li>
-              <li class="series-margin" data-episode="s01e04">4 series</li>
-              <li class="series-margin" data-episode="s01e05">5 series</li>
-              <li class="series-margin" data-episode="s01e06">6 series</li>
-              <li class="series-margin" data-episode="s01e07">7 series</li>
-              <li class="series-margin" data-episode="s01e08">8 series</li>
-              <li class="series-margin" data-episode="s01e09">9 series</li>
-              <li class="series-margin" data-episode="s01e10">10 series</li>
-              <li class="series-margin" data-episode="s01e11">11 series</li>
+              <li data-episode="s01e02">2 series</li>
+              <li data-episode="s01e03">3 series</li>
+              <li data-episode="s01e04">4 series</li>
+              <li data-episode="s01e05">5 series</li>
+              <li data-episode="s01e06">6 series</li>
+              <li data-episode="s01e07">7 series</li>
+              <li data-episode="s01e08">8 series</li>
+              <li data-episode="s01e09">9 series</li>
+              <li data-episode="s01e10">10 series</li>
+              <li data-episode="s01e11">11 series</li>
             </ul>
           </li>
           <li class="seasons" id="2-season">
@@ -191,7 +191,7 @@
             3 season
 
             <ul class="season-menu seasons-gap">
-              <li class="series-margin" data-episode="s01e01" data-episode="s03e01">1 series</li>
+              <li class="series-margin" data-episode="s03e01">1 series</li>
               <li data-episode="s03e02">2 series</li>
               <li data-episode="s03e03">3 series</li>
               <li data-episode="s03e04">4 series</li>
@@ -239,12 +239,32 @@
   </ul>
 </div>
 
+
 <section class="episodes-gallery">
   <div class="container">
     <ul class="episodes-gallery-list"></ul>
     <button class="btn-load-more" type="button">Load More</button>
   </div>
+  <div class="container">
+    <div class="oops-list is-hidden" id="oops">
+      <picture>
+        <source
+          srcset="/BC-52-PROJECT-2/assets/oops-desktop@1x-113b6677.png 1x, /BC-52-PROJECT-2/assets/oops-desktop@2x-c2c028a9.png 2x"
+          media="(min-width: 1440px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/oops-desktop@1x-113b6677.png 1x, /BC-52-PROJECT-2/assets/oops-desktop@2x-c2c028a9.png 2x"
+          media="(min-width: 768px)" />
+        <source
+          srcset="/BC-52-PROJECT-2/assets/oops-mobile@1x-59104167.png 1x, /BC-52-PROJECT-2/assets/oops-mobile@2x-e16382dd.png 2x"
+          media="(max-width: 767px)" />
+        <img class="oops-img" src="/BC-52-PROJECT-2/assets/oops-desktop@1x-113b6677.png" alt="oops"
+      /></picture>
+      <p class="oops-text">Oops! Try looking for something else...</p>
+    </div>
+  </div>
 </section>
+
+
 
     </main>
     <footer id="footer" class="charac-epis-footer">
@@ -305,7 +325,7 @@
   <div class="container-pop-epis">
     <button class="close-pop-epis-btn" data-pop-epis-close type="button">
       <svg class="close-pop-icon" width="10" height="10">
-        <use href="/BC-52-PROJECT-2/assets/symbol-defs-759511a2.svg#icon-pop-epis-modal-close"></use>
+        <use href="/BC-52-PROJECT-2/assets/symbol-defs-867cd7f1.svg#icon-pop-epis-modal-close"></use>
       </svg>
     </button>
 
