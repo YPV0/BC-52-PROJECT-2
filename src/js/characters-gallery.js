@@ -201,7 +201,6 @@ function updateLoadMoreButton() {
 async function loadMoreItems() {
   currentPage += 1;
   await fetchCharacters();
-  console.log('currentPage:', currentPage);
 }
 
 if (refs.charactersSearchForm && refs.input && refs.loadMoreBtn) {
@@ -225,11 +224,12 @@ function handleDropdownItemClick(event) {
   }
 }
 
-refs.status.addEventListener('click', handleDropdownItemClick);
-refs.species.addEventListener('click', handleDropdownItemClick);
-refs.type.addEventListener('click', handleDropdownItemClick);
-refs.gender.addEventListener('click', handleDropdownItemClick);
-
+if (refs.status) {
+  refs.status.addEventListener('click', handleDropdownItemClick);
+  refs.species.addEventListener('click', handleDropdownItemClick);
+  refs.type.addEventListener('click', handleDropdownItemClick);
+  refs.gender.addEventListener('click', handleDropdownItemClick);
+}
 let intervalId;
 const selectField = document.querySelectorAll('.dropdown-btn');
 const dropList = document.querySelectorAll('.dropdown-list');
@@ -271,4 +271,7 @@ const btnPress = e => {
     };
   });
 };
-selectField.forEach(e => e.addEventListener('click', btnPress));
+
+if (selectField) {
+  selectField.forEach(e => e.addEventListener('click', btnPress));
+}

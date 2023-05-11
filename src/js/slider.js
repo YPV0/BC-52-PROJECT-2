@@ -1,9 +1,8 @@
-// import Swiper JS
-import Swiper from 'swiper';
-// import Swiper styles
-import 'swiper/css';
+import Swiper from 'swiper/bundle';
 
-var swiper = new Swiper('.swiper', {
+import 'swiper/css/bundle';
+
+let swiper = new Swiper('.swiper', {
   speed: 400,
   initialSlide: 0,
   slidesPerView: 1,
@@ -19,10 +18,6 @@ var swiper = new Swiper('.swiper', {
   },
   breakpoints: {
     320: {
-      slidesPerView: 1.6,
-      spaceBetween: 12,
-    },
-    375: {
       slidesPerView: 1.6,
       spaceBetween: 12,
     },
