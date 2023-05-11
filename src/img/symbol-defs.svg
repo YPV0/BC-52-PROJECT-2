@@ -5,11 +5,14 @@
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M27.999 28l-5.8-5.8"></path>
 </symbol>
 <symbol id="icon-chevron-down" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M8 12l8 8 8-8"></path>
+<path d="M14.588 25.413c0.781 0.781 2.050 0.781 2.831 0l12-12c0.781-0.781 0.781-2.050 0-2.831s-2.050-0.781-2.831 0l-10.588 10.588-10.588-10.581c-0.781-0.781-2.050-0.781-2.831 0s-0.781 2.050 0 2.831l12 12z"></path>
 </symbol>
 <symbol id="icon-pop-epis-modal-close" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M24 8l-16 16"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M8 8l16 16"></path>
+</symbol>
+<symbol id="icon-down" viewBox="0 0 48 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="8" d="M6 7l18 18 18-18"></path>
 </symbol>
 </defs>
 </svg>
