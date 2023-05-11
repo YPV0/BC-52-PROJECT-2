@@ -3,6 +3,7 @@
   flex-direction: column;
   margin-top: 127px;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .name-width {
@@ -109,20 +110,22 @@ input {
   
 }
 
-::-webkit-scrollbar {
+.dropdown::-webkit-scrollbar {
   
   width: 6px;
   
  
 }
 
-::-webkit-scrollbar-track {
+.dropdown::-webkit-scrollbar-track {
   margin-top: 8px;
   margin-bottom: 8px;
+  padding-right: 10px;
+  
   
 }
 
-::-webkit-scrollbar-thumb {
+.dropdown::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background: #575757;
 
@@ -190,10 +193,9 @@ input {
   top: 14px
 }
 
-.oops-text {
-  margin-bottom: 80px !important;
+.oops-list {
+  margin-bottom: 128px;
 }
-
 
 
 
@@ -276,7 +278,7 @@ input {
   
   justify-content: center;
 
-  margin: 25px auto 40px;
+  margin: 0 auto 40px;
   max-width: 335px;
   width: 100%;
 }
@@ -320,6 +322,24 @@ input {
   .episodes-navigation {
     display: flex;
     justify-content: center;
+    margin-bottom: 64px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+
+
+  .name-width {
+    max-width: 223px;
+  }
+
+  .episode-code-width {
+    max-width: 190px;
+  }
+
+  .dropdown {
+    max-width: 190px;
   }
 }
 
