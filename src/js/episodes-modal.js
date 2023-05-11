@@ -45,6 +45,7 @@ function handleEpisodeItemClick(event) {
       easing: 'cubicBezier(.4, 0, .2, 1)',
       begin: function() {
         refs.container.style.transformOrigin = '50% 50%';
+        document.body.style.overflow = 'hidden';
       }
     });
 
@@ -82,6 +83,8 @@ document.addEventListener('click', function(event) {
       easing: 'cubicBezier(.4, 0, .2, 1)',
       begin: function() {
         refs.container.style.transformOrigin = '50% 50%';
+        document.body.style.overflow = 'hidden';
+        
       }
     });
 
@@ -98,6 +101,7 @@ function closeEpisModal() {
     easing: 'easeInOutQuad',
     complete: function() {
       refs.modal.classList.add('is-hidden');
+     document.body.style.overflow = 'hidden';
     }
   });
 
@@ -108,6 +112,7 @@ function closeEpisModal() {
     easing: 'easeInOutQuad',
     complete: function() {
       refs.container.classList.add('is-hidden');
+      document.body.style.overflow = 'auto';
     }
   });
 }
