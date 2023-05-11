@@ -5,6 +5,7 @@
 }
 .main-characters-item {
   width: 100%;
+  cursor: pointer;
 }
 .img-component {
   margin-bottom: 32px;
@@ -45,7 +46,6 @@
   align-items: center;
   color: #111111;
   margin-bottom: 14px;
-  cursor: pointer;
   transition: color var(--transition-dur-and-func);
 }
 .main-characters-item:not(:first-child) {
