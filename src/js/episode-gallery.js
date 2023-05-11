@@ -1,4 +1,5 @@
 import { getEpisodes } from 'rickmortyapi';
+import anime from 'animejs';
 import debounce from 'lodash.debounce';
 import season1 from '/img/season1.png';
 import season2 from '/img/season2.png';
@@ -111,14 +112,25 @@ let FILTER = {};
 let searchTimeout;
 
 async function onGalleryFilter() {
-  refs.gallery.innerHTML = '';
-  loadEpisode = await getEpisodes(FILTER);
-  refs.gallery.insertAdjacentHTML(
-    'beforeend',
-    onCreateGalleryEpisodes(loadEpisode.data.results)
-  );
+  const savedScroll = window.pageYOffset;
 
-  toggleOopsList();
+  anime({
+    targets: '.episodes-item',
+    opacity: [1, 0],
+    duration: 250,
+    easing: 'easeInOutQuad',
+    complete: async function () {
+      refs.gallery.innerHTML = '';
+      loadEpisode = await getEpisodes(FILTER);
+      refs.gallery.insertAdjacentHTML(
+        'beforeend',
+        onCreateGalleryEpisodes(loadEpisode.data.results)
+      );
+      toggleOopsList();
+
+      window.scrollTo(0, savedScroll);
+    },
+  });
 }
 
 const dropdownBtn = document.getElementById('all-series-btn');
@@ -236,7 +248,7 @@ if (
     seasonMenus.forEach(function (seasonMenu) {
       seasonMenu.classList.add('season-menu');
     });
-    
+
     FILTER = { page: PAGE };
     onGalleryFilter();
     refs.btnLoadMore.classList.remove('is-hidden');
@@ -271,6 +283,6 @@ function toggleOopsList() {
       refs.btnLoadMore.classList.remove('is-hidden');
     } else {
       refs.btnLoadMore.classList.add('is-hidden');
+    }
   }
-  } 
 }
