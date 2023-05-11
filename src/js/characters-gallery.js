@@ -191,6 +191,10 @@ const btnPress = e => {
       e.classList.remove('menu-active');
       e.classList.remove('open');
       dataEl.classList.add('menu-active');
+      dataEl.addEventListener('click', e => {
+        document.querySelector(`[data-path=${list}]`).textContent =
+          e.target.innerText;
+      });
 
       intervalId = setTimeout(() => {
         dataEl.classList.add('open');
