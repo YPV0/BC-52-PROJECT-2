@@ -42,6 +42,7 @@
   border: 2px solid #a1d737;
   border-radius: 18px;
   margin-bottom: 13px;
+  cursor: pointer;
 }
 .card-name {
   font-weight: 600;

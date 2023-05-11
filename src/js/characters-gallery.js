@@ -274,4 +274,5 @@ const btnPress = e => {
 
 if (selectField) {
   selectField.forEach(e => e.addEventListener('click', btnPress));
+  fetchCharacters();
 }
