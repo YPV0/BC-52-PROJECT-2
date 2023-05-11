@@ -231,11 +231,6 @@ img.card-img {
     margin-left: 0;
   }
 
-  svg.search-icon {
-    top: -25px;
-    left: 205px;
-  }
-
   .gallery {
     flex-wrap: wrap;
     gap: 61px 24px;
