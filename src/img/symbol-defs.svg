@@ -5,7 +5,7 @@
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M27.999 28l-5.8-5.8"></path>
 </symbol>
 <symbol id="icon-chevron-down" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M8 12l8 8 8-8"></path>
+<path d="M14.588 25.413c0.781 0.781 2.050 0.781 2.831 0l12-12c0.781-0.781 0.781-2.050 0-2.831s-2.050-0.781-2.831 0l-10.588 10.588-10.588-10.581c-0.781-0.781-2.050-0.781-2.831 0s-0.781 2.050 0 2.831l12 12z"></path>
 </symbol>
 <symbol id="icon-Vector-5" viewBox="0 0 33 32">
 <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.7805" d="M0.78 15.501l15.61 15.719M16.39 31.22l15.61-15.719M16.39 31.22v-31.22"></path>
