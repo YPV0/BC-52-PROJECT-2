@@ -176,3 +176,46 @@ if (
   refs.type.addEventListener('change', handleFilterChange);
   refs.loadMoreBtn.addEventListener('click', loadMoreItems);
 }
+
+let intervalId;
+const selectField = document.querySelectorAll('.dropdown-btn');
+const dropList = document.querySelectorAll('.dropdown-list');
+
+const btnPress = e => {
+  const list = e.currentTarget.dataset.path;
+
+  dropList.forEach(e => {
+    const dataEl = document.querySelector(`[data-target=${list}]`);
+
+    if (!dataEl.classList.contains('open')) {
+      e.classList.remove('menu-active');
+      e.classList.remove('open');
+      dataEl.classList.add('menu-active');
+
+      intervalId = setTimeout(() => {
+        dataEl.classList.add('open');
+      }, 0);
+    }
+    if (dataEl.classList.contains('open')) {
+      clearTimeout(intervalId);
+      dataEl.classList.remove('menu-active');
+
+      intervalId = setTimeout(() => {
+        dataEl.classList.remove('open');
+      }, 0);
+    }
+
+    window.onclick = e => {
+      if (
+        e.target == dataEl ||
+        e.target == document.querySelector(`[data-path='$(menu)']`)
+      ) {
+        return;
+      } else {
+        dataEl.classList.remove('menu-active');
+        dataEl.classList.remove('open');
+      }
+    };
+  });
+};
+selectField.forEach(e => e.addEventListener('click', btnPress()));
