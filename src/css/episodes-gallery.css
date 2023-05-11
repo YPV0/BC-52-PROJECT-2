@@ -1,5 +1,11 @@
 .episodes-navigation {
-  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 127px;
+  align-items: center;
+}
+
+.name-width {
   width: 100%;
   max-width: 335px;
 }
@@ -19,10 +25,7 @@ input {
 }
 
 ::placeholder {
-  font-family: 'Montserrat';
-  font-style: normal;
-  color: #111111;
-  font-weight: 400;
+  color: #111111;;
   font-size: 14px;
   line-height: 1.29;
   opacity: 1;
@@ -35,9 +38,24 @@ input {
 .input-border {
   margin-bottom: 20px;
   position: relative;
+  width: 100%;
+  max-width: 335px;
 }
 
-.allseason-bar {
+.season-menu {
+  display: none;
+  
+  margin-top: 11px;
+}
+
+.all-series-btn {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  cursor: pointer;
+
   padding-left: 24px;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -51,25 +69,27 @@ input {
   
 }
 
-.season-menu {
-  display: none;
-  
-  margin-top: 11px;
+.episode-code-width {
+  width: 100%;
+  max-width: 335px;
 }
 
-
-
-.all-series-btn {
-  text-align: left;
-  display: flex;
-  align-items: center;
+.allseason-sub-menu {
   position: relative;
-  justify-content: flex-start;
-  cursor: pointer;
   
 }
 
 .dropdown {
+  padding-left: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  
+  background: white;
+  border: 1.5px solid #111111;
+  border-radius: 100px;
+  max-height: 242px;
+
   position: absolute;
   width: 335px;
   background: #FAFAFA;
@@ -80,6 +100,7 @@ input {
   border: none;
   z-index: 1;
 
+  transition: var(--transition-dur-and-func);
   transform: translateY(0.5rem);
   visibility: hidden;
   opacity: 0;
@@ -88,24 +109,39 @@ input {
   
 }
 
+::-webkit-scrollbar {
+  
+  width: 6px;
+  
+ 
+}
+
+::-webkit-scrollbar-track {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #575757;
+
+  
+}
+
 .dropdown li {
-  /* display: flex;
-  align-items: center;
-  column-gap: 10px; */
   padding: 4px;
   text-decoration: none;
   color: black;
   cursor: pointer;
 }
 
-.seasons:hover
- {
-  
-  color: #A1D737;
+.seasons:hover {
+    color: #A1D737;
 }
 
-
 .show {
+  transition: var(--transition-dur-and-func);
   transform: translateY(0rem);
   visibility: visible;
   opacity: 1;
@@ -116,20 +152,14 @@ input {
 }
 
 .seasons {
-  
   margin-top: 8px;
-  
-  
   
 }
 .series-margin {
   margin-top: 11px;
 }
 
-
 .seasons-gap li {
-  
-  
   color: rgba(17, 17, 17, 0.3);
   padding-left: 10px;
 }
@@ -139,11 +169,16 @@ input {
 }
 
 .vector-icon {
-  width: 18px;
-  height: 18px;
-  stroke: #111111;
+  width: 16px;
+  height: 16px;
   position: absolute;
   right: 24px;
+  transition: 0.2s ease;
+}
+
+.arrow {
+  transform: rotate(180deg);
+  transition: 0.2s ease;
 }
 
 .search-icon {
@@ -153,6 +188,10 @@ input {
   position: absolute;
   right: 24px;
   top: 14px
+}
+
+.oops-text {
+  margin-bottom: 80px !important;
 }
 
 
@@ -234,11 +273,12 @@ input {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
-
+  
   justify-content: center;
 
   margin: 25px auto 40px;
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
 }
 
 .is-hidden {
@@ -271,6 +311,10 @@ input {
   .btn-load-more {
     margin-bottom: 128px;
   }
+  .episodes-navigation {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -284,4 +328,11 @@ input {
     width: 284px;
     height: 200px;
   }
+
+  /* .episodes-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    max-width: 190px;
+  } */
 }
