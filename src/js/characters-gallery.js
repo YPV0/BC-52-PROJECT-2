@@ -1,9 +1,11 @@
 import { getCharacters } from 'rickmortyapi';
 import debounce from 'lodash.debounce';
+import anime from 'animejs';
 
 const refs = {
   gallery: document.querySelector('.gallery'),
   input: document.querySelector('.characters-search'),
+  inputForm: document.querySelector('.gallery-form'),
   status: document.querySelector('#status-dropdown-select'),
   species: document.querySelector('#species-dropdown-select'),
   type: document.querySelector('#type-dropdown-select'),
@@ -38,11 +40,20 @@ const selectedValues = {
 const handleFilterChange = debounce(async (value, key) => {
   currentPage = 1;
   characters = [];
-  refs.gallery.innerHTML = '';
 
   selectedValues[key] = value;
-
   await fetchCharacters();
+
+  anime({
+    targets: '.gallery-card',
+    opacity: [1, 0],
+    duration: 250,
+    easing: 'easeInOutQuad',
+    complete: function () {
+      refs.gallery.innerHTML = '';
+      renderGallery();
+    },
+  });
 }, 300);
 
 async function fetchCharacters() {
@@ -168,6 +179,13 @@ function renderGallery() {
   charactersToRender.forEach(character => {
     const li = renderCharacterCard(character);
     refs.gallery.appendChild(li);
+
+    anime({
+      targets: li,
+      opacity: [0, 1],
+      duration: 250,
+      easing: 'easeInOutQuad',
+    });
   });
 
   updateLoadMoreButton();
@@ -272,7 +290,13 @@ const btnPress = e => {
   });
 };
 
-if (selectField) {
+if (refs.inputForm) {
   selectField.forEach(e => e.addEventListener('click', btnPress));
+
   fetchCharacters();
+}
+if (refs.inputForm) {
+  refs.inputForm.addEventListener('submit', e => {
+    e.preventDefault();
+  });
 }

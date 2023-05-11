@@ -1,4 +1,3 @@
-
 import anime from 'animejs';
 
 const firstImg = document.querySelector('#default-img');
@@ -61,28 +60,7 @@ function handleMouseLeave() {
   }
 }
 
-function handleTouchStart(event) {
-  const imgId = this.getAttribute('data-img');
-  handleImageTransition(imgId);
-  event.preventDefault();
-}
-
-function handleTouchEnd(event) {
-  const imgId = this.getAttribute('data-img');
-  const img = document.querySelector(`#${imgId}`);
-
-  if (img.classList.contains('img-hidden')) {
-    animateImage(img);
-    img.classList.remove('img-hidden');
-    animateImage(firstImg);
-    firstImg.classList.add('img-hidden');
-  }
-  event.preventDefault();
-}
-
 linkEls.forEach(linkEl => {
   linkEl.addEventListener('mouseenter', handleMouseEnter);
   linkEl.addEventListener('mouseleave', handleMouseLeave);
-  linkEl.addEventListener('touchstart', handleTouchStart);
-  linkEl.addEventListener('touchend', handleTouchEnd);
 });
