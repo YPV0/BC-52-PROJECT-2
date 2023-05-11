@@ -31,9 +31,9 @@
   float: right;
   margin-right: 20px;
 }
-.slider-btn:hover, .slider-btn:focus{
-background-color: var(--btn-hover-slider);
-
+.slider-btn:hover,
+.slider-btn:focus {
+  background-color: var(--btn-hover-slider);
 }
 
 .slider-name {
@@ -48,10 +48,8 @@ background-color: var(--btn-hover-slider);
 }
 
 @media screen and (min-width: 375px) {
-
   .slider-name {
     width: 337px;
-
   }
 }
 @media screen and (min-width: 768px) {
