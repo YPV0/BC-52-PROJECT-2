@@ -299,6 +299,12 @@ input {
   .episodes-gallery-list {
     gap: 32px;
     width: 100%;
+    max-width: max-content;
+
+  }
+  .episodes-gallery-list {
+    gap: 32px;
+    width: 100%;
   }
   .episodes-item {
     width: 336px;
