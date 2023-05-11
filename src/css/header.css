@@ -4,7 +4,7 @@
 }
 .header {
   position: fixed;
-  width: 100%;
+  width: auto;
   top: 0;
   left: 0;
   z-index: 100;
@@ -58,19 +58,16 @@
 }
 
 @media screen and (max-width: 350px) {
-  .header {
-    width: auto;
-  }
-  .header-hero-btn {
+  /* .header-hero-btn {
     display: none;
-  }
-  .header-input {
+  } */
+  /* .header-input {
     padding-left: 10px;
     padding-right: 10px;
     max-width: 78px;
-  }
+  } */
   .header-input:focus {
-    max-width: 90px;
+    max-width: 114px;
   }
   .header-btn {
     padding-left: 10px;
@@ -79,6 +76,7 @@
 }
 @media screen and (min-width: 768px) {
   .header {
+    width: 100%;
     min-width: 768px;
   }
   .header-input {
