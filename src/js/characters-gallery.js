@@ -218,4 +218,4 @@ const btnPress = e => {
     };
   });
 };
-selectField.forEach(e => e.addEventListener('click', btnPress()));
+selectField.forEach(e => e.addEventListener('click', btnPress));
