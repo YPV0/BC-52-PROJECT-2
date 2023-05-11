@@ -1,54 +1,117 @@
-<section class="hero-gallery is-hidden" id="hidden-section">
-  <div class="container">
+<section class="hero-gallery is-hidden hidden-gallery">
+  <div class="container gallery-container">
     <ul class="dropdown-filter">
-      <li class="dropdown-filter">
-        <p>Name</p>
-        <input class="hidden-characters-search" type="text" />
+      <li class="dropdown-filter input-wrapper">
+        <p class="text-about">Name</p>
+        <input
+          placeholder="Enter name"
+          class="characters-search input-green"
+          type="text"
+        />
       </li>
       <li class="dropdown-item">
-        <p>Status</p>
-        <select name="status" id="hidden-status-select">
-          <option value="all">All</option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown">Unknown</option>
-        </select>
+        <p class="text-about">Status</p>
+        <div class="dropdown-tag" id="status-item">
+          <button
+            class="dropdown-btn input-white"
+            name="status"
+            id="status-select"
+            data-path="status"
+          >
+            All
+          </button>
+          <ul
+            class="dropdown-list"
+            data-target="status"
+            id="status-dropdown-select"
+          >
+            <li class="drop-down-point" data-value="all">All</li>
+            <li class="drop-down-point" data-value="alive">Alive</li>
+            <li class="drop-down-point" data-value="dead">Dead</li>
+            <li class="drop-down-point" data-value="unknow">Unknow</li>
+          </ul>
+        </div>
       </li>
       <li class="dropdown-item">
-        <p>Species</p>
-        <select name="species" id="hidden-species-select">
-          <option value="all">All</option>
-          <option value="human">Human</option>
-          <option value="alien">Alien</option>
-          <option value="humanoid">Humanoid</option>
-          <option value="animal">Animal</option>
-          <option value="robot">Robot</option>
-          <option value="cronenberg">Cronenberg</option>
-          <option value="disease">Disease</option>
-          <option value="poopybutthole">Poopybutthole</option>
-          <option value="mythological">Mythological creature</option>
-        </select>
+        <p class="text-about">Species</p>
+        <div class="dropdown-tag" id="species-item">
+          <button
+            class="dropdown-btn input-white"
+            name="species"
+            id="species-select"
+            data-path="species"
+          >
+            All
+          </button>
+          <ul
+            class="dropdown-list"
+            data-target="species"
+            id="species-dropdown-select"
+          >
+            <li class="drop-down-point" data-value="all">All</li>
+            <li class="drop-down-point" data-value="human">Human</li>
+            <li class="drop-down-point" data-value="alien">Alien</li>
+            <li class="drop-down-point" data-value="humanoid">Humanoid</li>
+            <li class="drop-down-point" data-value="animal">Animal</li>
+            <li class="drop-down-point" data-value="robot">Robot</li>
+            <li class="drop-down-point" data-value="cronenberg">Cronenberg</li>
+            <li class="drop-down-point" data-value="disease">Disease</li>
+            <li class="drop-down-point" data-value="poopybutthole">
+              Poopybutthole
+            </li>
+            <li class="drop-down-point" data-value="mythological">
+              Mythological creature
+            </li>
+          </ul>
+        </div>
       </li>
       <li class="dropdown-item">
-        <p>Type</p>
-        <select name="type" id="hidden-type-select">
-          <option value="all">All</option>
-          <!-- Types from the API should be rendered here -->
-        </select>
+        <p class="text-about">Type</p>
+        <div class="dropdown-tag" id="type-item">
+          <button
+            class="dropdown-btn input-white"
+            name="type"
+            id="type-select"
+            data-path="type"
+          >
+            All
+          </button>
+          <ul
+            class="dropdown-list"
+            data-target="type"
+            id="type-dropdown-select"
+          >
+            <li class="drop-down-point" data-value="all">All</li>
+          </ul>
+        </div>
       </li>
       <li class="dropdown-item">
-        <p>Gender</p>
-        <select name="gender" id="hidden-gender-select">
-          <option value="all">All</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
-        </select>
+        <p class="text-about">Gender</p>
+        <div class="dropdown-tag" id="gender-item">
+          <button
+            class="dropdown-btn input-white"
+            name="gender"
+            id="gender-select"
+            data-path="gender"
+          >
+            All
+          </button>
+          <ul
+            class="dropdown-list"
+            data-target="gender"
+            id="gender-dropdown-select"
+          >
+            <li class="drop-down-point" data-value="all">All</li>
+            <li class="drop-down-point" data-value="male">Male</li>
+            <li class="drop-down-point" data-value="female">Female</li>
+            <li class="drop-down-point" data-value="genderless">Genderless</li>
+            <li class="drop-down-point" data-value="unknown">Unknown</li>
+          </ul>
+        </div>
       </li>
     </ul>
-    <ul class="main-gallery"></ul>
-    <button class="load-more-btn" type="button">Load More</button>
+    <ul class="gallery gallery-cards hero-gallery"></ul>
+    <button class="load-more-btn btn-green" type="button">Load More</button>
   </div>
   <div class="oops-list is-hidden">
     <picture>
