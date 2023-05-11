@@ -12,6 +12,7 @@ const refs = {
   charactersModal: document.querySelector('.backdrop-popchar'),
   charactersBackdrop: document.querySelector('.backdrop-popchar'),
   closeEpisModalBtn: document.querySelector('.close-pop-epis-btn'),
+  galleryList:document.querySelector('.gallery-list'),
 };
 let episodeName = '';
 let currentEpisode = {};
@@ -111,7 +112,13 @@ function closeEpisModal() {
   });
 }
 
-if (refs.modal && refs.episodesContainer) {
+if ( refs.modal &&
+  refs.container &&
+  refs.title &&
+  refs.episodeId &&
+  refs.episodeDate &&
+  refs.episodesContainer &&
+  refs.characterContainer) {
   refs.episodesContainer.addEventListener('click', handleEpisodeItemClick);
   refs.modal.addEventListener('click', function(event) {
     if (event.target === refs.modal) {
