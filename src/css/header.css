@@ -23,7 +23,7 @@
   margin-left: auto;
 }
 .header-input {
-  max-width: 108px;
+  max-width: 114px;
   padding-left: 43px;
   transition: max-width var(--transition-dur-and-func);
 }
@@ -58,20 +58,23 @@
 }
 
 @media screen and (max-width: 350px) {
+  .header {
+    width: auto;
+  }
   .header-hero-btn {
     display: none;
   }
-  .header-hero-input {
-    padding-left: 12px;
-    padding-right: 12px;
-    max-width: 68px;
+  .header-input {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 78px;
   }
   .header-input:focus {
     max-width: 90px;
   }
   .header-btn {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 @media screen and (min-width: 768px) {
