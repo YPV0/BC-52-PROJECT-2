@@ -13,9 +13,9 @@ let swiper = new Swiper('.swiper', {
     clickable: true,
   },
 
-  // autoplay: {
-  //   delay: 3000,
-  // },
+  autoplay: {
+    delay: 3000,
+  },
   breakpoints: {
     320: {
       slidesPerView: 1.6,
