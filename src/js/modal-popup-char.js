@@ -1,3 +1,5 @@
+import anime from 'animejs';
+
 const closeModalBtn = document.querySelector('.close-modal-js');
 const backdrop = document.querySelector('.backdrop-popchar');
 const modal = document.querySelector('.modal-popchar');
@@ -17,19 +19,38 @@ if (
   episodesList &&
   galleryElements.length > 0
 ) {
-  galleryElements.forEach(gallery => {
-    gallery.addEventListener('click', event => {
-      const clickedCard = event.target.closest('.gallery-card, .epis-img-block');
-      if (clickedCard) {
-        const cardName = clickedCard.querySelector('.card-name, .pop-hero-name').textContent;
-        fetchData(cardName);
-        backdrop.classList.remove('is-hidden');
-        modal.classList.remove('is-hidden');
-        episodesModal.classList.add('is-hidden');
-        document.body.style.overflow = 'hidden';
-      }
-    });
+ galleryElements.forEach(gallery => {
+  gallery.addEventListener('click', async event => {
+    const clickedCard = event.target.closest('.gallery-card, .epis-img-block');
+    if (clickedCard) {
+      const cardName = clickedCard.querySelector('.card-name, .pop-hero-name').textContent;
+      await fetchData(cardName);
+      
+      anime({
+        targets: backdrop,
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'cubicBezier(0.4, 0, 0.2, 1)',
+        begin: function() {
+          backdrop.classList.remove('is-hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
+    anime({
+  targets: modal,
+  opacity: [0, 1],
+  duration: 1000,
+  easing: 'cubicBezier(.4, 0, .2, 1)',
+  begin: function() {
+    modal.style.transformOrigin = '50% 50%';  // Устанавливаем начало трансформации в центр модального окна
+    modal.classList.remove('is-hidden');
+    episodesModal.classList.add('is-hidden');
+  }
+});
+    }
   });
+});
 
   closeModalBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', event => {
@@ -40,14 +61,31 @@ if (
 }
 
 function closeModal() {
-  if (!backdrop.classList.contains('is-hidden')) {
-    backdrop.classList.add('is-hidden');
-    modal.classList.add('is-hidden');
-    document.body.style.overflow = 'auto';
-    img.setAttribute('src', '');
-    statusItems.forEach(item => (item.textContent = ''));
-    episodesList.innerHTML = '';
-  }
+  anime({
+    targets: backdrop,
+    opacity: [1, 0],
+    duration: 1000,
+    easing: 'easeInOutQuad',
+    complete: function() {
+      backdrop.classList.add('is-hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  anime({
+    targets: modal,
+    opacity: [1, 0],
+    translateX: ['-50%', '-50%'],
+    translateY: ['-50%', '-50%'],
+    duration: 1000,
+    easing: 'easeInOutQuad',
+    complete: function() {
+      modal.classList.add('is-hidden');
+      img.setAttribute('src', '');
+      statusItems.forEach(item => (item.textContent = ''));
+      episodesList.innerHTML = '';
+    }
+  });
 }
 async function fetchData(characterName) {
   try {
@@ -128,3 +166,11 @@ async function fetchData(characterName) {
     console.error(error);
   }
 }
+
+
+
+
+
+
+
+
