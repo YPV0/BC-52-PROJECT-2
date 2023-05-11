@@ -3,13 +3,13 @@ footer {
 }
 
 .footer-container {
-  display: flex;
   padding: 40px 20px 80px;
 }
 
 .footer-logo {
   position: relative;
   width: 149px;
+  height: 107px;
 }
 
 .footer-logo .rick {
@@ -96,10 +96,33 @@ footer {
   color: rgba(17, 17, 17, 0.4);
 }
 
+@media screen and (max-width: 374px) {
+  footer {
+    max-width: 374px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    margin: 0 auto;
+  }
+  .footer-navigation {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media screen and (min-width: 375px) {
   footer {
     max-width: 375px;
     margin: 0 auto;
+  }
+
+  .footer-container {
+    display: flex;
   }
 }
 
