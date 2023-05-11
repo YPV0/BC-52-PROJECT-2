@@ -234,6 +234,8 @@ if (
     seasonMenus.forEach(function (seasonMenu) {
       seasonMenu.classList.add('season-menu');
     });
+    FILTER = { page: PAGE };
+    onGalleryFilter();
   });
 }
 
@@ -246,9 +248,8 @@ function toggleOopsList() {
   const oopsList = document.querySelector('.oops-list');
   if (!hasSearchResults) {
     oopsList.classList.remove('is-hidden');
-    refs.btnLoadMore.classList.add('is-hidden');
   } else {
     oopsList.classList.add('is-hidden');
-    refs.btnLoadMore.classList.remove('is-hidden');
   }
+  refs.btnLoadMore.classList.add('is-hidden');
 }
