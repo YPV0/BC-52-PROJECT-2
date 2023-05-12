@@ -1,3 +1,18 @@
+@media (max-width: 335px) {
+  .modal-popchar {
+    max-width: 100%;
+    box-sizing: border-box; /* Это свойство убедится, что padding не добавляет дополнительную ширину к элементу */
+  }
+  .status-list {
+    width: 100%;
+  }
+  .popchar-episodes-list .popchar-episodes-item {
+    min-width: 100%;
+  }
+  .popchar-episodes-list {
+    min-width: 100%;
+  }
+}
 .backdrop-popchar {
   z-index: 100;
   overflow: hidden;
