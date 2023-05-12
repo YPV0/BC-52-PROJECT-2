@@ -29,6 +29,7 @@ let currentPage = 1;
 let itemsPerPage = window.innerWidth >= 1440 ? 20 : 10;
 let totalItems = 0;
 let characters = [];
+let errorStatus = false;
 
 const selectedValues = {
   status: 'all',
@@ -117,11 +118,15 @@ async function fetchCharacters() {
       'gender'
     );
     refs.oopsList.classList.add('is-hidden');
+    errorStatus = false;
     renderGallery();
+    updateLoadMoreButton();
   } else {
     console.log('Invalid API response:', response);
     refs.loadMoreBtn.style.display = 'none';
     refs.oopsList.classList.remove('is-hidden');
+    errorStatus = true;
+    updateLoadMoreButton();
   }
 }
 
@@ -212,6 +217,11 @@ function renderCharacterCard(character) {
 }
 
 function updateLoadMoreButton() {
+  if (errorStatus) {
+    refs.loadMoreBtn.style.display = 'none';
+    return;
+  }
+
   const hasMoreItems = currentPage * itemsPerPage < totalItems;
   refs.loadMoreBtn.style.display = hasMoreItems ? 'block' : 'none';
 }
