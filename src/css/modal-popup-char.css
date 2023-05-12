@@ -3,7 +3,7 @@
     max-width: 100%;
     box-sizing: border-box; /* Это свойство убедится, что padding не добавляет дополнительную ширину к элементу */
   }
-  .status-list {
+  .modal-popchar .status-list {
     width: 100%;
   }
   .popchar-episodes-list .popchar-episodes-item {
