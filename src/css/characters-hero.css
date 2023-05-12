@@ -1,7 +1,8 @@
 .hero-img-character {
   max-width: 335px;
   max-height: 335px;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hero-title {
   font-weight: 600;
