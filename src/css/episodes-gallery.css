@@ -26,7 +26,7 @@ input {
 }
 
 ::placeholder {
-  color: #111111;;
+  color: #111111;
   font-size: 14px;
   line-height: 1.29;
   opacity: 1;
@@ -45,7 +45,7 @@ input {
 
 .season-menu {
   display: none;
-  
+
   margin-top: 11px;
 }
 
@@ -67,7 +67,6 @@ input {
   border: 1.5px solid #111111;
   border-radius: 100px;
   max-height: 242px;
-  
 }
 
 .episode-code-width {
@@ -77,7 +76,6 @@ input {
 
 .allseason-sub-menu {
   position: relative;
-  
 }
 
 .dropdown {
@@ -85,7 +83,6 @@ input {
   padding-top: 14px;
   padding-bottom: 14px;
 
-  
   background: white;
   border: 1.5px solid #111111;
   border-radius: 100px;
@@ -93,11 +90,11 @@ input {
 
   position: absolute;
   width: 335px;
-  background: #FAFAFA;
+  background: #fafafa;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   margin-top: 0.3rem;
-  
+
   border: none;
   z-index: 1;
 
@@ -107,29 +104,21 @@ input {
   opacity: 0;
 
   overflow-y: scroll;
-  
 }
 
 .dropdown::-webkit-scrollbar {
-  
   width: 6px;
-  
- 
 }
 
 .dropdown::-webkit-scrollbar-track {
   margin-top: 8px;
   margin-bottom: 8px;
   padding-right: 10px;
-  
-  
 }
 
 .dropdown::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background: #575757;
-
-  
 }
 
 .dropdown li {
@@ -140,7 +129,7 @@ input {
 }
 
 .seasons:hover {
-    color: #A1D737;
+  color: #a1d737;
 }
 
 .show {
@@ -151,12 +140,11 @@ input {
 }
 
 .all-season:hover {
-  color: #A1D737;
+  color: #a1d737;
 }
 
 .seasons {
   margin-top: 8px;
-  
 }
 .series-margin {
   margin-top: 11px;
@@ -168,7 +156,7 @@ input {
 }
 
 .seasons-gap li:hover {
-  color: #A1D737;
+  color: #a1d737;
 }
 
 .vector-icon {
@@ -190,18 +178,12 @@ input {
   stroke: #111111;
   position: absolute;
   right: 24px;
-  top: 14px
+  top: 14px;
 }
 
 .oops-list {
-  margin-bottom: 128px;
+  padding-bottom: 128px;
 }
-
-
-
-
-
-
 
 .episodes-item {
   width: 335px;
@@ -275,7 +257,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
-  
+
   justify-content: center;
 
   margin: 0 auto 40px;
@@ -302,7 +284,6 @@ input {
     gap: 32px;
     width: 100%;
     max-width: max-content;
-
   }
   .episodes-gallery-list {
     gap: 32px;
@@ -327,8 +308,6 @@ input {
     align-items: baseline;
     gap: 16px;
   }
-
-
 
   .name-width {
     max-width: 223px;
