@@ -1,4 +1,5 @@
 import { getEpisodes } from 'rickmortyapi';
+import anime from 'animejs';
 import debounce from 'lodash.debounce';
 import season1 from '/img/season1.png';
 import season2 from '/img/season2.png';
@@ -11,6 +12,8 @@ let PAGE = 1;
 const refs = {
   gallery: document.querySelector('.episodes-gallery-list'),
   btnLoadMore: document.querySelector('.btn-load-more'),
+  episodesSearchInput: document.querySelector('#episodes-search-input'),
+  episodesSearchForm: document.querySelector('#episodes-search-form'),
 };
 
 let seasonImg = '';
@@ -109,14 +112,25 @@ let FILTER = {};
 let searchTimeout;
 
 async function onGalleryFilter() {
-  refs.gallery.innerHTML = '';
-  loadEpisode = await getEpisodes(FILTER);
-  refs.gallery.insertAdjacentHTML(
-    'beforeend',
-    onCreateGalleryEpisodes(loadEpisode.data.results)
-  );
+  const savedScroll = window.pageYOffset;
 
-  toggleOopsList();
+  anime({
+    targets: '.episodes-item',
+    opacity: [1, 0],
+    duration: 250,
+    easing: 'easeInOutQuad',
+    complete: async function () {
+      refs.gallery.innerHTML = '';
+      loadEpisode = await getEpisodes(FILTER);
+      refs.gallery.insertAdjacentHTML(
+        'beforeend',
+        onCreateGalleryEpisodes(loadEpisode.data.results)
+      );
+      toggleOopsList();
+
+      window.scrollTo(0, savedScroll);
+    },
+  });
 }
 
 const dropdownBtn = document.getElementById('all-series-btn');
@@ -234,9 +248,23 @@ if (
     seasonMenus.forEach(function (seasonMenu) {
       seasonMenu.classList.add('season-menu');
     });
+
     FILTER = { page: PAGE };
     onGalleryFilter();
+    refs.btnLoadMore.classList.remove('is-hidden');
   });
+}
+
+if (refs.episodesSearchForm) {
+  refs.episodesSearchForm.addEventListener('submit', onHeaderFormSubmit);
+}
+
+function onHeaderFormSubmit(e) {
+  e.preventDefault();
+  const inputVal = refs.episodesSearchInput.value.trim().toLowerCase();
+  input.value = inputVal;
+  input.scrollIntoView({ behavior: 'smooth' });
+  input.dispatchEvent(new Event('input'));
 }
 
 function toggleOopsList() {
@@ -248,8 +276,13 @@ function toggleOopsList() {
   const oopsList = document.querySelector('.oops-list');
   if (!hasSearchResults) {
     oopsList.classList.remove('is-hidden');
+    refs.btnLoadMore.classList.add('is-hidden');
   } else {
     oopsList.classList.add('is-hidden');
+    if (loadEpisode.data.results.length > 12) {
+      refs.btnLoadMore.classList.remove('is-hidden');
+    } else {
+      refs.btnLoadMore.classList.add('is-hidden');
+    }
   }
-  refs.btnLoadMore.classList.add('is-hidden');
 }
