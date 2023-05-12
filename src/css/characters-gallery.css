@@ -15,23 +15,33 @@
   border: none;
 }
 .dropdown-item {
-  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-basis: calc((100% - 40px) / 2);
 }
 .dropdown-filter {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: row;
 }
+.input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .dropdown-item:nth-child(-n + 2) {
   margin-bottom: 20px;
 }
 .characters-search {
-  width: calc(100vw - 40px);
+  max-width: 335px;
+  min-width: 335px;
   margin-bottom: 20px;
 }
-.input-white {
-  width: calc((100vw - 60px) / 2);
-}
+
 .gallery {
   display: flex;
   flex-direction: column;
@@ -82,28 +92,23 @@
   transform: translate(0, -30%);
 }
 
-.dropdown-tag {
-  margin-right: 10px;
-}
-
 .dropdown-list {
   position: absolute;
-  width: 335px;
   background: #fafafa;
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
-  margin-top: 0.3rem;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #111111;
+  width: 163px;
+  padding: 16px 24px;
+
   cursor: url(../img/cursor.png), move;
-
-  border: none;
   z-index: 1;
-
   transform: translateY(0.5rem);
   visibility: hidden;
   opacity: 0;
-
   overflow-y: visible;
-  padding: 16px 24px;
 }
 .drop-down-point:not(:last-child) {
   margin-bottom: 8px;
@@ -133,6 +138,7 @@
   background-repeat: no-repeat;
   cursor: url(../img/cursor.png), move;
   position: relative;
+  width: 163px;
 }
 .drop-down-icon {
   width: 12px;
@@ -144,7 +150,6 @@
 .gallery-form {
   display: flex;
   position: relative;
-  margin-left: auto;
 }
 .gallery-search-icon {
   width: 16px;
@@ -152,8 +157,27 @@
   fill: var(--second-text-color-dark);
   stroke: var(--second-text-color-dark);
 }
+@media screen and (max-width: 374px) {
+  .characters-search {
+    max-width: 280px;
+    min-width: 280px;
+    margin-bottom: 20px;
+  }
+  .dropdown-btn {
+    width: 130px;
+  }
+  .dropdown-list {
+    width: 130px;
+  }
+}
 
 @media screen and (min-width: 768px) {
+  .dropdown-item {
+    flex-basis: auto;
+  }
+  .dropdown-tag {
+    margin-right: 10px;
+  }
   .dropdown-item:nth-child(-n + 2) {
     margin-bottom: 0;
   }
@@ -175,7 +199,7 @@
     padding-bottom: 140px;
   }
   .characters-search {
-    width: 290px;
+    min-width: 290px;
     height: 54px;
   }
   #status-select {
