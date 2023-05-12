@@ -2,6 +2,22 @@ footer {
   background-color: var(--background-color-light);
 }
 
+.item .link {
+  transition: color var(--transition-dur-and-func);
+  transition: fill var(--transition-dur-and-func);
+}
+.item .link:hover,
+.item .link:focus {
+  color: var(--first-color-accent);
+  fill: var(--first-color-accent);
+}
+.twitter-home {
+  stroke: var(--first-color-accent);
+}
+.twitter-home:hover,
+.twitter-home:focus {
+  stroke: var(--first-color-accent);
+}
 .footer-container {
   padding: 40px 20px 80px;
 }

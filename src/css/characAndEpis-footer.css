@@ -3,7 +3,23 @@
   color: var(--background-color-light);
   max-width: 100%;
 }
+.footer-icon-char-epic {
+  transition: color var(--transition-dur-and-func);
+  transition: fill var(--transition-dur-and-func);
+}
+.footer-icon-char-epic:hover,
+.footer-icon-char-epic:focus {
+  color: var(--first-color-accent);
+  fill: var(--first-color-accent);
+}
 
+.twitter {
+  transition: stroke var(--transition-dur-and-func);
+}
+.twitter:hover,
+.twitter:focus {
+  stroke: var(--first-color-accent);
+}
 .footer-logo .rick-char-epic {
   background: var(--first-color-accent);
   color: var(--second-text-color-dark);
